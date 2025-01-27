@@ -31,20 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             groupBox1 = new GroupBox();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
             button1 = new Button();
             button2 = new Button();
+            textBox6 = new TextBox();
+            textBox5 = new TextBox();
+            textBox4 = new TextBox();
+            textBox3 = new TextBox();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
             pictureBox1 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -89,45 +89,80 @@
             groupBox1.Text = "Datos ";
             groupBox1.Enter += groupBox1_Enter_1;
             // 
-            // label2
+            // button1
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(6, 117);
-            label2.Name = "label2";
-            label2.Size = new Size(68, 21);
-            label2.TabIndex = 0;
-            label2.Text = "Cédula";
+            button1.BackColor = Color.FromArgb(14, 150, 143);
+            button1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(340, 265);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 28);
+            button1.TabIndex = 3;
+            button1.Text = "Salir";
+            button1.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // button2
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(6, 51);
-            label3.Name = "label3";
-            label3.Size = new Size(73, 21);
-            label3.TabIndex = 1;
-            label3.Text = "Nombre";
+            button2.BackColor = Color.FromArgb(14, 150, 143);
+            button2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Location = new Point(174, 265);
+            button2.Name = "button2";
+            button2.Size = new Size(91, 28);
+            button2.TabIndex = 4;
+            button2.Text = "Guardar";
+            button2.UseVisualStyleBackColor = false;
             // 
-            // label4
+            // textBox6
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(400, 178);
-            label4.Name = "label4";
-            label4.Size = new Size(46, 21);
-            label4.TabIndex = 2;
-            label4.Text = "Sexo";
+            textBox6.Location = new Point(458, 166);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(110, 33);
+            textBox6.TabIndex = 11;
             // 
-            // label5
+            // textBox5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(378, 51);
-            label5.Name = "label5";
-            label5.Size = new Size(74, 21);
-            label5.TabIndex = 3;
-            label5.Text = "Apellido";
+            textBox5.Location = new Point(458, 105);
+            textBox5.Name = "textBox5";
+            textBox5.Size = new Size(110, 33);
+            textBox5.TabIndex = 10;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(458, 45);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(110, 33);
+            textBox4.TabIndex = 9;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(95, 111);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(112, 33);
+            textBox3.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(97, 172);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(189, 33);
+            textBox2.TabIndex = 7;
+            textBox2.TextChanged += textBox2_TextChanged;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(95, 45);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(112, 33);
+            textBox1.TabIndex = 6;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(6, 178);
+            label7.Name = "label7";
+            label7.Size = new Size(83, 21);
+            label7.TabIndex = 5;
+            label7.Text = "Dirección";
             // 
             // label6
             // 
@@ -140,78 +175,45 @@
             label6.Text = "Edad";
             label6.Click += label6_Click;
             // 
-            // label7
+            // label5
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(6, 178);
-            label7.Name = "label7";
-            label7.Size = new Size(83, 21);
-            label7.TabIndex = 5;
-            label7.Text = "Dirección";
+            label5.AutoSize = true;
+            label5.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.Location = new Point(378, 51);
+            label5.Name = "label5";
+            label5.Size = new Size(74, 21);
+            label5.TabIndex = 3;
+            label5.Text = "Apellido";
             // 
-            // textBox1
+            // label4
             // 
-            textBox1.Location = new Point(95, 45);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(112, 33);
-            textBox1.TabIndex = 6;
+            label4.AutoSize = true;
+            label4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(400, 178);
+            label4.Name = "label4";
+            label4.Size = new Size(46, 21);
+            label4.TabIndex = 2;
+            label4.Text = "Sexo";
             // 
-            // textBox2
+            // label3
             // 
-            textBox2.Location = new Point(97, 172);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(189, 33);
-            textBox2.TabIndex = 7;
-            textBox2.TextChanged += textBox2_TextChanged;
+            label3.AutoSize = true;
+            label3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(6, 51);
+            label3.Name = "label3";
+            label3.Size = new Size(73, 21);
+            label3.TabIndex = 1;
+            label3.Text = "Nombre";
             // 
-            // textBox3
+            // label2
             // 
-            textBox3.Location = new Point(95, 111);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(112, 33);
-            textBox3.TabIndex = 8;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(458, 45);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(110, 33);
-            textBox4.TabIndex = 9;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(458, 105);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(110, 33);
-            textBox5.TabIndex = 10;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(458, 166);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(110, 33);
-            textBox6.TabIndex = 11;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(340, 265);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 28);
-            button1.TabIndex = 3;
-            button1.Text = "Salir";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(174, 265);
-            button2.Name = "button2";
-            button2.Size = new Size(91, 28);
-            button2.TabIndex = 4;
-            button2.Text = "Guardar";
-            button2.UseVisualStyleBackColor = true;
+            label2.AutoSize = true;
+            label2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(6, 117);
+            label2.Name = "label2";
+            label2.Size = new Size(68, 21);
+            label2.TabIndex = 0;
+            label2.Text = "Cédula";
             // 
             // pictureBox1
             // 
