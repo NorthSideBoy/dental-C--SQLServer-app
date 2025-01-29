@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            dataGridView1 = new DataGridView();
+            listapacientesGridView = new DataGridView();
             label1 = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
@@ -38,19 +38,19 @@
             textBox3 = new TextBox();
             label4 = new Label();
             pictureBox1 = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)listapacientesGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // listapacientesGridView
             // 
-            dataGridView1.BackgroundColor = Color.FromArgb(162, 255, 211);
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 151);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(776, 287);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            listapacientesGridView.BackgroundColor = Color.FromArgb(162, 255, 211);
+            listapacientesGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            listapacientesGridView.Location = new Point(12, 151);
+            listapacientesGridView.Name = "listapacientesGridView";
+            listapacientesGridView.Size = new Size(776, 287);
+            listapacientesGridView.TabIndex = 0;
+            listapacientesGridView.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label1
             // 
@@ -139,10 +139,11 @@
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
+            Controls.Add(listapacientesGridView);
             Name = "Form2";
             Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += Form2_Load;
+            ((System.ComponentModel.ISupportInitialize)listapacientesGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -150,7 +151,7 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView listapacientesGridView;
         private Label label1;
         private TextBox textBox1;
         private TextBox textBox2;
