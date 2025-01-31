@@ -109,5 +109,20 @@ namespace dental_C__SQLServer_app.Clases
 
             dtGridViewpacientes.DataSource = Index();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            CConexion.Conectar();
+            string Eliminar = "DELETE FROM pacientes WHERE Id=@Id";
+            SqlCommand Borrar = new SqlCommand(Eliminar, CConexion.Conectar());
+
+            Borrar.Parameters.AddWithValue("@Id", textId.Text);
+
+            Borrar.ExecuteNonQuery();
+            MessageBox.Show("Paciente Eliminado Correctamente");
+
+            dtGridViewpacientes.DataSource= Index();
+
+        }
     }
 }

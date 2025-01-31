@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             groupBox1 = new GroupBox();
             textId = new TextBox();
@@ -53,15 +54,19 @@
             label2 = new Label();
             label10 = new Label();
             dtGridViewpacientes = new DataGridView();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtGridViewpacientes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(70, 117);
+            label1.Location = new Point(93, 117);
             label1.Name = "label1";
             label1.Size = new Size(355, 39);
             label1.TabIndex = 0;
@@ -69,6 +74,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.BackColor = Color.FromArgb(162, 255, 211);
             groupBox1.Controls.Add(textId);
             groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(button3);
@@ -123,6 +129,7 @@
             button3.TabIndex = 18;
             button3.Text = "Eliminar";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -288,7 +295,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Century Gothic", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(850, 117);
+            label10.Location = new Point(780, 117);
             label10.Name = "label10";
             label10.Size = new Size(297, 39);
             label10.TabIndex = 8;
@@ -296,6 +303,7 @@
             // 
             // dtGridViewpacientes
             // 
+            dtGridViewpacientes.BackgroundColor = Color.FromArgb(162, 255, 211);
             dtGridViewpacientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtGridViewpacientes.Location = new Point(678, 190);
             dtGridViewpacientes.Name = "dtGridViewpacientes";
@@ -303,11 +311,34 @@
             dtGridViewpacientes.TabIndex = 9;
             dtGridViewpacientes.CellContentClick += Datagr;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(530, 102);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(678, 112);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(87, 72);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 11;
+            pictureBox2.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(236, 255, 249);
             ClientSize = new Size(1305, 616);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
             Controls.Add(dtGridViewpacientes);
             Controls.Add(label10);
             Controls.Add(groupBox1);
@@ -318,6 +349,8 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dtGridViewpacientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -349,5 +382,7 @@
         private Button button1;
         private Label label11;
         private TextBox textId;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
     }
 }
