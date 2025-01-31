@@ -221,6 +221,7 @@
             linkLabel2.TabStop = true;
             linkLabel2.Text = "Crear Usuario";
             linkLabel2.TextAlign = ContentAlignment.TopCenter;
+            linkLabel2.LinkClicked += linkLabel2_LinkClicked;
             // 
             // linkLabel1
             // 
@@ -272,6 +273,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)btnminimizar).EndInit();

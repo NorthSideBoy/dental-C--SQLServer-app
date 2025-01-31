@@ -30,23 +30,23 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             panel1 = new Panel();
-            pictureBox2 = new PictureBox();
-            pictureBox1 = new PictureBox();
+            btnMinimizar = new PictureBox();
+            btnCerrar = new PictureBox();
             panel2 = new Panel();
             pictureBox3 = new PictureBox();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtNusuario = new TextBox();
             label2 = new Label();
-            textBox2 = new TextBox();
+            txtCorreo = new TextBox();
             label3 = new Label();
-            textBox3 = new TextBox();
+            txtContrasena = new TextBox();
             label4 = new Label();
-            textBox4 = new TextBox();
+            txtConfirmar = new TextBox();
             label5 = new Label();
-            button1 = new Button();
+            btnRegistrar = new Button();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnMinimizar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnCerrar).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
@@ -55,47 +55,49 @@
             // 
             panel1.BackColor = Color.FromArgb(14, 150, 143);
             panel1.BackgroundImageLayout = ImageLayout.Center;
-            panel1.Controls.Add(pictureBox2);
-            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(btnMinimizar);
+            panel1.Controls.Add(btnCerrar);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(801, 32);
+            panel1.Size = new Size(801, 28);
             panel1.TabIndex = 0;
             // 
-            // pictureBox2
+            // btnMinimizar
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(740, 3);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(21, 21);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
+            btnMinimizar.Image = (Image)resources.GetObject("btnMinimizar.Image");
+            btnMinimizar.Location = new Point(750, 4);
+            btnMinimizar.Name = "btnMinimizar";
+            btnMinimizar.Size = new Size(21, 21);
+            btnMinimizar.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnMinimizar.TabIndex = 1;
+            btnMinimizar.TabStop = false;
+            btnMinimizar.Click += btnMinimizar_Click;
             // 
-            // pictureBox1
+            // btnCerrar
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(767, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(21, 21);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            btnCerrar.Image = (Image)resources.GetObject("btnCerrar.Image");
+            btnCerrar.Location = new Point(777, 3);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(21, 21);
+            btnCerrar.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnCerrar.TabIndex = 1;
+            btnCerrar.TabStop = false;
+            btnCerrar.Click += btnCerrar_Click;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(162, 255, 211);
             panel2.BackgroundImageLayout = ImageLayout.Center;
             panel2.Controls.Add(pictureBox3);
-            panel2.Location = new Point(427, 30);
+            panel2.Location = new Point(417, 12);
             panel2.Name = "panel2";
-            panel2.Size = new Size(374, 420);
+            panel2.Size = new Size(384, 438);
             panel2.TabIndex = 1;
             // 
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(52, 78);
+            pictureBox3.Location = new Point(59, 88);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(271, 254);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -113,16 +115,17 @@
             label1.TabIndex = 2;
             label1.Text = "Registrarse";
             // 
-            // textBox1
+            // txtNusuario
             // 
-            textBox1.BackColor = Color.FromArgb(236, 255, 249);
-            textBox1.BorderStyle = BorderStyle.None;
-            textBox1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(43, 121);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(330, 20);
-            textBox1.TabIndex = 3;
-            textBox1.Text = " Nombre de Usuario";
+            txtNusuario.BackColor = Color.FromArgb(236, 255, 249);
+            txtNusuario.BorderStyle = BorderStyle.None;
+            txtNusuario.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNusuario.Location = new Point(43, 121);
+            txtNusuario.Name = "txtNusuario";
+            txtNusuario.Size = new Size(330, 20);
+            txtNusuario.TabIndex = 3;
+            txtNusuario.Text = " Nombre de Usuario";
+            txtNusuario.Leave += txtNusuario_Leave;
             // 
             // label2
             // 
@@ -134,16 +137,18 @@
             label2.TabIndex = 4;
             label2.Text = "________________________________________";
             // 
-            // textBox2
+            // txtCorreo
             // 
-            textBox2.BackColor = Color.FromArgb(236, 255, 249);
-            textBox2.BorderStyle = BorderStyle.None;
-            textBox2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(43, 182);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(330, 20);
-            textBox2.TabIndex = 5;
-            textBox2.Text = " Correo ";
+            txtCorreo.BackColor = Color.FromArgb(236, 255, 249);
+            txtCorreo.BorderStyle = BorderStyle.None;
+            txtCorreo.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCorreo.Location = new Point(43, 182);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(330, 20);
+            txtCorreo.TabIndex = 5;
+            txtCorreo.Text = " Correo ";
+            txtCorreo.Enter += txtCorreo_Enter;
+            txtCorreo.Leave += txtCorreo_Leave;
             // 
             // label3
             // 
@@ -155,16 +160,18 @@
             label3.TabIndex = 6;
             label3.Text = "________________________________________";
             // 
-            // textBox3
+            // txtContrasena
             // 
-            textBox3.BackColor = Color.FromArgb(236, 255, 249);
-            textBox3.BorderStyle = BorderStyle.None;
-            textBox3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox3.Location = new Point(43, 245);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(330, 20);
-            textBox3.TabIndex = 7;
-            textBox3.Text = " Contraseña";
+            txtContrasena.BackColor = Color.FromArgb(236, 255, 249);
+            txtContrasena.BorderStyle = BorderStyle.None;
+            txtContrasena.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtContrasena.Location = new Point(43, 245);
+            txtContrasena.Name = "txtContrasena";
+            txtContrasena.Size = new Size(330, 20);
+            txtContrasena.TabIndex = 7;
+            txtContrasena.Text = " Contraseña";
+            txtContrasena.Enter += txtContrasena_Enter;
+            txtContrasena.Leave += txtContrasena_Leave;
             // 
             // label4
             // 
@@ -176,16 +183,18 @@
             label4.TabIndex = 8;
             label4.Text = "________________________________________";
             // 
-            // textBox4
+            // txtConfirmar
             // 
-            textBox4.BackColor = Color.FromArgb(236, 255, 249);
-            textBox4.BorderStyle = BorderStyle.None;
-            textBox4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(43, 309);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(330, 20);
-            textBox4.TabIndex = 9;
-            textBox4.Text = " Confirmar Contraseña";
+            txtConfirmar.BackColor = Color.FromArgb(236, 255, 249);
+            txtConfirmar.BorderStyle = BorderStyle.None;
+            txtConfirmar.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtConfirmar.Location = new Point(43, 309);
+            txtConfirmar.Name = "txtConfirmar";
+            txtConfirmar.Size = new Size(330, 20);
+            txtConfirmar.TabIndex = 9;
+            txtConfirmar.Text = " Confirmar Contraseña";
+            txtConfirmar.Enter += txtConfirmar_Enter;
+            txtConfirmar.Leave += txtConfirmar_Leave;
             // 
             // label5
             // 
@@ -197,17 +206,18 @@
             label5.TabIndex = 10;
             label5.Text = "________________________________________";
             // 
-            // button1
+            // btnRegistrar
             // 
-            button1.BackColor = Color.FromArgb(14, 150, 143);
-            button1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(117, 379);
-            button1.Name = "button1";
-            button1.Size = new Size(166, 34);
-            button1.TabIndex = 11;
-            button1.Text = "REGISTRAR";
-            button1.UseVisualStyleBackColor = false;
+            btnRegistrar.BackColor = Color.FromArgb(14, 150, 143);
+            btnRegistrar.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnRegistrar.ForeColor = Color.White;
+            btnRegistrar.Location = new Point(117, 379);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(166, 34);
+            btnRegistrar.TabIndex = 11;
+            btnRegistrar.Text = "REGISTRAR";
+            btnRegistrar.UseVisualStyleBackColor = false;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // Form2
             // 
@@ -217,23 +227,24 @@
             BackColor = Color.FromArgb(236, 255, 249);
             ClientSize = new Size(800, 450);
             ControlBox = false;
-            Controls.Add(button1);
-            Controls.Add(textBox4);
+            Controls.Add(panel1);
+            Controls.Add(btnRegistrar);
+            Controls.Add(txtConfirmar);
             Controls.Add(label5);
-            Controls.Add(textBox3);
-            Controls.Add(textBox1);
-            Controls.Add(textBox2);
+            Controls.Add(txtContrasena);
+            Controls.Add(txtNusuario);
+            Controls.Add(txtCorreo);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel2);
-            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form2";
+            StartPosition = FormStartPosition.CenterScreen;
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnMinimizar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnCerrar).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
@@ -243,19 +254,19 @@
         #endregion
 
         private Panel panel1;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
+        private PictureBox btnCerrar;
+        private PictureBox btnMinimizar;
         private Panel panel2;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtNusuario;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox txtCorreo;
         private Label label3;
-        private TextBox textBox3;
+        private TextBox txtContrasena;
         private Label label4;
         private PictureBox pictureBox3;
-        private TextBox textBox4;
+        private TextBox txtConfirmar;
         private Label label5;
-        private Button button1;
+        private Button btnRegistrar;
     }
 }

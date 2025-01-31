@@ -21,7 +21,7 @@ namespace dental_C__SQLServer_app
             InitializeComponent();
         }
 
-        
+
         private void txtuser_Enter(object sender, EventArgs e)
         {
             //Condicion para vaciar el texto de usuario, para ingresar un nombre
@@ -82,13 +82,19 @@ namespace dental_C__SQLServer_app
 
         private void btnmostrar_CheckedChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void btnmostrar_Click(object sender, EventArgs e)
         {
             //Mostrar y ocultar la contraseña que se ha ingresado
-            //txtpass.UseSystemPasswordChar = !UseSystemPasswordChar;
+            txtpass.UseSystemPasswordChar = !txtpass.UseSystemPasswordChar;
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form2 re = new Form2();
+            re.Show();
         }
     }
 }
