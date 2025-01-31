@@ -86,5 +86,28 @@ namespace dental_C__SQLServer_app.Clases
             }
             catch { }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CConexion.Conectar();
+            string modificar = "UPDATE pacientes SET Nombre=@Nombre,Apellido=@Apellido,Cédula=@Cédula,FechaDeNacimiento=@FechaDeNacimiento,Dirección=@Dirección,Edad=@Edad,Telefono=@Telefono,Sexo=@Sexo WHERE Id=@Id";
+            SqlCommand cambios = new SqlCommand(modificar, CConexion.Conectar());
+
+            cambios.Parameters.AddWithValue("@Id", textId.Text);
+            cambios.Parameters.AddWithValue("@Nombre", textNombre.Text);
+            cambios.Parameters.AddWithValue("@Apellido", textApellido.Text);
+            cambios.Parameters.AddWithValue("@Cédula", textCédula.Text);
+            cambios.Parameters.AddWithValue("@FechaDeNacimiento", textFechaDeNacimiento.Text);
+            cambios.Parameters.AddWithValue("@Dirección", textDirección.Text);
+            cambios.Parameters.AddWithValue("@Edad", textEdad.Text);
+            cambios.Parameters.AddWithValue("@Telefono", textTelefono.Text);
+            cambios.Parameters.AddWithValue("@Sexo", textSexo.Text);
+
+            cambios.ExecuteNonQuery();
+
+            MessageBox.Show("Los Datos Se Modificaron Correctamente");
+
+            dtGridViewpacientes.DataSource = Index();
+        }
     }
 }
