@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
+using System.Drawing;       
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace dental_C__SQLServer_app.Clases
 {
@@ -46,6 +47,7 @@ namespace dental_C__SQLServer_app.Clases
 
             string Guardar = "INSERT INTO pacientes (Nombre,Apellido,Cédula,FechaDeNacimiento,Dirección,Edad,Telefono,Sexo) VALUES (@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Dirección,@Edad,@Telefono,@Sexo)";
             SqlCommand insert = new SqlCommand(Guardar, CConexion.Conectar());
+
             insert.Parameters.AddWithValue("@Nombre", textNombre.Text);
             insert.Parameters.AddWithValue("@Apellido", textApellido.Text);
             insert.Parameters.AddWithValue("@Cédula", textCédula.Text);
@@ -66,6 +68,23 @@ namespace dental_C__SQLServer_app.Clases
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void Datagr(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                textId.Text = dtGridViewpacientes.CurrentRow.Cells[0].Value.ToString();
+                textNombre.Text = dtGridViewpacientes.CurrentRow.Cells[1].Value.ToString();
+                textApellido.Text = dtGridViewpacientes.CurrentRow.Cells[2].Value.ToString();
+                textCédula.Text = dtGridViewpacientes.CurrentRow.Cells[3].Value.ToString();
+                textFechaDeNacimiento.Text = dtGridViewpacientes.CurrentRow.Cells[4].Value.ToString();
+                textDirección.Text = dtGridViewpacientes.CurrentRow.Cells[5].Value.ToString();
+                textEdad.Text = dtGridViewpacientes.CurrentRow.Cells[6].Value.ToString();
+                textTelefono.Text = dtGridViewpacientes.CurrentRow.Cells[7].Value.ToString();
+                textSexo.Text = dtGridViewpacientes.CurrentRow.Cells[8].Value.ToString();
+            }
+            catch { }
         }
     }
 }

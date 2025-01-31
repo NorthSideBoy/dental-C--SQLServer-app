@@ -30,6 +30,8 @@
         {
             label1 = new Label();
             groupBox1 = new GroupBox();
+            textId = new TextBox();
+            label11 = new Label();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
@@ -67,6 +69,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(textId);
+            groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(button1);
@@ -86,13 +90,29 @@
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
-            groupBox1.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox1.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(12, 179);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(530, 345);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
+            // 
+            // textId
+            // 
+            textId.Location = new Point(81, 20);
+            textId.Name = "textId";
+            textId.Size = new Size(73, 31);
+            textId.TabIndex = 20;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(39, 29);
+            label11.Name = "label11";
+            label11.Size = new Size(29, 22);
+            label11.TabIndex = 19;
+            label11.Text = "ID";
             // 
             // button3
             // 
@@ -127,66 +147,66 @@
             // 
             // textTelefono
             // 
-            textTelefono.Location = new Point(81, 217);
+            textTelefono.Location = new Point(76, 247);
             textTelefono.Name = "textTelefono";
-            textTelefono.Size = new Size(159, 33);
+            textTelefono.Size = new Size(159, 31);
             textTelefono.TabIndex = 16;
             // 
             // textSexo
             // 
-            textSexo.Location = new Point(365, 217);
+            textSexo.Location = new Point(365, 247);
             textSexo.Name = "textSexo";
-            textSexo.Size = new Size(140, 33);
+            textSexo.Size = new Size(140, 31);
             textSexo.TabIndex = 15;
             // 
             // textEdad
             // 
-            textEdad.Location = new Point(365, 152);
+            textEdad.Location = new Point(365, 172);
             textEdad.Name = "textEdad";
-            textEdad.Size = new Size(140, 33);
+            textEdad.Size = new Size(140, 31);
             textEdad.TabIndex = 14;
             // 
             // textFechaDeNacimiento
             // 
-            textFechaDeNacimiento.Location = new Point(365, 93);
+            textFechaDeNacimiento.Location = new Point(365, 109);
             textFechaDeNacimiento.Name = "textFechaDeNacimiento";
-            textFechaDeNacimiento.Size = new Size(140, 33);
+            textFechaDeNacimiento.Size = new Size(140, 31);
             textFechaDeNacimiento.TabIndex = 13;
             // 
             // textDirección
             // 
-            textDirección.Location = new Point(81, 152);
+            textDirección.Location = new Point(81, 178);
             textDirección.Name = "textDirección";
-            textDirección.Size = new Size(159, 33);
+            textDirección.Size = new Size(159, 31);
             textDirección.TabIndex = 12;
             // 
             // textCédula
             // 
-            textCédula.Location = new Point(81, 93);
+            textCédula.Location = new Point(81, 119);
             textCédula.Name = "textCédula";
-            textCédula.Size = new Size(154, 33);
+            textCédula.Size = new Size(154, 31);
             textCédula.TabIndex = 9;
             textCédula.TextChanged += textBox1_TextChanged;
             // 
             // textApellido
             // 
-            textApellido.Location = new Point(365, 32);
+            textApellido.Location = new Point(365, 50);
             textApellido.Name = "textApellido";
-            textApellido.Size = new Size(140, 33);
+            textApellido.Size = new Size(140, 31);
             textApellido.TabIndex = 10;
             // 
             // textNombre
             // 
-            textNombre.Location = new Point(81, 30);
+            textNombre.Location = new Point(81, 69);
             textNombre.Name = "textNombre";
-            textNombre.Size = new Size(159, 33);
+            textNombre.Size = new Size(159, 31);
             textNombre.TabIndex = 11;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(284, 227);
+            label9.Location = new Point(284, 257);
             label9.Name = "label9";
             label9.Size = new Size(37, 17);
             label9.TabIndex = 7;
@@ -196,7 +216,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(14, 227);
+            label8.Location = new Point(8, 257);
             label8.Name = "label8";
             label8.Size = new Size(62, 17);
             label8.TabIndex = 6;
@@ -206,7 +226,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(284, 162);
+            label7.Location = new Point(284, 188);
             label7.Name = "label7";
             label7.Size = new Size(42, 17);
             label7.TabIndex = 5;
@@ -216,7 +236,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(14, 162);
+            label6.Location = new Point(8, 188);
             label6.Name = "label6";
             label6.Size = new Size(69, 17);
             label6.TabIndex = 4;
@@ -226,7 +246,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(14, 103);
+            label5.Location = new Point(14, 129);
             label5.Name = "label5";
             label5.Size = new Size(56, 17);
             label5.TabIndex = 3;
@@ -236,7 +256,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(284, 109);
+            label4.Location = new Point(284, 119);
             label4.Name = "label4";
             label4.Size = new Size(75, 17);
             label4.TabIndex = 2;
@@ -246,7 +266,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(284, 40);
+            label3.Location = new Point(284, 60);
             label3.Name = "label3";
             label3.Size = new Size(61, 17);
             label3.TabIndex = 1;
@@ -256,7 +276,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(14, 40);
+            label2.Location = new Point(9, 79);
             label2.Name = "label2";
             label2.Size = new Size(61, 17);
             label2.TabIndex = 0;
@@ -280,6 +300,7 @@
             dtGridViewpacientes.Name = "dtGridViewpacientes";
             dtGridViewpacientes.Size = new Size(615, 414);
             dtGridViewpacientes.TabIndex = 9;
+            dtGridViewpacientes.CellContentClick += Datagr;
             // 
             // Form1
             // 
@@ -325,5 +346,7 @@
         private Button button3;
         private Button button2;
         private Button button1;
+        private Label label11;
+        private TextBox textId;
     }
 }
