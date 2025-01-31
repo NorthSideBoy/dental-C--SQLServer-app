@@ -2,6 +2,7 @@ namespace dental_C__SQLServer_app
 {
     public partial class Form1 : Form
     {
+        bool sidebarExpand;
         public Form1()
         {
             InitializeComponent();
@@ -42,6 +43,21 @@ namespace dental_C__SQLServer_app
             btnPacientes.BackColor = Color.Transparent;
         }
 
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            sidebarTimer.Start();
+        }
+
         private void btnConsultas_MouseMove(object sender, MouseEventArgs e)
         {
             btnConsultas.BackColor = Color.FromArgb(185, 255, 233);
@@ -60,6 +76,30 @@ namespace dental_C__SQLServer_app
         private void btnConfig_MouseLeave(object sender, EventArgs e)
         {
             btnConfig.BackColor = Color.Transparent;
+        }
+
+        private void sidebarTimer_Tick(object sender, EventArgs e)
+        {
+            //seteando el tamaño minimo y maximo del panel
+            if (sidebarExpand)
+            {
+                //si la sidebar esta expandida, minimizar
+                sidebar.Width -= 10;
+                if (sidebar.Width == sidebar.MinimumSize.Width)
+                {
+                    sidebarExpand = false;
+                    sidebarTimer.Stop();
+                }
+            }
+            else 
+            {
+                sidebar.Width += 10;
+                if(sidebar.Width == sidebar.MaximumSize.Width)
+                {
+                    sidebarExpand = true;
+                    sidebarTimer.Stop();
+                }
+            }
         }
     }
 }
