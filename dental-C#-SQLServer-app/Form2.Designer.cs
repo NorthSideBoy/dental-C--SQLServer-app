@@ -125,6 +125,7 @@
             txtNusuario.Size = new Size(330, 20);
             txtNusuario.TabIndex = 3;
             txtNusuario.Text = " Nombre de Usuario";
+            txtNusuario.TextChanged += txtNusuario_TextChanged;
             txtNusuario.Leave += txtNusuario_Leave;
             // 
             // label2

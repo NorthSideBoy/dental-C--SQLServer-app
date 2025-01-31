@@ -126,5 +126,10 @@ namespace dental_C__SQLServer_app
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void txtNusuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
