@@ -21,14 +21,18 @@ namespace dental_C__SQLServer_app
             InitializeComponent();
         }
 
+        private TextBox GetTxtuser()
+        {
+            return txtuser;
+        }
 
-        private void txtuser_Enter(object sender, EventArgs e)
+        private void txtuser_Enter(object sender, EventArgs e, TextBox txtuser)
         {
             //Condicion para vaciar el texto de usuario, para ingresar un nombre
             if (txtuser.Text == "USUARIO")
             {
                 txtuser.Text = "";
-                txtuser.ForeColor = Color.LightGray;
+                txtuser.ForeColor = Color.Black;
             }
         }
 
@@ -38,7 +42,7 @@ namespace dental_C__SQLServer_app
             if (txtuser.Text == "")
             {
                 txtuser.Text = "USUARIO";
-                txtuser.ForeColor = Color.White;
+                txtuser.ForeColor = Color.Black;
             }
         }
 
@@ -48,7 +52,7 @@ namespace dental_C__SQLServer_app
             if (txtpass.Text == "CONTRASEÑA")
             {
                 txtpass.Text = "";
-                txtpass.ForeColor = Color.LightGray;
+                txtpass.ForeColor = Color.Black;
                 txtpass.UseSystemPasswordChar = true; //Ocultar contraseña
             }
         }
@@ -59,7 +63,7 @@ namespace dental_C__SQLServer_app
             if (txtpass.Text == "")
             {
                 txtpass.Text = "CONTRASEÑA";
-                txtpass.ForeColor = Color.White;
+                txtpass.ForeColor = Color.Black;
                 txtpass.UseSystemPasswordChar = false;
             }
 
@@ -82,7 +86,7 @@ namespace dental_C__SQLServer_app
 
         private void btnmostrar_CheckedChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnmostrar_Click(object sender, EventArgs e)
