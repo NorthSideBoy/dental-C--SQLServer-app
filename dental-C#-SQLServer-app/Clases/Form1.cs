@@ -74,6 +74,7 @@ namespace dental_C__SQLServer_app.Clases
         {
             try
             {
+                System.Diagnostics.Debug.WriteLine("CURRENT ROW:", dtGridViewpacientes.CurrentRow);
                 textId.Text = dtGridViewpacientes.CurrentRow.Cells[0].Value.ToString();
                 textNombre.Text = dtGridViewpacientes.CurrentRow.Cells[1].Value.ToString();
                 textApellido.Text = dtGridViewpacientes.CurrentRow.Cells[2].Value.ToString();
@@ -84,7 +85,9 @@ namespace dental_C__SQLServer_app.Clases
                 textTelefono.Text = dtGridViewpacientes.CurrentRow.Cells[7].Value.ToString();
                 textSexo.Text = dtGridViewpacientes.CurrentRow.Cells[8].Value.ToString();
             }
-            catch { }
+            catch (Exception Error) {
+                System.Diagnostics.Debug.WriteLine(Error.Message);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -121,7 +124,17 @@ namespace dental_C__SQLServer_app.Clases
             Borrar.ExecuteNonQuery();
             MessageBox.Show("Paciente Eliminado Correctamente");
 
-            dtGridViewpacientes.DataSource= Index();
+            dtGridViewpacientes.DataSource = Index();
+
+        }
+
+        private void textFechaDeNacimiento_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
 
         }
     }

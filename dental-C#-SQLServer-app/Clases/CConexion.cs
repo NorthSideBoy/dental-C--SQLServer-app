@@ -11,7 +11,7 @@ namespace dental_C__SQLServer_app.Clases
     {
         public static SqlConnection Conectar()
         {
-            SqlConnection conexion = new SqlConnection("server=DESKTOP-3AHEOID\\SQLEXPRESS; database=Consultorio; Trusted_Connection=true;");
+            SqlConnection conexion = new SqlConnection("server="+ Environment.MachineName + "\\SQLEXPRESS; database=Consultorio; Trusted_Connection=true;");
             conexion.Open();    
             return conexion;
         }
