@@ -43,7 +43,7 @@ namespace dental_C__SQLServer_app
         {
             if (txtNusuario.Text == "Nombre de Usuario")
             {
-                txtNusuario.Text = "";
+                txtNusuario.Clear();
                 txtNusuario.ForeColor = Color.Black;
             }
         }

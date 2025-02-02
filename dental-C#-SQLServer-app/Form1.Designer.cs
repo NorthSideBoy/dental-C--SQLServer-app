@@ -196,6 +196,8 @@
             txtpass.Size = new Size(237, 20);
             txtpass.TabIndex = 12;
             txtpass.Text = "CONTRASEÑA";
+            txtpass.Enter += txtpass_Enter;
+            txtpass.Leave += txtpass_Leave;
             // 
             // txtuser
             // 
@@ -208,6 +210,8 @@
             txtuser.Size = new Size(237, 20);
             txtuser.TabIndex = 11;
             txtuser.Text = "USUARIO";
+            txtuser.Enter += txtuser_Enter;
+            txtuser.Leave += txtuser_Leave;
             // 
             // linkLabel2
             // 

@@ -124,7 +124,8 @@
             txtNusuario.Name = "txtNusuario";
             txtNusuario.Size = new Size(330, 20);
             txtNusuario.TabIndex = 3;
-            txtNusuario.Text = " Nombre de Usuario";
+            txtNusuario.Text = "Nombre de Usuario";
+            txtNusuario.Enter += txtNusuario_Enter;
             txtNusuario.TextChanged += txtNusuario_TextChanged;
             txtNusuario.Leave += txtNusuario_Leave;
             // 
@@ -147,7 +148,7 @@
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(330, 20);
             txtCorreo.TabIndex = 5;
-            txtCorreo.Text = " Correo ";
+            txtCorreo.Text = "Correo";
             txtCorreo.Enter += txtCorreo_Enter;
             txtCorreo.Leave += txtCorreo_Leave;
             // 
@@ -170,7 +171,7 @@
             txtContrasena.Name = "txtContrasena";
             txtContrasena.Size = new Size(330, 20);
             txtContrasena.TabIndex = 7;
-            txtContrasena.Text = " Contraseña";
+            txtContrasena.Text = "Contraseña";
             txtContrasena.Enter += txtContrasena_Enter;
             txtContrasena.Leave += txtContrasena_Leave;
             // 
@@ -193,7 +194,7 @@
             txtConfirmar.Name = "txtConfirmar";
             txtConfirmar.Size = new Size(330, 20);
             txtConfirmar.TabIndex = 9;
-            txtConfirmar.Text = " Confirmar Contraseña";
+            txtConfirmar.Text = "Confirmar Contraseña";
             txtConfirmar.Enter += txtConfirmar_Enter;
             txtConfirmar.Leave += txtConfirmar_Leave;
             // 
