@@ -9,8 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Linq.Expressions;
-using System.Data.SqlClient; //Para conectar con la database
+using System.Linq.Expressions;//Para conectar con la database
 
 namespace dental_C__SQLServer_app
 {

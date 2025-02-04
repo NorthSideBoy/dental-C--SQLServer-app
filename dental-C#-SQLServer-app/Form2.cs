@@ -97,23 +97,21 @@ namespace dental_C__SQLServer_app
             }
         }
 
-        private void txtCorreo_Enter(object sender, EventArgs e)
+        private void txtTlf_Enter(object sender, EventArgs e)
         {
-            if (txtCorreo.Text == "Correo")
+            if (txtTlf.Text == "TELEFONO")
             {
-                txtCorreo.Text = "";
-                txtCorreo.ForeColor = Color.Black;
-                txtCorreo.UseSystemPasswordChar = true; //Ocultar contraseña
+                txtTlf.Text = "";
+                txtTlf.ForeColor = Color.Black;
             }
         }
 
-        private void txtCorreo_Leave(object sender, EventArgs e)
+        private void txtTlf_Leave(object sender, EventArgs e)
         {
-            if (txtCorreo.Text == "")
+            if (txtTlf.Text == "")
             {
-                txtCorreo.Text = "Correo";
-                txtCorreo.ForeColor = Color.Black;
-                txtCorreo.UseSystemPasswordChar = false;
+                txtTlf.Text = "TELEFONO";
+                txtTlf.ForeColor = Color.Black;
             }
         }
 
@@ -127,9 +125,15 @@ namespace dental_C__SQLServer_app
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void txtNusuario_TextChanged(object sender, EventArgs e)
+        private void txtCedula_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Panel_usuario re = new Panel_usuario();
+            re.Show();
         }
     }
 }
