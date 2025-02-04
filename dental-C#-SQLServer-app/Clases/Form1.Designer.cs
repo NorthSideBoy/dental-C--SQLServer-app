@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             groupBox1 = new GroupBox();
-            textId = new TextBox();
-            label11 = new Label();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
@@ -56,10 +55,12 @@
             dtGridViewpacientes = new DataGridView();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
+            errorProvider1 = new ErrorProvider(components);
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtGridViewpacientes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -75,8 +76,6 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(162, 255, 211);
-            groupBox1.Controls.Add(textId);
-            groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(button1);
@@ -103,22 +102,6 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
-            // 
-            // textId
-            // 
-            textId.Location = new Point(81, 20);
-            textId.Name = "textId";
-            textId.Size = new Size(73, 31);
-            textId.TabIndex = 20;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(39, 29);
-            label11.Name = "label11";
-            label11.Size = new Size(29, 22);
-            label11.TabIndex = 19;
-            label11.Text = "ID";
             // 
             // button3
             // 
@@ -307,7 +290,7 @@
             // 
             dtGridViewpacientes.BackgroundColor = Color.FromArgb(162, 255, 211);
             dtGridViewpacientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtGridViewpacientes.Location = new Point(678, 190);
+            dtGridViewpacientes.Location = new Point(678, 179);
             dtGridViewpacientes.Name = "dtGridViewpacientes";
             dtGridViewpacientes.Size = new Size(615, 414);
             dtGridViewpacientes.TabIndex = 9;
@@ -326,12 +309,16 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(678, 112);
+            pictureBox2.Location = new Point(678, 84);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(87, 72);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 11;
             pictureBox2.TabStop = false;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
             // 
             // Form1
             // 
@@ -353,6 +340,7 @@
             ((System.ComponentModel.ISupportInitialize)dtGridViewpacientes).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -382,9 +370,8 @@
         private Button button3;
         private Button button2;
         private Button button1;
-        private Label label11;
-        private TextBox textId;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
+        private ErrorProvider errorProvider1;
     }
 }
