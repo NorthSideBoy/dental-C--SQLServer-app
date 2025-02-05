@@ -179,6 +179,7 @@
             textCédula.Size = new Size(159, 31);
             textCédula.TabIndex = 9;
             textCédula.TextChanged += textBox1_TextChanged;
+            textCédula.Validating += textCédula_Validating;
             // 
             // textApellido
             // 

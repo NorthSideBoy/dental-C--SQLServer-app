@@ -47,31 +47,31 @@ namespace dental_C__SQLServer_app.Clases
             MensajeBorrar();
             if (validarcampos())
             {
-               
-            
 
-            string Guardar = "INSERT INTO pacientes (Nombre,Apellido,Cédula,FechaDeNacimiento,Dirección,Edad,Telefono,Sexo) VALUES (@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Dirección,@Edad,@Telefono,@Sexo)";
-            SqlCommand insert = new SqlCommand(Guardar, CConexion.Conectar());
 
-            insert.Parameters.AddWithValue("@Nombre", textNombre.Text);
-            insert.Parameters.AddWithValue("@Apellido", textApellido.Text);
-            insert.Parameters.AddWithValue("@Cédula", textCédula.Text);
-            insert.Parameters.AddWithValue("@FechaDeNacimiento", textFechaDeNacimiento.Text);
-            insert.Parameters.AddWithValue("@Dirección", textDirección.Text);
-            insert.Parameters.AddWithValue("@Edad", textEdad.Text);
-            insert.Parameters.AddWithValue("@Telefono", textTelefono.Text);
-            insert.Parameters.AddWithValue("@Sexo", textSexo.Text);
 
-     
-            insert.ExecuteNonQuery();
+                string Guardar = "INSERT INTO pacientes (Nombre,Apellido,Cédula,FechaDeNacimiento,Dirección,Edad,Telefono,Sexo) VALUES (@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Dirección,@Edad,@Telefono,@Sexo)";
+                SqlCommand insert = new SqlCommand(Guardar, CConexion.Conectar());
+
+                insert.Parameters.AddWithValue("@Nombre", textNombre.Text);
+                insert.Parameters.AddWithValue("@Apellido", textApellido.Text);
+                insert.Parameters.AddWithValue("@Cédula", textCédula.Text);
+                insert.Parameters.AddWithValue("@FechaDeNacimiento", textFechaDeNacimiento.Text);
+                insert.Parameters.AddWithValue("@Dirección", textDirección.Text);
+                insert.Parameters.AddWithValue("@Edad", textEdad.Text);
+                insert.Parameters.AddWithValue("@Telefono", textTelefono.Text);
+                insert.Parameters.AddWithValue("@Sexo", textSexo.Text);
+
+
+                insert.ExecuteNonQuery();
                 MessageBox.Show("Los Datos Fueron Guardados Correctamente");
 
                 dtGridViewpacientes.DataSource = Index();
             }
 
-            
 
-            
+
+
 
         }
 
@@ -149,7 +149,7 @@ namespace dental_C__SQLServer_app.Clases
             errorProvider1.SetError(textTelefono, "");
             errorProvider1.SetError(textSexo, "");
         }
-        
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -170,7 +170,8 @@ namespace dental_C__SQLServer_app.Clases
                 textTelefono.Text = dtGridViewpacientes.CurrentRow.Cells[7].Value.ToString();
                 textSexo.Text = dtGridViewpacientes.CurrentRow.Cells[8].Value.ToString();
             }
-            catch (Exception Error) {
+            catch (Exception Error)
+            {
                 System.Diagnostics.Debug.WriteLine(Error.Message);
             }
         }
@@ -221,6 +222,27 @@ namespace dental_C__SQLServer_app.Clases
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textCédula_Validating(object sender, CancelEventArgs e)
+        {
+            // Verifica si el campo está vacío (ya tienes esta validación)
+            if (string.IsNullOrWhiteSpace(textCédula.Text))
+            {
+                errorProvider1.SetError(textCédula, ""); // Limpia el mensaje de error si está vacío
+                return; // Sale de la validación sin hacer más comprobaciones
+            }
+
+            // Verifica si el texto es un número entero válido (solo si el campo no está vacío)
+            if (!int.TryParse(textCédula.Text, out int num))
+            {
+                errorProvider1.SetError(textCédula, "Ingrese un valor numérico entero."); // Muestra el error
+                e.Cancel = true; // Evita que el foco salga del control
+            }
+            else
+            {
+                errorProvider1.SetError(textCédula, ""); // Limpia el mensaje de error si es válido
+            }
         }
     }
 }
