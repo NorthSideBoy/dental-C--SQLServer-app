@@ -38,13 +38,14 @@
             txtContrasena = new TextBox();
             txtConfirmar = new TextBox();
             label3 = new Label();
-            label4 = new Label();
             label5 = new Label();
             label6 = new Label();
             txtCedula = new TextBox();
             txtTlf = new TextBox();
             label7 = new Label();
             btnRegresar = new PictureBox();
+            ROL = new ComboBox();
+            labelRol = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnRegresar).BeginInit();
@@ -64,7 +65,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(42, 98);
+            pictureBox3.Location = new Point(42, 86);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(293, 285);
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -76,7 +77,7 @@
             btnRegistrar.BackColor = Color.FromArgb(14, 150, 143);
             btnRegistrar.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnRegistrar.ForeColor = Color.White;
-            btnRegistrar.Location = new Point(111, 426);
+            btnRegistrar.Location = new Point(113, 413);
             btnRegistrar.Name = "btnRegistrar";
             btnRegistrar.Size = new Size(166, 34);
             btnRegistrar.TabIndex = 11;
@@ -138,7 +139,7 @@
             txtConfirmar.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtConfirmar.Location = new Point(62, 314);
             txtConfirmar.Name = "txtConfirmar";
-            txtConfirmar.Size = new Size(250, 20);
+            txtConfirmar.Size = new Size(306, 20);
             txtConfirmar.TabIndex = 9;
             txtConfirmar.Text = "Confirmar Contraseña";
             txtConfirmar.Enter += txtConfirmar_Enter;
@@ -153,16 +154,6 @@
             label3.Size = new Size(306, 21);
             label3.TabIndex = 12;
             label3.Text = "_____________________________________";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(62, 371);
-            label4.Name = "label4";
-            label4.Size = new Size(306, 21);
-            label4.TabIndex = 13;
-            label4.Text = "_____________________________________";
             // 
             // label5
             // 
@@ -194,7 +185,8 @@
             txtCedula.Size = new Size(306, 20);
             txtCedula.TabIndex = 16;
             txtCedula.Text = "Cedula de Identidad";
-            txtCedula.TextChanged += txtCedula_TextChanged;
+            txtCedula.Enter += txtCedula_Enter;
+            txtCedula.Leave += txtCedula_Leave;
             // 
             // txtTlf
             // 
@@ -228,6 +220,25 @@
             btnRegresar.TabStop = false;
             btnRegresar.Click += btnRegresar_Click;
             // 
+            // ROL
+            // 
+            ROL.FormattingEnabled = true;
+            ROL.Items.AddRange(new object[] { "Admin", "User" });
+            ROL.Location = new Point(105, 373);
+            ROL.Name = "ROL";
+            ROL.Size = new Size(175, 23);
+            ROL.TabIndex = 20;
+            // 
+            // labelRol
+            // 
+            labelRol.AutoSize = true;
+            labelRol.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelRol.Location = new Point(62, 371);
+            labelRol.Name = "labelRol";
+            labelRol.Size = new Size(37, 21);
+            labelRol.TabIndex = 21;
+            labelRol.Text = "Rol:";
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -235,9 +246,10 @@
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackColor = Color.FromArgb(236, 255, 249);
             ClientSize = new Size(809, 472);
+            Controls.Add(labelRol);
+            Controls.Add(ROL);
             Controls.Add(btnRegresar);
             Controls.Add(txtConfirmar);
-            Controls.Add(label4);
             Controls.Add(txtContrasena);
             Controls.Add(label5);
             Controls.Add(label7);
@@ -269,12 +281,13 @@
         private TextBox txtConfirmar;
         private Button btnRegistrar;
         private Label label3;
-        private Label label4;
         private Label label5;
         private Label label6;
         private TextBox txtCedula;
         private TextBox txtTlf;
         private Label label7;
         private PictureBox btnRegresar;
+        private ComboBox ROL;
+        private Label labelRol;
     }
 }

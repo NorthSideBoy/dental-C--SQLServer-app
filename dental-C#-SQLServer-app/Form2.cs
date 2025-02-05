@@ -99,7 +99,7 @@ namespace dental_C__SQLServer_app
 
         private void txtTlf_Enter(object sender, EventArgs e)
         {
-            if (txtTlf.Text == "TELEFONO")
+            if (txtTlf.Text == "Telefono")
             {
                 txtTlf.Text = "";
                 txtTlf.ForeColor = Color.Black;
@@ -110,26 +110,28 @@ namespace dental_C__SQLServer_app
         {
             if (txtTlf.Text == "")
             {
-                txtTlf.Text = "TELEFONO";
+                txtTlf.Text = "Telefono";
                 txtTlf.ForeColor = Color.Black;
             }
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void txtCedula_Enter(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (txtCedula.Text == "Cedula de Identidad")
+            {
+                txtCedula.Text = "";
+                txtCedula.ForeColor = Color.Black;
+            }
         }
 
-        private void btnMinimizar_Click(object sender, EventArgs e)
+        private void txtCedula_Leave(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Minimized;
+            if (txtCedula.Text == "")
+            {
+                txtCedula.Text = "Cedula de Identidad";
+                txtCedula.ForeColor = Color.Black;
+            }
         }
-
-        private void txtCedula_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRegresar_Click(object sender, EventArgs e)
         {
             Panel_usuario re = new Panel_usuario();
