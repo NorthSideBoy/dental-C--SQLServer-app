@@ -41,6 +41,17 @@ namespace dental_C__SQLServer_app.Clases
 
         }
 
+        private void reset()
+        {
+            textNombre.Text = "";
+            textApellido.Text = "";
+            textCédula.Text = "";
+            textFechaDeNacimiento.Text = "";
+            textDirección.Text = "";
+            textEdad.Text = "";
+            textTelefono.Text = "";
+            textSexo.Text = "";
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             CConexion.Conectar();
@@ -67,6 +78,7 @@ namespace dental_C__SQLServer_app.Clases
                 MessageBox.Show("Los Datos Fueron Guardados Correctamente");
 
                 dtGridViewpacientes.DataSource = Index();
+                reset();
             }
 
 
@@ -197,6 +209,7 @@ namespace dental_C__SQLServer_app.Clases
             MessageBox.Show("Los Datos Se Modificaron Correctamente");
 
             dtGridViewpacientes.DataSource = Index();
+            reset();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -211,6 +224,7 @@ namespace dental_C__SQLServer_app.Clases
             MessageBox.Show("Paciente Eliminado Correctamente");
 
             dtGridViewpacientes.DataSource = Index();
+            reset();
 
         }
 
