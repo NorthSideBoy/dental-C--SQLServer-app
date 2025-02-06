@@ -226,7 +226,7 @@ namespace dental_C__SQLServer_app.Clases
 
         private void textCédula_Validating(object sender, CancelEventArgs e)
         {
-            // Verifica si el campo está vacío (ya tienes esta validación)
+            // Verifica si el campo está vacío 
             if (string.IsNullOrWhiteSpace(textCédula.Text))
             {
                 errorProvider1.SetError(textCédula, ""); // Limpia el mensaje de error si está vacío
@@ -237,11 +237,69 @@ namespace dental_C__SQLServer_app.Clases
             if (!int.TryParse(textCédula.Text, out int num))
             {
                 errorProvider1.SetError(textCédula, "Ingrese un valor numérico entero."); // Muestra el error
-                e.Cancel = true; // Evita que el foco salga del control
+
             }
             else
             {
                 errorProvider1.SetError(textCédula, ""); // Limpia el mensaje de error si es válido
+            }
+        }
+
+        private void textTelefono_Validating(object sender, CancelEventArgs e)
+        {
+            // Verifica si el campo está vacío
+            if (string.IsNullOrWhiteSpace(textTelefono.Text))
+            {
+                errorProvider1.SetError(textTelefono, ""); // Limpia el mensaje de error si está vacío
+                return; // Sale de la validación sin hacer más comprobaciones
+            }
+
+            // Verifica si el texto es un número entero válido (BIGINT)
+            if (!long.TryParse(textTelefono.Text, out long num))
+            {
+                errorProvider1.SetError(textTelefono, "Ingrese un valor numérico"); // Muestra el error
+
+            }
+            else
+            {
+                errorProvider1.SetError(textTelefono, ""); // Limpia el mensaje de error si es válido
+            }
+
+        }
+
+        private void textEdad_Validating(object sender, CancelEventArgs e)
+        {
+            // Verifica si el campo está vacío 
+            if (string.IsNullOrWhiteSpace(textEdad.Text))
+            {
+                errorProvider1.SetError(textEdad, ""); // Limpia el mensaje de error si está vacío
+                return; // Sale de la validación sin hacer más comprobaciones
+            }
+
+            // Verifica si el texto es un número entero válido (solo si el campo no está vacío)
+            if (!int.TryParse(textEdad.Text, out int num))
+            {
+                errorProvider1.SetError(textEdad, "Ingrese un valor numérico entero."); // Muestra el error
+
+            }
+            else
+            {
+                errorProvider1.SetError(textEdad, ""); // Limpia el mensaje de error si es válido
+            }
+
+        }
+
+        private void textFechaDeNacimiento_Validating(object sender, CancelEventArgs e)
+        {
+            DateTime fecha;
+
+            if(!DateTime.TryParse(textFechaDeNacimiento.Text, out fecha))
+            {
+                errorProvider1.SetError(textFechaDeNacimiento, "El Formato Debe Ser DD/MM/YYYY");
+            }
+            else
+            {
+                errorProvider1.SetError(textFechaDeNacimiento, "");
             }
         }
     }

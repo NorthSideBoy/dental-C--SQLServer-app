@@ -142,6 +142,7 @@
             textTelefono.Name = "textTelefono";
             textTelefono.Size = new Size(159, 31);
             textTelefono.TabIndex = 16;
+            textTelefono.Validating += textTelefono_Validating;
             // 
             // textSexo
             // 
@@ -156,6 +157,7 @@
             textEdad.Name = "textEdad";
             textEdad.Size = new Size(140, 31);
             textEdad.TabIndex = 14;
+            textEdad.Validating += textEdad_Validating;
             // 
             // textFechaDeNacimiento
             // 
@@ -164,6 +166,7 @@
             textFechaDeNacimiento.Size = new Size(140, 31);
             textFechaDeNacimiento.TabIndex = 13;
             textFechaDeNacimiento.TextChanged += textFechaDeNacimiento_TextChanged;
+            textFechaDeNacimiento.Validating += textFechaDeNacimiento_Validating;
             // 
             // textDirección
             // 
