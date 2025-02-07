@@ -14,10 +14,10 @@ using CRUDCSharpSQLServer.Classes;//Para conectar con la database lol
 
 namespace dental_C__SQLServer_app
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
         
-        public Form1()
+        public Login()
         {
             InitializeComponent();
          
@@ -94,7 +94,7 @@ namespace dental_C__SQLServer_app
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form2 re = new Form2();
+            Register re = new Register();
             re.Show();
         }
 

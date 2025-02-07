@@ -1,6 +1,6 @@
 ﻿namespace dental_C__SQLServer_app
 {
-    partial class Form2
+    partial class Register
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             panel2 = new Panel();
             pictureBox3 = new PictureBox();
             btnRegistrar = new Button();

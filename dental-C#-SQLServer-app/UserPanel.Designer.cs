@@ -1,6 +1,6 @@
 ﻿namespace dental_C__SQLServer_app
 {
-    partial class Panel_usuario
+    partial class UserPanel
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Panel_usuario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserPanel));
             fileSystemWatcher1 = new FileSystemWatcher();
             btnAñadirUser = new PictureBox();
             label1 = new Label();

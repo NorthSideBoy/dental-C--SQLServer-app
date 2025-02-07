@@ -29,7 +29,6 @@ namespace CRUDCSharpSQLServer.Classes
 
             catch (Exception error)
             {
-
                 MessageBox.Show("No se conecto correctamente a la Base de Datos, error: " + error.ToString());
                 Debug.WriteLine(error);
             }

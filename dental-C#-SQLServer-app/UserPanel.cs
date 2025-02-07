@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace dental_C__SQLServer_app
 {
-    public partial class Panel_usuario : Form
+    public partial class UserPanel : Form
     {
         Database database = new Database();
-        public Panel_usuario()
+        public UserPanel()
         {
             InitializeComponent();
             database.Connection();
@@ -22,7 +22,7 @@ namespace dental_C__SQLServer_app
 
         private void btnAñadirUser_Click(object sender, EventArgs e)
         {
-            Form2 re = new Form2();
+            Register re = new Register();
             re.Show();
         }
 

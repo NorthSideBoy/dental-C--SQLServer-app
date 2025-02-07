@@ -15,7 +15,7 @@ namespace dental_C__SQLServer_app
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             
-            Application.Run(new Panel_usuario());
+            Application.Run(new UserPanel());
         }
     }
 }

@@ -12,9 +12,9 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace dental_C__SQLServer_app
 {
-    public partial class Form2 : Form
+    public partial class Register : Form
     {
-        public Form2()
+        public Register()
         {
             InitializeComponent();
             //Clases.conexion ObjetConexion = new Clases.conexion();
@@ -99,7 +99,7 @@ namespace dental_C__SQLServer_app
         }
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            Panel_usuario re = new Panel_usuario();
+            UserPanel re = new UserPanel();
             re.Show();
         }
 
