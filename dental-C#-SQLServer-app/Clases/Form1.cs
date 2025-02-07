@@ -50,7 +50,7 @@ namespace dental_C__SQLServer_app.Clases
             textDirección.Text = "";
             textEdad.Text = "";
             textTelefono.Text = "";
-            textSexo.Text = "";
+            comboBoxSexo.Text = "";
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -71,7 +71,7 @@ namespace dental_C__SQLServer_app.Clases
                 insert.Parameters.AddWithValue("@Dirección", textDirección.Text);
                 insert.Parameters.AddWithValue("@Edad", textEdad.Text);
                 insert.Parameters.AddWithValue("@Telefono", textTelefono.Text);
-                insert.Parameters.AddWithValue("@Sexo", textSexo.Text);
+                insert.Parameters.AddWithValue("@Sexo", value: comboBoxSexo.Text);
 
 
                 insert.ExecuteNonQuery();
@@ -140,10 +140,10 @@ namespace dental_C__SQLServer_app.Clases
 
             }
 
-            if (textSexo.Text == "")
+            if (comboBoxSexo.Text == "")
             {
                 validado = false;
-                errorProvider1.SetError(textSexo, "Ingresar Sexo");
+                errorProvider1.SetError(comboBoxSexo, "Ingresar Sexo");
 
             }
 
@@ -159,7 +159,7 @@ namespace dental_C__SQLServer_app.Clases
             errorProvider1.SetError(textDirección, "");
             errorProvider1.SetError(textEdad, "");
             errorProvider1.SetError(textTelefono, "");
-            errorProvider1.SetError(textSexo, "");
+            errorProvider1.SetError(comboBoxSexo, "");
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -180,7 +180,7 @@ namespace dental_C__SQLServer_app.Clases
                 textDirección.Text = dtGridViewpacientes.CurrentRow.Cells[5].Value.ToString();
                 textEdad.Text = dtGridViewpacientes.CurrentRow.Cells[6].Value.ToString();
                 textTelefono.Text = dtGridViewpacientes.CurrentRow.Cells[7].Value.ToString();
-                textSexo.Text = dtGridViewpacientes.CurrentRow.Cells[8].Value.ToString();
+                comboBoxSexo.Text = dtGridViewpacientes.CurrentRow.Cells[8].Value.ToString();
             }
             catch (Exception Error)
             {
@@ -202,7 +202,7 @@ namespace dental_C__SQLServer_app.Clases
             cambios.Parameters.AddWithValue("@Dirección", textDirección.Text);
             cambios.Parameters.AddWithValue("@Edad", textEdad.Text);
             cambios.Parameters.AddWithValue("@Telefono", textTelefono.Text);
-            cambios.Parameters.AddWithValue("@Sexo", textSexo.Text);
+            cambios.Parameters.AddWithValue("@Sexo", value: comboBoxSexo.Text);
 
             cambios.ExecuteNonQuery();
 
@@ -307,7 +307,7 @@ namespace dental_C__SQLServer_app.Clases
         {
             DateTime fecha;
 
-            if(!DateTime.TryParse(textFechaDeNacimiento.Text, out fecha))
+            if (!DateTime.TryParse(textFechaDeNacimiento.Text, out fecha))
             {
                 errorProvider1.SetError(textFechaDeNacimiento, "El Formato Debe Ser DD/MM/YYYY");
             }
@@ -315,6 +315,11 @@ namespace dental_C__SQLServer_app.Clases
             {
                 errorProvider1.SetError(textFechaDeNacimiento, "");
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

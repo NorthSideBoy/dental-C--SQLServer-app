@@ -32,11 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             groupBox1 = new GroupBox();
+            comboBoxSexo = new ComboBox();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
             textTelefono = new TextBox();
-            textSexo = new TextBox();
             textEdad = new TextBox();
             textFechaDeNacimiento = new TextBox();
             textDirección = new TextBox();
@@ -76,11 +76,11 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(162, 255, 211);
+            groupBox1.Controls.Add(comboBoxSexo);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(textTelefono);
-            groupBox1.Controls.Add(textSexo);
             groupBox1.Controls.Add(textEdad);
             groupBox1.Controls.Add(textFechaDeNacimiento);
             groupBox1.Controls.Add(textDirección);
@@ -102,6 +102,16 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // comboBoxSexo
+            // 
+            comboBoxSexo.FormattingEnabled = true;
+            comboBoxSexo.Items.AddRange(new object[] { "Femenino ", "Maculino" });
+            comboBoxSexo.Location = new Point(365, 248);
+            comboBoxSexo.Name = "comboBoxSexo";
+            comboBoxSexo.Size = new Size(140, 30);
+            comboBoxSexo.TabIndex = 19;
             // 
             // button3
             // 
@@ -143,13 +153,6 @@
             textTelefono.Size = new Size(159, 31);
             textTelefono.TabIndex = 16;
             textTelefono.Validating += textTelefono_Validating;
-            // 
-            // textSexo
-            // 
-            textSexo.Location = new Point(365, 247);
-            textSexo.Name = "textSexo";
-            textSexo.Size = new Size(140, 31);
-            textSexo.TabIndex = 15;
             // 
             // textEdad
             // 
@@ -377,5 +380,6 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private ErrorProvider errorProvider1;
+        private ComboBox comboBoxSexo;
     }
 }
