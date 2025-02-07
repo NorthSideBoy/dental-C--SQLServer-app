@@ -8,6 +8,8 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="UserPanel.cs">
+    
+    <Compile Update="Clases\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
