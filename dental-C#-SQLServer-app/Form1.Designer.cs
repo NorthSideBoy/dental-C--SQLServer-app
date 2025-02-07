@@ -31,7 +31,6 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btnPacientes = new Button();
-            sidebar = new FlowLayoutPanel();
             panel1 = new Panel();
             label1 = new Label();
             btnMenu = new PictureBox();
@@ -40,13 +39,15 @@
             btnConsultas = new Button();
             panel4 = new Panel();
             btnConfig = new Button();
+            btnLogout = new Button();
             sidebarTimer = new System.Windows.Forms.Timer(components);
-            sidebar.SuspendLayout();
+            sidebar = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnMenu).BeginInit();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             panel4.SuspendLayout();
+            sidebar.SuspendLayout();
             SuspendLayout();
             // 
             // btnPacientes
@@ -55,7 +56,7 @@
             btnPacientes.FlatAppearance.BorderSize = 0;
             btnPacientes.FlatStyle = FlatStyle.Flat;
             btnPacientes.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPacientes.Image = Properties.Resources._1446930__1___1_;
+            btnPacientes.Image = (Image)resources.GetObject("btnPacientes.Image");
             btnPacientes.ImageAlign = ContentAlignment.MiddleLeft;
             btnPacientes.Location = new Point(-16, -12);
             btnPacientes.Name = "btnPacientes";
@@ -70,30 +71,14 @@
             btnPacientes.MouseLeave += btnPacientes_MouseLeave;
             btnPacientes.MouseMove += btnPacientes_MouseMove;
             // 
-            // sidebar
-            // 
-            sidebar.BackColor = Color.FromArgb(236, 255, 249);
-            sidebar.Controls.Add(panel1);
-            sidebar.Controls.Add(panel2);
-            sidebar.Controls.Add(panel3);
-            sidebar.Controls.Add(panel4);
-            sidebar.Dock = DockStyle.Left;
-            sidebar.Location = new Point(0, 0);
-            sidebar.MaximumSize = new Size(220, 700);
-            sidebar.MinimumSize = new Size(71, 700);
-            sidebar.Name = "sidebar";
-            sidebar.Size = new Size(220, 700);
-            sidebar.TabIndex = 4;
-            sidebar.Paint += flowLayoutPanel1_Paint;
-            // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(185, 255, 233);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnMenu);
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(217, 97);
+            panel1.Size = new Size(220, 100);
             panel1.TabIndex = 0;
             // 
             // label1
@@ -121,18 +106,18 @@
             // panel2
             // 
             panel2.Controls.Add(btnPacientes);
-            panel2.Location = new Point(3, 106);
+            panel2.Location = new Point(0, 101);
             panel2.Name = "panel2";
-            panel2.Size = new Size(217, 55);
+            panel2.Size = new Size(221, 55);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
             // panel3
             // 
             panel3.Controls.Add(btnConsultas);
-            panel3.Location = new Point(3, 167);
+            panel3.Location = new Point(0, 156);
             panel3.Name = "panel3";
-            panel3.Size = new Size(217, 55);
+            panel3.Size = new Size(221, 55);
             panel3.TabIndex = 2;
             // 
             // btnConsultas
@@ -141,6 +126,7 @@
             btnConsultas.FlatAppearance.BorderSize = 0;
             btnConsultas.FlatStyle = FlatStyle.Flat;
             btnConsultas.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnConsultas.ForeColor = SystemColors.ControlText;
             btnConsultas.Image = (Image)resources.GetObject("btnConsultas.Image");
             btnConsultas.ImageAlign = ContentAlignment.MiddleLeft;
             btnConsultas.Location = new Point(-16, -12);
@@ -158,9 +144,9 @@
             // panel4
             // 
             panel4.Controls.Add(btnConfig);
-            panel4.Location = new Point(3, 228);
+            panel4.Location = new Point(0, 211);
             panel4.Name = "panel4";
-            panel4.Size = new Size(217, 55);
+            panel4.Size = new Size(221, 55);
             panel4.TabIndex = 3;
             // 
             // btnConfig
@@ -183,42 +169,78 @@
             btnConfig.MouseLeave += btnConfig_MouseLeave;
             btnConfig.MouseMove += btnConfig_MouseMove;
             // 
+            // btnLogout
+            // 
+            btnLogout.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
+            btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLogout.Location = new Point(0, 467);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Padding = new Padding(7, 0, 0, 0);
+            btnLogout.Size = new Size(220, 53);
+            btnLogout.TabIndex = 1;
+            btnLogout.Text = "  Cerrar Sesión";
+            btnLogout.TextAlign = ContentAlignment.MiddleLeft;
+            btnLogout.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += Logout_Click;
+            btnLogout.MouseLeave += btnLogout_MouseLeave;
+            btnLogout.MouseMove += btnLogout_MouseMove;
+            // 
             // sidebarTimer
             // 
             sidebarTimer.Interval = 10;
             sidebarTimer.Tick += sidebarTimer_Tick;
             // 
+            // sidebar
+            // 
+            sidebar.BackColor = Color.FromArgb(236, 255, 249);
+            sidebar.Controls.Add(btnLogout);
+            sidebar.Controls.Add(panel4);
+            sidebar.Controls.Add(panel2);
+            sidebar.Controls.Add(panel1);
+            sidebar.Controls.Add(panel3);
+            sidebar.Dock = DockStyle.Left;
+            sidebar.Location = new Point(0, 0);
+            sidebar.Name = "sidebar";
+            sidebar.Size = new Size(220, 520);
+            sidebar.TabIndex = 5;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(1014, 520);
             Controls.Add(sidebar);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
-            sidebar.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnMenu).EndInit();
             panel2.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel4.ResumeLayout(false);
+            sidebar.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
         private Button btnPacientes;
         private Button btnConsultas;
-        private FlowLayoutPanel sidebar;
         private Panel panel1;
         private Panel panel2;
         private Panel panel3;
-        private Button button1;
         private Panel panel4;
         private Button btnConfig;
         private PictureBox btnMenu;
         private Label label1;
         private System.Windows.Forms.Timer sidebarTimer;
+        private Button btnLogout;
+        private Panel sidebar;
     }
 }
