@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRUDCSharpSQLServer.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace dental_C__SQLServer_app
 {
     public partial class Panel_usuario : Form
     {
+        Database database = new Database();
         public Panel_usuario()
         {
             InitializeComponent();
+            database.Connection();
         }
 
         private void btnAñadirUser_Click(object sender, EventArgs e)

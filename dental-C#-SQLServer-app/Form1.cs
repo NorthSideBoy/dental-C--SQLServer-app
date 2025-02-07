@@ -9,15 +9,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Linq.Expressions;//Para conectar con la database
+using System.Linq.Expressions;
+using CRUDCSharpSQLServer.Classes;//Para conectar con la database lol
 
 namespace dental_C__SQLServer_app
 {
     public partial class Form1 : Form
     {
+        
         public Form1()
         {
             InitializeComponent();
+         
         }
 
         private void txtuser_Enter(object sender, EventArgs e)
@@ -80,7 +83,7 @@ namespace dental_C__SQLServer_app
 
         private void btnmostrar_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnmostrar_Click(object sender, EventArgs e)
@@ -93,6 +96,11 @@ namespace dental_C__SQLServer_app
         {
             Form2 re = new Form2();
             re.Show();
+        }
+
+        private void txtuser_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

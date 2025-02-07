@@ -210,6 +210,7 @@
             txtuser.Size = new Size(237, 20);
             txtuser.TabIndex = 11;
             txtuser.Text = "USUARIO";
+            txtuser.TextChanged += txtuser_TextChanged;
             txtuser.Enter += txtuser_Enter;
             txtuser.Leave += txtuser_Leave;
             // 
