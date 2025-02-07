@@ -8,17 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace dental_C__SQLServer_app
 {
     public partial class Form2 : Form
-
     {
         public Form2()
         {
             InitializeComponent();
-            Clases.conexion ObjetConexion = new Clases.conexion();
-            ObjetConexion.establecerConexion();
+            //Clases.conexion ObjetConexion = new Clases.conexion();
+            //ObjetConexion.establecerConexion();
         }
 
 

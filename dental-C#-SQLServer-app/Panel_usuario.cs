@@ -22,5 +22,10 @@ namespace dental_C__SQLServer_app
             Form2 re = new Form2();
             re.Show();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

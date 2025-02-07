@@ -32,8 +32,12 @@
             fileSystemWatcher1 = new FileSystemWatcher();
             btnAñadirUser = new PictureBox();
             label1 = new Label();
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnAñadirUser).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // fileSystemWatcher1
@@ -44,7 +48,7 @@
             // btnAñadirUser
             // 
             btnAñadirUser.Image = (Image)resources.GetObject("btnAñadirUser.Image");
-            btnAñadirUser.Location = new Point(334, 183);
+            btnAñadirUser.Location = new Point(334, 208);
             btnAñadirUser.Name = "btnAñadirUser";
             btnAñadirUser.Size = new Size(123, 120);
             btnAñadirUser.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -56,11 +60,31 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(334, 317);
+            label1.Location = new Point(334, 331);
             label1.Name = "label1";
             label1.Size = new Size(123, 21);
             label1.TabIndex = 1;
             label1.Text = "Añadir Usuario";
+            label1.Click += label1_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Aquamarine;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Location = new Point(0, -2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(800, 179);
+            panel1.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(213, -50);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(397, 263);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // Panel_usuario
             // 
@@ -70,11 +94,14 @@
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
             Controls.Add(btnAñadirUser);
+            Controls.Add(panel1);
             Name = "Panel_usuario";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Panel_usuario";
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnAñadirUser).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -84,5 +111,7 @@
         private FileSystemWatcher fileSystemWatcher1;
         private PictureBox btnAñadirUser;
         private Label label1;
+        private Panel panel1;
+        private PictureBox pictureBox1;
     }
 }

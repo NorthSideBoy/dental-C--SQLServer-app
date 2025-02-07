@@ -214,11 +214,12 @@
             // 
             // ROL
             // 
+            ROL.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ROL.FormattingEnabled = true;
             ROL.Items.AddRange(new object[] { "Admin", "User" });
             ROL.Location = new Point(105, 373);
             ROL.Name = "ROL";
-            ROL.Size = new Size(175, 23);
+            ROL.Size = new Size(175, 29);
             ROL.TabIndex = 20;
             // 
             // labelRol
