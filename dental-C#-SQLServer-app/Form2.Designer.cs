@@ -41,11 +41,11 @@
             label5 = new Label();
             label6 = new Label();
             txtCedula = new TextBox();
-            txtTlf = new TextBox();
             label7 = new Label();
             btnRegresar = new PictureBox();
             ROL = new ComboBox();
             labelRol = new Label();
+            txtTelefonoUser = new TextBox();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnRegresar).BeginInit();
@@ -83,7 +83,6 @@
             btnRegistrar.TabIndex = 11;
             btnRegistrar.Text = "REGISTRAR";
             btnRegistrar.UseVisualStyleBackColor = false;
-            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // label1
             // 
@@ -102,8 +101,9 @@
             txtNusuario.BorderStyle = BorderStyle.None;
             txtNusuario.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtNusuario.Location = new Point(62, 98);
+            txtNusuario.Multiline = true;
             txtNusuario.Name = "txtNusuario";
-            txtNusuario.Size = new Size(306, 20);
+            txtNusuario.Size = new Size(306, 23);
             txtNusuario.TabIndex = 3;
             txtNusuario.Text = "Nombre de Usuario";
             txtNusuario.Enter += txtNusuario_Enter;
@@ -125,8 +125,9 @@
             txtContrasena.BorderStyle = BorderStyle.None;
             txtContrasena.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtContrasena.Location = new Point(62, 257);
+            txtContrasena.Multiline = true;
             txtContrasena.Name = "txtContrasena";
-            txtContrasena.Size = new Size(306, 20);
+            txtContrasena.Size = new Size(306, 23);
             txtContrasena.TabIndex = 7;
             txtContrasena.Text = "Contraseña";
             txtContrasena.Enter += txtContrasena_Enter;
@@ -138,8 +139,9 @@
             txtConfirmar.BorderStyle = BorderStyle.None;
             txtConfirmar.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtConfirmar.Location = new Point(62, 314);
+            txtConfirmar.Multiline = true;
             txtConfirmar.Name = "txtConfirmar";
-            txtConfirmar.Size = new Size(306, 20);
+            txtConfirmar.Size = new Size(306, 23);
             txtConfirmar.TabIndex = 9;
             txtConfirmar.Text = "Confirmar Contraseña";
             txtConfirmar.Enter += txtConfirmar_Enter;
@@ -181,23 +183,13 @@
             txtCedula.BorderStyle = BorderStyle.None;
             txtCedula.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCedula.Location = new Point(62, 155);
+            txtCedula.Multiline = true;
             txtCedula.Name = "txtCedula";
-            txtCedula.Size = new Size(306, 20);
+            txtCedula.Size = new Size(306, 23);
             txtCedula.TabIndex = 16;
             txtCedula.Text = "Cedula de Identidad";
             txtCedula.Enter += txtCedula_Enter;
             txtCedula.Leave += txtCedula_Leave;
-            // 
-            // txtTlf
-            // 
-            txtTlf.BackColor = Color.FromArgb(236, 255, 249);
-            txtTlf.BorderStyle = BorderStyle.None;
-            txtTlf.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTlf.Location = new Point(62, 206);
-            txtTlf.Name = "txtTlf";
-            txtTlf.Size = new Size(306, 20);
-            txtTlf.TabIndex = 17;
-            txtTlf.Text = "Telefono";
             // 
             // label7
             // 
@@ -239,6 +231,20 @@
             labelRol.TabIndex = 21;
             labelRol.Text = "Rol:";
             // 
+            // txtTelefonoUser
+            // 
+            txtTelefonoUser.BackColor = Color.FromArgb(236, 255, 249);
+            txtTelefonoUser.BorderStyle = BorderStyle.None;
+            txtTelefonoUser.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtTelefonoUser.Location = new Point(62, 204);
+            txtTelefonoUser.Multiline = true;
+            txtTelefonoUser.Name = "txtTelefonoUser";
+            txtTelefonoUser.Size = new Size(306, 23);
+            txtTelefonoUser.TabIndex = 22;
+            txtTelefonoUser.Text = "Telefono";
+            txtTelefonoUser.Enter += txtTelefonoUser_Enter;
+            txtTelefonoUser.Leave += txtTelefonoUser_Leave;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -246,6 +252,7 @@
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackColor = Color.FromArgb(236, 255, 249);
             ClientSize = new Size(809, 472);
+            Controls.Add(txtTelefonoUser);
             Controls.Add(labelRol);
             Controls.Add(ROL);
             Controls.Add(btnRegresar);
@@ -253,7 +260,6 @@
             Controls.Add(txtContrasena);
             Controls.Add(label5);
             Controls.Add(label7);
-            Controls.Add(txtTlf);
             Controls.Add(txtCedula);
             Controls.Add(label6);
             Controls.Add(label3);
@@ -264,6 +270,7 @@
             Name = "Form2";
             RightToLeftLayout = true;
             StartPosition = FormStartPosition.CenterScreen;
+            Load += Form2_Load;
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnRegresar).EndInit();
@@ -284,10 +291,10 @@
         private Label label5;
         private Label label6;
         private TextBox txtCedula;
-        private TextBox txtTlf;
         private Label label7;
         private PictureBox btnRegresar;
         private ComboBox ROL;
         private Label labelRol;
+        private TextBox txtTelefonoUser;
     }
 }

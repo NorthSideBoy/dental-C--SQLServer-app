@@ -12,32 +12,15 @@ using System.Data.SqlClient;
 namespace dental_C__SQLServer_app
 {
     public partial class Form2 : Form
+
     {
         public Form2()
         {
             InitializeComponent();
+            Clases.conexion ObjetConexion = new Clases.conexion();
+            ObjetConexion.establecerConexion();
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            if (txtContrasena.Text == txtConfirmar.Text)
-            {
-                if (UsuarioDAL.CrearCuentas(txtNusuario.Text, txtContrasena.Text) > 0)
-                {
-                    MessageBox.Show("Cuenta Creada con Exito");
-                }
-                else
-                {
-                    MessageBox.Show("No se pudo crear la cuenta");
-                }
-            }
-
-        }
 
         private void txtNusuario_Enter(object sender, EventArgs e)
         {
@@ -63,8 +46,8 @@ namespace dental_C__SQLServer_app
             {
                 txtContrasena.Text = "";
                 txtContrasena.ForeColor = Color.Black;
-                txtContrasena.UseSystemPasswordChar = true; //Ocultar contraseña
             }
+            txtContrasena.UseSystemPasswordChar = true; //Ocultar contraseña
         }
 
         private void txtContrasena_Leave(object sender, EventArgs e)
@@ -97,24 +80,6 @@ namespace dental_C__SQLServer_app
             }
         }
 
-        private void txtTlf_Enter(object sender, EventArgs e)
-        {
-            if (txtTlf.Text == "Telefono")
-            {
-                txtTlf.Text = "";
-                txtTlf.ForeColor = Color.Black;
-            }
-        }
-
-        private void txtTlf_Leave(object sender, EventArgs e)
-        {
-            if (txtTlf.Text == "")
-            {
-                txtTlf.Text = "Telefono";
-                txtTlf.ForeColor = Color.Black;
-            }
-        }
-
         private void txtCedula_Enter(object sender, EventArgs e)
         {
             if (txtCedula.Text == "Cedula de Identidad")
@@ -136,6 +101,30 @@ namespace dental_C__SQLServer_app
         {
             Panel_usuario re = new Panel_usuario();
             re.Show();
+        }
+
+        private void txtTelefonoUser_Enter(object sender, EventArgs e)
+        {
+            if (txtTelefonoUser.Text == "Telefono")
+            {
+                txtTelefonoUser.Text = "";
+                txtTelefonoUser.ForeColor = Color.Black;
+            }
+        }
+
+        private void txtTelefonoUser_Leave(object sender, EventArgs e)
+        {
+            if (txtTelefonoUser.Text == "")
+            {
+                txtTelefonoUser.Text = "Telefono";
+                txtTelefonoUser.ForeColor = Color.Black;
+            }
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
+        {
+            
+
         }
     }
 }
