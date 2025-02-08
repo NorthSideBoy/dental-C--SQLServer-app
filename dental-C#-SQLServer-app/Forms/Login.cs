@@ -10,17 +10,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Linq.Expressions;
-using CRUDCSharpSQLServer.Classes;//Para conectar con la database lol
+using dental_C__SQLServer_app.Classes;//Para conectar con la database lol
 
 namespace dental_C__SQLServer_app
 {
     public partial class Login : Form
     {
-        
+
         public Login()
         {
             InitializeComponent();
-         
+
         }
 
         private void txtuser_Enter(object sender, EventArgs e)
@@ -99,6 +99,11 @@ namespace dental_C__SQLServer_app
         }
 
         private void txtuser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

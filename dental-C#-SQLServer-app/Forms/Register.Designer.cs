@@ -106,6 +106,7 @@
             txtNusuario.Size = new Size(306, 23);
             txtNusuario.TabIndex = 3;
             txtNusuario.Text = "Nombre de Usuario";
+            txtNusuario.TextChanged += txtNusuario_TextChanged;
             txtNusuario.Enter += txtNusuario_Enter;
             txtNusuario.Leave += txtNusuario_Leave;
             // 
@@ -246,7 +247,7 @@
             txtTelefonoUser.Enter += txtTelefonoUser_Enter;
             txtTelefonoUser.Leave += txtTelefonoUser_Leave;
             // 
-            // Form2
+            // Register
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -268,7 +269,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(panel2);
-            Name = "Form2";
+            Name = "Register";
             RightToLeftLayout = true;
             StartPosition = FormStartPosition.CenterScreen;
             Load += Form2_Load;

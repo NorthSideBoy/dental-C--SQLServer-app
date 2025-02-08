@@ -7,13 +7,13 @@ using Microsoft.Data.SqlClient;
 using System.Diagnostics;
 
 
-namespace CRUDCSharpSQLServer.Classes
+namespace dental_C__SQLServer_app.Classes
 {
     internal class Database
     {
         private readonly SqlConnection DB = new();
 
-        private static readonly string database = "colegioDB";
+        private static readonly string database = "histodent";
         private static readonly string user = "root3";
         private static readonly string password = "root3";
        

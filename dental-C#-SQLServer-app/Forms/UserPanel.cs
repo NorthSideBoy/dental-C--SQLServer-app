@@ -1,4 +1,4 @@
-﻿using CRUDCSharpSQLServer.Classes;
+﻿using dental_C__SQLServer_app.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +17,7 @@ namespace dental_C__SQLServer_app
         public UserPanel()
         {
             InitializeComponent();
-            database.Connection();
+            //database.Connection();
         }
 
         private void btnAñadirUser_Click(object sender, EventArgs e)

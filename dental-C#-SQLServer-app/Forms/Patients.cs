@@ -1,4 +1,5 @@
-﻿using System;
+﻿using dental_C__SQLServer_app.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,27 +10,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using Microsoft.Data.SqlClient;
+using SqlDataAdapter = Microsoft.Data.SqlClient.SqlDataAdapter;
 
-namespace dental_C__SQLServer_app.Clases
+namespace dental_C__SQLServer_app
 {
-    public partial class Form1 : Form
+    public partial class Patients : Form
     {
-        public Form1()
+        public Patients()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Patients_Load(object sender, EventArgs e)
         {
-            CConexion.Conectar();
-            dtGridViewpacientes.DataSource = Index();
+            dtGridViewpatients.DataSource = Index();
         }
 
         public DataTable Index()
         {
             DataTable dataTable = new DataTable();
-            string Sql = "SELECT * FROM pacientes";
-            SqlCommand CMD = new SqlCommand(Sql, CConexion.Conectar());
+            string Sql = "SELECT * FROM patients";
+            Microsoft.Data.SqlClient.SqlCommand CMD = new Microsoft.Data.SqlClient.SqlCommand(Sql, Program.connection);
             SqlDataAdapter adapter = new SqlDataAdapter(CMD);
 
             adapter.Fill(dataTable);
@@ -54,16 +56,16 @@ namespace dental_C__SQLServer_app.Clases
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            CConexion.Conectar();
             MensajeBorrar();
             if (validarcampos())
             {
+                Guid guid = Guid.NewGuid();
+                string hexValue = guid.ToString("N");
 
+                string Guardar = "INSERT INTO patients (ID,Nombre,Apellido,Cédula,FechaDeNacimiento,Dirección,Edad,Telefono,Sexo) VALUES (@ID,@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Dirección,@Edad,@Telefono,@Sexo)";
+                Microsoft.Data.SqlClient.SqlCommand insert = new Microsoft.Data.SqlClient.SqlCommand(Guardar, Program.connection);
 
-
-                string Guardar = "INSERT INTO pacientes (Nombre,Apellido,Cédula,FechaDeNacimiento,Dirección,Edad,Telefono,Sexo) VALUES (@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Dirección,@Edad,@Telefono,@Sexo)";
-                SqlCommand insert = new SqlCommand(Guardar, CConexion.Conectar());
-
+                insert.Parameters.AddWithValue("@ID", hexValue);
                 insert.Parameters.AddWithValue("@Nombre", textNombre.Text);
                 insert.Parameters.AddWithValue("@Apellido", textApellido.Text);
                 insert.Parameters.AddWithValue("@Cédula", textCédula.Text);
@@ -73,18 +75,12 @@ namespace dental_C__SQLServer_app.Clases
                 insert.Parameters.AddWithValue("@Telefono", textTelefono.Text);
                 insert.Parameters.AddWithValue("@Sexo", value: comboBoxSexo.Text);
 
-
                 insert.ExecuteNonQuery();
                 MessageBox.Show("Los Datos Fueron Guardados Correctamente");
 
-                dtGridViewpacientes.DataSource = Index();
+                dtGridViewpatients.DataSource = Index();
                 reset();
             }
-
-
-
-
-
         }
 
         private bool validarcampos()
@@ -95,56 +91,48 @@ namespace dental_C__SQLServer_app.Clases
             {
                 validado = false;
                 errorProvider1.SetError(textNombre, "Ingresar Nombre");
-
             }
 
             if (textApellido.Text == "")
             {
                 validado = false;
                 errorProvider1.SetError(textApellido, "Ingresar Apellido");
-
             }
 
             if (textCédula.Text == "")
             {
                 validado = false;
                 errorProvider1.SetError(textCédula, "Ingresar Cédula");
-
             }
 
             if (textFechaDeNacimiento.Text == "")
             {
                 validado = false;
                 errorProvider1.SetError(textFechaDeNacimiento, "Ingresar Fecha De Nacimiento");
-
             }
 
             if (textDirección.Text == "")
             {
                 validado = false;
                 errorProvider1.SetError(textDirección, "Ingresar Dirección");
-
             }
 
             if (textEdad.Text == "")
             {
                 validado = false;
                 errorProvider1.SetError(textEdad, "Ingresar Edad");
-
             }
 
             if (textTelefono.Text == "")
             {
                 validado = false;
                 errorProvider1.SetError(textTelefono, "Ingresar Teléfono");
-
             }
 
             if (comboBoxSexo.Text == "")
             {
                 validado = false;
                 errorProvider1.SetError(comboBoxSexo, "Ingresar Sexo");
-
             }
 
             return validado;
@@ -171,16 +159,16 @@ namespace dental_C__SQLServer_app.Clases
         {
             try
             {
-                System.Diagnostics.Debug.WriteLine("CURRENT ROW:", dtGridViewpacientes.CurrentRow);
-                Text = dtGridViewpacientes.CurrentRow.Cells[0].Value.ToString();
-                textNombre.Text = dtGridViewpacientes.CurrentRow.Cells[1].Value.ToString();
-                textApellido.Text = dtGridViewpacientes.CurrentRow.Cells[2].Value.ToString();
-                textCédula.Text = dtGridViewpacientes.CurrentRow.Cells[3].Value.ToString();
-                textFechaDeNacimiento.Text = dtGridViewpacientes.CurrentRow.Cells[4].Value.ToString();
-                textDirección.Text = dtGridViewpacientes.CurrentRow.Cells[5].Value.ToString();
-                textEdad.Text = dtGridViewpacientes.CurrentRow.Cells[6].Value.ToString();
-                textTelefono.Text = dtGridViewpacientes.CurrentRow.Cells[7].Value.ToString();
-                comboBoxSexo.Text = dtGridViewpacientes.CurrentRow.Cells[8].Value.ToString();
+                System.Diagnostics.Debug.WriteLine("CURRENT ROW:", dtGridViewpatients.CurrentRow);
+                Text = dtGridViewpatients.CurrentRow.Cells[0].Value.ToString();
+                textNombre.Text = dtGridViewpatients.CurrentRow.Cells[1].Value.ToString();
+                textApellido.Text = dtGridViewpatients.CurrentRow.Cells[2].Value.ToString();
+                textCédula.Text = dtGridViewpatients.CurrentRow.Cells[3].Value.ToString();
+                textFechaDeNacimiento.Text = dtGridViewpatients.CurrentRow.Cells[4].Value.ToString();
+                textDirección.Text = dtGridViewpatients.CurrentRow.Cells[5].Value.ToString();
+                textEdad.Text = dtGridViewpatients.CurrentRow.Cells[6].Value.ToString();
+                textTelefono.Text = dtGridViewpatients.CurrentRow.Cells[7].Value.ToString();
+                comboBoxSexo.Text = dtGridViewpatients.CurrentRow.Cells[8].Value.ToString();
             }
             catch (Exception Error)
             {
@@ -190,9 +178,8 @@ namespace dental_C__SQLServer_app.Clases
 
         private void button2_Click(object sender, EventArgs e)
         {
-            CConexion.Conectar();
-            string modificar = "UPDATE pacientes SET Nombre=@Nombre,Apellido=@Apellido,Cédula=@Cédula,FechaDeNacimiento=@FechaDeNacimiento,Dirección=@Dirección,Edad=@Edad,Telefono=@Telefono,Sexo=@Sexo WHERE Id=@Id";
-            SqlCommand cambios = new SqlCommand(modificar, CConexion.Conectar());
+            string modificar = "UPDATE patients SET Nombre=@Nombre,Apellido=@Apellido,Cédula=@Cédula,FechaDeNacimiento=@FechaDeNacimiento,Dirección=@Dirección,Edad=@Edad,Telefono=@Telefono,Sexo=@Sexo WHERE Id=@Id";
+            Microsoft.Data.SqlClient.SqlCommand cambios = new Microsoft.Data.SqlClient.SqlCommand(modificar, Program.connection);
 
             cambios.Parameters.AddWithValue("@Id", Text);
             cambios.Parameters.AddWithValue("@Nombre", textNombre.Text);
@@ -208,24 +195,22 @@ namespace dental_C__SQLServer_app.Clases
 
             MessageBox.Show("Los Datos Se Modificaron Correctamente");
 
-            dtGridViewpacientes.DataSource = Index();
+            dtGridViewpatients.DataSource = Index();
             reset();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            CConexion.Conectar();
-            string Eliminar = "DELETE FROM pacientes WHERE Id=@Id";
-            SqlCommand Borrar = new SqlCommand(Eliminar, CConexion.Conectar());
+            string Eliminar = "DELETE FROM patients WHERE Id=@Id";
+            Microsoft.Data.SqlClient.SqlCommand Borrar = new Microsoft.Data.SqlClient.SqlCommand(Eliminar, Program.connection);
 
             Borrar.Parameters.AddWithValue("@Id", Text);
 
             Borrar.ExecuteNonQuery();
             MessageBox.Show("Paciente Eliminado Correctamente");
 
-            dtGridViewpacientes.DataSource = Index();
+            dtGridViewpatients.DataSource = Index();
             reset();
-
         }
 
         private void textFechaDeNacimiento_TextChanged(object sender, EventArgs e)
@@ -272,13 +257,11 @@ namespace dental_C__SQLServer_app.Clases
             if (!long.TryParse(textTelefono.Text, out long num))
             {
                 errorProvider1.SetError(textTelefono, "Ingrese un valor numérico"); // Muestra el error
-
             }
             else
             {
                 errorProvider1.SetError(textTelefono, ""); // Limpia el mensaje de error si es válido
             }
-
         }
 
         private void textEdad_Validating(object sender, CancelEventArgs e)
@@ -294,7 +277,6 @@ namespace dental_C__SQLServer_app.Clases
             if (!int.TryParse(textEdad.Text, out int num))
             {
                 errorProvider1.SetError(textEdad, "Ingrese un valor numérico entero."); // Muestra el error
-
             }
             else
             {
@@ -309,7 +291,7 @@ namespace dental_C__SQLServer_app.Clases
 
             if (!DateTime.TryParse(textFechaDeNacimiento.Text, out fecha))
             {
-                errorProvider1.SetError(textFechaDeNacimiento, "El Formato Debe Ser DD/MM/YYYY");
+                errorProvider1.SetError(textFechaDeNacimiento, "El formato debe Ser tipo fecha");
             }
             else
             {
@@ -318,6 +300,11 @@ namespace dental_C__SQLServer_app.Clases
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textNombre_TextChanged(object sender, EventArgs e)
         {
 
         }

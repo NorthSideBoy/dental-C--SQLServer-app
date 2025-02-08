@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dental_C__SQLServer_app.Clases
+namespace dental_C__SQLServer_app.Validations.cs
 {
-    internal class Validaciones
+    internal class Patients
     {
-        
+
     }
 }

@@ -184,6 +184,7 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(281, 381);
             panel2.TabIndex = 8;
+            panel2.Paint += panel2_Paint;
             // 
             // txtpass
             // 
@@ -264,7 +265,7 @@
             btnmostrar.CheckedChanged += btnmostrar_CheckedChanged;
             btnmostrar.Click += btnmostrar_Click;
             // 
-            // Form1
+            // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -276,7 +277,7 @@
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form1";
+            Name = "Login";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

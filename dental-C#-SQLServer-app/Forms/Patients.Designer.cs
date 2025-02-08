@@ -1,6 +1,6 @@
-﻿namespace dental_C__SQLServer_app.Clases
+﻿namespace dental_C__SQLServer_app
 {
-    partial class Form1
+    partial class Patients
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Patients));
             label1 = new Label();
             groupBox1 = new GroupBox();
             comboBoxSexo = new ComboBox();
@@ -52,12 +52,12 @@
             label3 = new Label();
             label2 = new Label();
             label10 = new Label();
-            dtGridViewpacientes = new DataGridView();
+            dtGridViewpatients = new DataGridView();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             errorProvider1 = new ErrorProvider(components);
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtGridViewpacientes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtGridViewpatients).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
@@ -200,6 +200,7 @@
             textNombre.Name = "textNombre";
             textNombre.Size = new Size(159, 31);
             textNombre.TabIndex = 11;
+            textNombre.TextChanged += textNombre_TextChanged;
             // 
             // label9
             // 
@@ -293,15 +294,15 @@
             label10.TabIndex = 8;
             label10.Text = "Lista de Pacientes";
             // 
-            // dtGridViewpacientes
+            // dtGridViewpatients
             // 
-            dtGridViewpacientes.BackgroundColor = Color.FromArgb(162, 255, 211);
-            dtGridViewpacientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtGridViewpacientes.Location = new Point(678, 179);
-            dtGridViewpacientes.Name = "dtGridViewpacientes";
-            dtGridViewpacientes.Size = new Size(615, 414);
-            dtGridViewpacientes.TabIndex = 9;
-            dtGridViewpacientes.CellClick += Datagr;
+            dtGridViewpatients.BackgroundColor = Color.FromArgb(162, 255, 211);
+            dtGridViewpatients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtGridViewpatients.Location = new Point(678, 179);
+            dtGridViewpatients.Name = "dtGridViewpatients";
+            dtGridViewpatients.Size = new Size(615, 414);
+            dtGridViewpatients.TabIndex = 9;
+            dtGridViewpatients.CellClick += Datagr;
             // 
             // pictureBox1
             // 
@@ -327,7 +328,7 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
-            // Form1
+            // Patients
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -335,16 +336,16 @@
             ClientSize = new Size(1305, 616);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
-            Controls.Add(dtGridViewpacientes);
+            Controls.Add(dtGridViewpatients);
             Controls.Add(label10);
             Controls.Add(groupBox1);
             Controls.Add(label1);
-            Name = "Form1";
-            Text = "Form1";
-            Load += Form1_Load;
+            Name = "Patients";
+            Text = "Patients";
+            Load += Patients_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dtGridViewpacientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtGridViewpatients).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
@@ -373,7 +374,7 @@
         private TextBox textCédula;
         private TextBox textApellido;
         private TextBox textNombre;
-        private DataGridView dtGridViewpacientes;
+        private DataGridView dtGridViewpatients;
         private Button button3;
         private Button button2;
         private Button button1;

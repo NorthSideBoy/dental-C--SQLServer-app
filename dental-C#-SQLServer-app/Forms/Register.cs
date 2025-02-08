@@ -123,7 +123,12 @@ namespace dental_C__SQLServer_app
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            
+
+
+        }
+
+        private void txtNusuario_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
