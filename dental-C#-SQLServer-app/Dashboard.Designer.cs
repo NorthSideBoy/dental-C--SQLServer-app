@@ -1,6 +1,6 @@
 ﻿namespace dental_C__SQLServer_app
 {
-    partial class Form1
+    partial class Dashboard
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             btnPacientes = new Button();
             panel1 = new Panel();
             label1 = new Label();
@@ -209,16 +209,16 @@
             sidebar.Size = new Size(220, 520);
             sidebar.TabIndex = 5;
             // 
-            // Form1
+            // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             ClientSize = new Size(1014, 520);
             Controls.Add(sidebar);
-            Name = "Form1";
-            Text = "Form1";
-            Load += Form1_Load;
+            Name = "Dashboard";
+            Text = "Dashboard";
+            Load += Dashboard_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnMenu).EndInit();

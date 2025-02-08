@@ -1,16 +1,16 @@
 
 namespace dental_C__SQLServer_app
 {
-    public partial class Form1 : Form
+    public partial class Dashboard : Form
     {
         private Button selectedButton;
         private bool sidebarExpand = true;
-        public Form1()
+        public Dashboard()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Dashboard_Load(object sender, EventArgs e)
         {
 
         }
