@@ -1,5 +1,6 @@
 
 using dental_C__SQLServer_app.Classes;
+using dental_C__SQLServer_app.Forms;
 
 namespace dental_C__SQLServer_app
 {
@@ -17,7 +18,7 @@ namespace dental_C__SQLServer_app
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             
-            Application.Run(new UserPanel());
+            Application.Run(new Quote());
         }
     }
 }
