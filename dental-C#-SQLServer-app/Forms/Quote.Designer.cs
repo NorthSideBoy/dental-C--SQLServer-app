@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Quote));
             label1 = new Label();
             groupBox1 = new GroupBox();
+            button4 = new Button();
             button3 = new Button();
             button2 = new Button();
             textBox3 = new TextBox();
@@ -54,15 +55,17 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Cooper Black", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(93, 61);
+            label1.Location = new Point(193, 61);
             label1.Name = "label1";
             label1.Size = new Size(105, 36);
             label1.TabIndex = 0;
             label1.Text = "Citas ";
+            label1.Click += label1_Click;
             // 
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(213, 231, 255);
+            groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(textBox3);
@@ -79,9 +82,18 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
             // 
+            // button4
+            // 
+            button4.Location = new Point(44, 251);
+            button4.Name = "button4";
+            button4.Size = new Size(113, 30);
+            button4.TabIndex = 11;
+            button4.Text = "Confirmar";
+            button4.UseVisualStyleBackColor = true;
+            // 
             // button3
             // 
-            button3.Location = new Point(261, 251);
+            button3.Location = new Point(330, 251);
             button3.Name = "button3";
             button3.Size = new Size(104, 30);
             button3.TabIndex = 10;
@@ -90,7 +102,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(121, 251);
+            button2.Location = new Point(182, 251);
             button2.Name = "button2";
             button2.Size = new Size(104, 30);
             button2.TabIndex = 9;
@@ -150,14 +162,14 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(611, 151);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(530, 287);
+            dataGridView1.Size = new Size(580, 363);
             dataGridView1.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Cooper Black", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(744, 61);
+            label2.Location = new Point(786, 61);
             label2.Name = "label2";
             label2.Size = new Size(235, 36);
             label2.TabIndex = 3;
@@ -176,7 +188,7 @@
             // textBox4
             // 
             textBox4.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(658, 104);
+            textBox4.Location = new Point(688, 107);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(126, 26);
             textBox4.TabIndex = 5;
@@ -185,7 +197,7 @@
             // textBox5
             // 
             textBox5.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox5.Location = new Point(813, 105);
+            textBox5.Location = new Point(853, 107);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(126, 26);
             textBox5.TabIndex = 6;
@@ -194,7 +206,7 @@
             // button1
             // 
             button1.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(985, 105);
+            button1.Location = new Point(1049, 105);
             button1.Name = "button1";
             button1.Size = new Size(90, 29);
             button1.TabIndex = 7;
@@ -206,7 +218,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1153, 450);
+            ClientSize = new Size(1203, 526);
             Controls.Add(button1);
             Controls.Add(textBox5);
             Controls.Add(textBox4);
@@ -244,5 +256,6 @@
         private Button button1;
         private Button button3;
         private Button button2;
+        private Button button4;
     }
 }

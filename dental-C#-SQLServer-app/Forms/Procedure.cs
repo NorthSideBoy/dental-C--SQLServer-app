@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace dental_C__SQLServer_app.Forms
 {
-    public partial class Quote : Form
+    public partial class Procedure : Form
     {
-        public Quote()
+        public Procedure()
         {
             InitializeComponent();
-        }
-
-        private void Quote_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
