@@ -43,9 +43,10 @@
             txtCedula = new TextBox();
             label7 = new Label();
             btnRegresar = new PictureBox();
-            ROL = new ComboBox();
+            comboxRol = new ComboBox();
             labelRol = new Label();
-            txtTelefonoUser = new TextBox();
+            comboxTlf = new ComboBox();
+            label4 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnRegresar).BeginInit();
@@ -83,6 +84,7 @@
             btnRegistrar.TabIndex = 11;
             btnRegistrar.Text = "REGISTRAR";
             btnRegistrar.UseVisualStyleBackColor = false;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // label1
             // 
@@ -213,39 +215,45 @@
             btnRegresar.TabStop = false;
             btnRegresar.Click += btnRegresar_Click;
             // 
-            // ROL
+            // comboxRol
             // 
-            ROL.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ROL.FormattingEnabled = true;
-            ROL.Items.AddRange(new object[] { "Admin", "User" });
-            ROL.Location = new Point(105, 373);
-            ROL.Name = "ROL";
-            ROL.Size = new Size(175, 29);
-            ROL.TabIndex = 20;
+            comboxRol.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboxRol.FormattingEnabled = true;
+            comboxRol.Items.AddRange(new object[] { "Admin", "User" });
+            comboxRol.Location = new Point(105, 358);
+            comboxRol.Name = "comboxRol";
+            comboxRol.Size = new Size(175, 29);
+            comboxRol.TabIndex = 20;
             // 
             // labelRol
             // 
             labelRol.AutoSize = true;
             labelRol.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelRol.Location = new Point(62, 371);
+            labelRol.Location = new Point(62, 366);
             labelRol.Name = "labelRol";
             labelRol.Size = new Size(37, 21);
             labelRol.TabIndex = 21;
             labelRol.Text = "Rol:";
             // 
-            // txtTelefonoUser
+            // comboxTlf
             // 
-            txtTelefonoUser.BackColor = Color.FromArgb(236, 255, 249);
-            txtTelefonoUser.BorderStyle = BorderStyle.None;
-            txtTelefonoUser.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtTelefonoUser.Location = new Point(62, 204);
-            txtTelefonoUser.Multiline = true;
-            txtTelefonoUser.Name = "txtTelefonoUser";
-            txtTelefonoUser.Size = new Size(306, 23);
-            txtTelefonoUser.TabIndex = 22;
-            txtTelefonoUser.Text = "Telefono";
-            txtTelefonoUser.Enter += txtTelefonoUser_Enter;
-            txtTelefonoUser.Leave += txtTelefonoUser_Leave;
+            comboxTlf.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboxTlf.FormattingEnabled = true;
+            comboxTlf.Items.AddRange(new object[] { "0424", "0414", "0412", "0416" });
+            comboxTlf.Location = new Point(144, 201);
+            comboxTlf.Name = "comboxTlf";
+            comboxTlf.Size = new Size(217, 29);
+            comboxTlf.TabIndex = 23;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Location = new Point(62, 204);
+            label4.Name = "label4";
+            label4.Size = new Size(76, 21);
+            label4.TabIndex = 24;
+            label4.Text = "Telefono";
             // 
             // Register
             // 
@@ -254,9 +262,10 @@
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackColor = Color.FromArgb(236, 255, 249);
             ClientSize = new Size(809, 472);
-            Controls.Add(txtTelefonoUser);
+            Controls.Add(label4);
+            Controls.Add(comboxTlf);
             Controls.Add(labelRol);
-            Controls.Add(ROL);
+            Controls.Add(comboxRol);
             Controls.Add(btnRegresar);
             Controls.Add(txtConfirmar);
             Controls.Add(txtContrasena);
@@ -295,8 +304,10 @@
         private TextBox txtCedula;
         private Label label7;
         private PictureBox btnRegresar;
-        private ComboBox ROL;
+        private ComboBox comboxRol;
         private Label labelRol;
         private TextBox txtTelefonoUser;
+        private ComboBox comboxTlf;
+        private Label label4;
     }
 }

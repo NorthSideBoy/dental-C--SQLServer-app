@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+using Microsoft.Data.SqlClient; //Para usar la BD sin crear conflicto.
 
 namespace dental_C__SQLServer_app
 {
@@ -17,11 +17,28 @@ namespace dental_C__SQLServer_app
         public Register()
         {
             InitializeComponent();
-            //Clases.conexion ObjetConexion = new Clases.conexion();
-            //ObjetConexion.establecerConexion();
         }
 
+        public DataTable Index()
+        {
+            DataTable dataTable = new DataTable();
+            string Sql = "SELECT * FROM Register";
+            Microsoft.Data.SqlClient.SqlCommand CMD = new Microsoft.Data.SqlClient.SqlCommand(Sql, Program.connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(CMD);
 
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        private void reset()
+        {
+            txtNusuario.Text = "";
+            txtCedula.Text = "";
+            comboxTlf.Text = "";
+            txtContrasena.Text = "";
+            txtConfirmar.Text = "";
+            comboxRol.Text = "";
+        }
         private void txtNusuario_Enter(object sender, EventArgs e)
         {
             if (txtNusuario.Text == "Nombre de Usuario")
@@ -130,6 +147,25 @@ namespace dental_C__SQLServer_app
         private void txtNusuario_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+                string Registrar = "INSERT INTO newUser (userName,Cedula,tlf,pass,rol) VALUES (@userName,@cedula,@tlf,@pass,@rol)";
+                Microsoft.Data.SqlClient.SqlCommand insert = new Microsoft.Data.SqlClient.SqlCommand(Registrar, Program.connection);
+
+
+                insert.Parameters.AddWithValue("@userName", txtNusuario.Text);
+                insert.Parameters.AddWithValue("@cedula", txtCedula.Text);
+                insert.Parameters.AddWithValue("@tlf", value: comboxTlf.Text);
+                insert.Parameters.AddWithValue("@pass", txtContrasena.Text);
+                insert.Parameters.AddWithValue("@confirmar", txtConfirmar.Text);
+                insert.Parameters.AddWithValue("@rol", value: comboxRol.Text);
+
+                insert.ExecuteNonQuery();
+                MessageBox.Show("Los Datos Fueron Guardados Correctamente");
+
+                reset();
         }
     }
 }
