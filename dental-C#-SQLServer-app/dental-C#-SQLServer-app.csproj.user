@@ -4,9 +4,6 @@
     <Compile Update="Forms\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Forms\Medical Record.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Forms\Patients.cs">
       <SubType>Form</SubType>
     </Compile>

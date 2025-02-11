@@ -18,7 +18,7 @@ namespace dental_C__SQLServer_app
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             
-            Application.Run(new Quote());
+            Application.Run(new Patients());
         }
     }
 }

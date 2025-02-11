@@ -36,7 +36,7 @@
             button2 = new Button();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtIdPaciente = new TextBox();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
@@ -57,9 +57,9 @@
             label1.Font = new Font("Cooper Black", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(193, 61);
             label1.Name = "label1";
-            label1.Size = new Size(105, 36);
+            label1.Size = new Size(82, 36);
             label1.TabIndex = 0;
-            label1.Text = "Citas ";
+            label1.Text = "Cita";
             label1.Click += label1_Click;
             // 
             // groupBox1
@@ -70,7 +70,7 @@
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(textBox3);
             groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtIdPaciente);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
@@ -88,7 +88,7 @@
             button4.Name = "button4";
             button4.Size = new Size(113, 30);
             button4.TabIndex = 11;
-            button4.Text = "Confirmar";
+            button4.Text = "Guardar";
             button4.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -97,7 +97,7 @@
             button3.Name = "button3";
             button3.Size = new Size(104, 30);
             button3.TabIndex = 10;
-            button3.Text = "Cancelar";
+            button3.Text = "Eliminar";
             button3.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -123,12 +123,12 @@
             textBox2.Size = new Size(326, 26);
             textBox2.TabIndex = 7;
             // 
-            // textBox1
+            // txtIdPaciente
             // 
-            textBox1.Location = new Point(121, 39);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(326, 26);
-            textBox1.TabIndex = 6;
+            txtIdPaciente.Location = new Point(121, 39);
+            txtIdPaciente.Name = "txtIdPaciente";
+            txtIdPaciente.Size = new Size(326, 26);
+            txtIdPaciente.TabIndex = 6;
             // 
             // label5
             // 
@@ -174,6 +174,7 @@
             label2.Size = new Size(235, 36);
             label2.TabIndex = 3;
             label2.Text = "Lista De Citas";
+            label2.Click += label2_Click;
             // 
             // pictureBox1
             // 
@@ -247,7 +248,7 @@
         private Label label3;
         private TextBox textBox3;
         private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtIdPaciente;
         private DataGridView dataGridView1;
         private Label label2;
         private PictureBox pictureBox1;

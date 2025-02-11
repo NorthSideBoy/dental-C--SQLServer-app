@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 using Microsoft.Data.SqlClient;
 using SqlDataAdapter = Microsoft.Data.SqlClient.SqlDataAdapter;
+using dental_C__SQLServer_app.Forms;
 
 namespace dental_C__SQLServer_app
 {
@@ -19,7 +20,7 @@ namespace dental_C__SQLServer_app
     {
         public Patients()
         {
-            InitializeComponent();
+            InitializeComponent(GetButton4());
         }
 
         private void Patients_Load(object sender, EventArgs e)
@@ -307,6 +308,29 @@ namespace dental_C__SQLServer_app
         private void textNombre_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void dtGridViewpatients_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Verifica si hay una fila seleccionada en el DataGridView
+            if (dtGridViewpatients.CurrentRow != null)
+            {
+                // Obtén el ID del paciente seleccionado
+                string pacienteId = dtGridViewpatients.CurrentRow.Cells["ID"].Value.ToString();
+
+                // Crea una instancia del formulario Quote y pasa el ID del paciente
+                Quote Cita = new Quote(pacienteId); // Pasa el ID al constructor de Quote
+                Cita.Show();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un paciente para crear una cita.");
+            }
         }
     }
 }

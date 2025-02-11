@@ -20,13 +20,18 @@
             base.Dispose(disposing);
         }
 
+        private Button GetButton4()
+        {
+            return button4;
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        private void InitializeComponent(Button button4)
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Patients));
@@ -56,6 +61,7 @@
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             errorProvider1 = new ErrorProvider(components);
+            button4 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dtGridViewpatients).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -76,6 +82,7 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(162, 255, 211);
+            groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(comboBoxSexo);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button2);
@@ -116,7 +123,7 @@
             // button3
             // 
             button3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(317, 304);
+            button3.Location = new Point(284, 304);
             button3.Name = "button3";
             button3.Size = new Size(81, 23);
             button3.TabIndex = 18;
@@ -303,6 +310,7 @@
             dtGridViewpatients.Size = new Size(615, 414);
             dtGridViewpatients.TabIndex = 9;
             dtGridViewpatients.CellClick += Datagr;
+            dtGridViewpatients.CellContentClick += dtGridViewpatients_CellContentClick;
             // 
             // pictureBox1
             // 
@@ -327,6 +335,17 @@
             // errorProvider1
             // 
             errorProvider1.ContainerControl = this;
+            // 
+            // button4
+            // 
+            button4.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button4.Location = new Point(395, 304);
+            button4.Name = "button4";
+            button4.Size = new Size(81, 23);
+            button4.TabIndex = 20;
+            button4.Text = "Cita";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // Patients
             // 
@@ -382,5 +401,6 @@
         private PictureBox pictureBox2;
         private ErrorProvider errorProvider1;
         private ComboBox comboBoxSexo;
+        private Button button4;
     }
 }
