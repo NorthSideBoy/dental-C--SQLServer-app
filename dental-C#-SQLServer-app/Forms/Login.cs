@@ -23,6 +23,45 @@ namespace dental_C__SQLServer_app
 
         }
 
+        public bool AuthenticateUser(string txtuser, string txtpass)
+        {
+            bool isAuthenticated = false;
+            string sql = "SELECT COUNT(*) FROM newUser WHERE txtuser = @username AND txtpass = @password";
+
+            using (Microsoft.Data.SqlClient.SqlCommand cmd = new Microsoft.Data.SqlClient.SqlCommand(sql, Program.connection))
+            {
+
+                // parámetros
+                cmd.Parameters.AddWithValue("@username", txtuser);
+                cmd.Parameters.AddWithValue("@password", txtpass);
+
+                try
+                {
+                    Program.connection.Open();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(text: "Verifique el Usuario y la Contraseña");
+                }
+                finally
+                {
+                    if (Program.connection.State == ConnectionState.Open)
+                    {
+                        Program.connection.Close();
+                    }
+                }
+                Program.connection.Open();
+                int count = (int)cmd.ExecuteScalar();
+                Program.connection.Close();
+
+                // Si el conteo es mayor que 0, el usuario existe
+                isAuthenticated = count > 0;
+
+                MessageBox.Show(text: "si existe este usuario");
+            }
+
+            return isAuthenticated;
+        }
         private void txtuser_Enter(object sender, EventArgs e)
         {
             //Condicion para vaciar el texto de usuario, para ingresar un nombre
@@ -106,6 +145,32 @@ namespace dental_C__SQLServer_app
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAcceder_Click(object sender, EventArgs e)
+        {
+            string username = txtuser.Text; 
+            string password = txtpass.Text; 
+
+            // Llamar al método de autenticación
+            bool isAuthenticated = AuthenticateUser(username, password);
+
+            if (isAuthenticated)
+            {
+                MessageBox.Show("Acceso concedido. Bienvenido!");
+                // Aquí puedes redirigir al usuario a la siguiente pantalla o formulario
+                Welcome re = new Welcome();
+                re.Show();
+            }
+            else
+            {
+                MessageBox.Show("Nombre de usuario o contraseña incorrectos. Inténtalo de nuevo.");
+            }
         }
     }
 }

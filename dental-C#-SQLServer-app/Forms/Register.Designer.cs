@@ -47,6 +47,7 @@
             labelRol = new Label();
             comboxTlf = new ComboBox();
             label4 = new Label();
+            btnLogin = new Button();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnRegresar).BeginInit();
@@ -255,6 +256,16 @@
             label4.TabIndex = 24;
             label4.Text = "Telefono";
             // 
+            // btnLogin
+            // 
+            btnLogin.Location = new Point(302, 421);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(75, 23);
+            btnLogin.TabIndex = 25;
+            btnLogin.Text = "login";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
+            // 
             // Register
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -262,6 +273,7 @@
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackColor = Color.FromArgb(236, 255, 249);
             ClientSize = new Size(809, 472);
+            Controls.Add(btnLogin);
             Controls.Add(label4);
             Controls.Add(comboxTlf);
             Controls.Add(labelRol);
@@ -309,5 +321,6 @@
         private TextBox txtTelefonoUser;
         private ComboBox comboxTlf;
         private Label label4;
+        private Button btnLogin;
     }
 }

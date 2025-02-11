@@ -26,14 +26,5 @@ namespace dental_C__SQLServer_app
             re.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

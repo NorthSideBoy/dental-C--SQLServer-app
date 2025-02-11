@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace dental_C__SQLServer_app.Clases
 {
-    internal class User 
+    partial class User
     {
+       
     }
 }

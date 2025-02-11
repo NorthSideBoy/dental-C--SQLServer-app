@@ -168,6 +168,7 @@
             btnAcceder.TabIndex = 7;
             btnAcceder.Text = "ACCEDER";
             btnAcceder.UseVisualStyleBackColor = false;
+            btnAcceder.Click += btnAcceder_Click;
             // 
             // panel2
             // 
@@ -280,6 +281,7 @@
             Name = "Login";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
+            Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)btnminimizar).EndInit();

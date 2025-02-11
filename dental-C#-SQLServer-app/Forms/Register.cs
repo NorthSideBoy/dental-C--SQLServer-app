@@ -151,21 +151,27 @@ namespace dental_C__SQLServer_app
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-                string Registrar = "INSERT INTO newUser (userName,Cedula,tlf,pass,rol) VALUES (@userName,@cedula,@tlf,@pass,@rol)";
-                Microsoft.Data.SqlClient.SqlCommand insert = new Microsoft.Data.SqlClient.SqlCommand(Registrar, Program.connection);
+            string Registrar = "INSERT INTO newUser (userName,Cedula,tlf,pass,rol) VALUES (@userName,@cedula,@tlf,@pass,@rol)";
+            Microsoft.Data.SqlClient.SqlCommand insert = new Microsoft.Data.SqlClient.SqlCommand(Registrar, Program.connection);
 
 
-                insert.Parameters.AddWithValue("@userName", txtNusuario.Text);
-                insert.Parameters.AddWithValue("@cedula", txtCedula.Text);
-                insert.Parameters.AddWithValue("@tlf", value: comboxTlf.Text);
-                insert.Parameters.AddWithValue("@pass", txtContrasena.Text);
-                insert.Parameters.AddWithValue("@confirmar", txtConfirmar.Text);
-                insert.Parameters.AddWithValue("@rol", value: comboxRol.Text);
+            insert.Parameters.AddWithValue("@userName", txtNusuario.Text);
+            insert.Parameters.AddWithValue("@cedula", txtCedula.Text);
+            insert.Parameters.AddWithValue("@tlf", value: comboxTlf.Text);
+            insert.Parameters.AddWithValue("@pass", txtContrasena.Text);
+            insert.Parameters.AddWithValue("@confirmar", txtConfirmar.Text);
+            insert.Parameters.AddWithValue("@rol", value: comboxRol.Text);
 
-                insert.ExecuteNonQuery();
-                MessageBox.Show("Los Datos Fueron Guardados Correctamente");
+            insert.ExecuteNonQuery();
+            MessageBox.Show("Los Datos Fueron Guardados Correctamente");
 
-                reset();
+            reset();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            Login re = new Login();
+            re.Show();
         }
     }
 }
