@@ -31,12 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Quote));
             label1 = new Label();
             groupBox1 = new GroupBox();
+            textBoxApellido = new TextBox();
+            textBoxNombre = new TextBox();
+            label7 = new Label();
+            label6 = new Label();
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
-            txtIdPaciente = new TextBox();
+            textBoxID = new TextBox();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
@@ -65,26 +69,62 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(213, 231, 255);
+            groupBox1.Controls.Add(textBoxApellido);
+            groupBox1.Controls.Add(textBoxNombre);
+            groupBox1.Controls.Add(label7);
+            groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(textBox3);
             groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(txtIdPaciente);
+            groupBox1.Controls.Add(textBoxID);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(12, 151);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(499, 287);
+            groupBox1.Size = new Size(499, 504);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
             // 
+            // textBoxApellido
+            // 
+            textBoxApellido.Location = new Point(138, 156);
+            textBoxApellido.Name = "textBoxApellido";
+            textBoxApellido.Size = new Size(331, 26);
+            textBoxApellido.TabIndex = 15;
+            // 
+            // textBoxNombre
+            // 
+            textBoxNombre.Location = new Point(138, 93);
+            textBoxNombre.Name = "textBoxNombre";
+            textBoxNombre.Size = new Size(331, 26);
+            textBoxNombre.TabIndex = 14;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(6, 96);
+            label7.Name = "label7";
+            label7.Size = new Size(74, 19);
+            label7.TabIndex = 13;
+            label7.Text = "Nombre";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(6, 163);
+            label6.Name = "label6";
+            label6.Size = new Size(79, 19);
+            label6.TabIndex = 12;
+            label6.Text = "Apellido";
+            // 
             // button4
             // 
-            button4.Location = new Point(44, 251);
+            button4.Location = new Point(19, 450);
             button4.Name = "button4";
             button4.Size = new Size(113, 30);
             button4.TabIndex = 11;
@@ -93,7 +133,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(330, 251);
+            button3.Location = new Point(291, 450);
             button3.Name = "button3";
             button3.Size = new Size(104, 30);
             button3.TabIndex = 10;
@@ -102,7 +142,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(182, 251);
+            button2.Location = new Point(159, 450);
             button2.Name = "button2";
             button2.Size = new Size(104, 30);
             button2.TabIndex = 9;
@@ -111,29 +151,29 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(121, 193);
+            textBox3.Location = new Point(138, 318);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(326, 26);
+            textBox3.Size = new Size(331, 26);
             textBox3.TabIndex = 8;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(121, 98);
+            textBox2.Location = new Point(138, 219);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(326, 26);
+            textBox2.Size = new Size(331, 26);
             textBox2.TabIndex = 7;
             // 
-            // txtIdPaciente
+            // textBoxID
             // 
-            txtIdPaciente.Location = new Point(121, 39);
-            txtIdPaciente.Name = "txtIdPaciente";
-            txtIdPaciente.Size = new Size(326, 26);
-            txtIdPaciente.TabIndex = 6;
+            textBoxID.Location = new Point(138, 39);
+            textBoxID.Name = "textBoxID";
+            textBoxID.Size = new Size(331, 26);
+            textBoxID.TabIndex = 6;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(0, 200);
+            label5.Location = new Point(0, 325);
             label5.Name = "label5";
             label5.Size = new Size(115, 19);
             label5.TabIndex = 5;
@@ -142,7 +182,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(6, 105);
+            label4.Location = new Point(6, 226);
             label4.Name = "label4";
             label4.Size = new Size(66, 19);
             label4.TabIndex = 4;
@@ -153,9 +193,10 @@
             label3.AutoSize = true;
             label3.Location = new Point(6, 42);
             label3.Name = "label3";
-            label3.Size = new Size(77, 19);
+            label3.Size = new Size(126, 19);
             label3.TabIndex = 3;
-            label3.Text = "Paciente";
+            label3.Text = "ID De Paciente";
+            label3.Click += label3_Click;
             // 
             // dataGridView1
             // 
@@ -219,7 +260,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1203, 526);
+            ClientSize = new Size(1203, 679);
             Controls.Add(button1);
             Controls.Add(textBox5);
             Controls.Add(textBox4);
@@ -230,7 +271,6 @@
             Controls.Add(label1);
             Name = "Quote";
             Text = "Quote";
-            Load += Quote_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -248,7 +288,7 @@
         private Label label3;
         private TextBox textBox3;
         private TextBox textBox2;
-        private TextBox txtIdPaciente;
+        private TextBox textBoxID;
         private DataGridView dataGridView1;
         private Label label2;
         private PictureBox pictureBox1;
@@ -258,5 +298,9 @@
         private Button button3;
         private Button button2;
         private Button button4;
+        private TextBox textBoxApellido;
+        private TextBox textBoxNombre;
+        private Label label7;
+        private Label label6;
     }
 }

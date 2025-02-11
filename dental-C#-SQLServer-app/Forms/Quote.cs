@@ -7,56 +7,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace dental_C__SQLServer_app.Forms
 {
     public partial class Quote : Form
     {
 
-            private string pacienteId; // Variable para almacenar el ID del paciente
-
-            // Constructor que acepta el ID del paciente
-            public Quote(string pacienteId)
-            {
-                InitializeComponent();
-                this.pacienteId = pacienteId; // Almacena el ID del paciente
-            }
-
-            private void Quote_Load(object sender, EventArgs e)
-            {
-                // Asigna el ID del paciente al TextBox txtIdPaciente
-                txtIdPaciente.Text = pacienteId;
-            }
-        
-
-      
-        
+        public Quote(string id, string nombre, string apellido)
+        {
+            InitializeComponent();
+            textBoxID.Text = id;
+            textBoxNombre.Text = nombre;
+            textBoxApellido.Text = apellido;
+        }
         public Quote()
         {
             InitializeComponent();
         }
 
         
-        
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            // Evento para el clic en label1 (puedes agregar lógica si es necesario)
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+            // Evento para el clic en label2 (puedes agregar lógica si es necesario)
         }
-    }
 
-    internal class SeleccionarPacienteForm
-    {
-        internal string IdPacienteSeleccionado;
-
-        internal DialogResult ShowDialog()
+        private void label3_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            // Evento para el clic en label3 (puedes agregar lógica si es necesario)
         }
     }
 }

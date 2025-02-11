@@ -320,11 +320,13 @@ namespace dental_C__SQLServer_app
             // Verifica si hay una fila seleccionada en el DataGridView
             if (dtGridViewpatients.CurrentRow != null)
             {
-                // Obtén el ID del paciente seleccionado
-                string pacienteId = dtGridViewpatients.CurrentRow.Cells["ID"].Value.ToString();
+                // Obtén los valores de la fila seleccionada
+                string id = dtGridViewpatients.CurrentRow.Cells["ID"].Value.ToString();
+                string nombre = dtGridViewpatients.CurrentRow.Cells["Nombre"].Value.ToString();
+                string apellido = dtGridViewpatients.CurrentRow.Cells["Apellido"].Value.ToString();
 
-                // Crea una instancia del formulario Quote y pasa el ID del paciente
-                Quote Cita = new Quote(pacienteId); // Pasa el ID al constructor de Quote
+                // Crea una instancia del formulario Quote y pasa los valores
+                Form Cita = new Quote(id, nombre, apellido);
                 Cita.Show();
             }
             else
