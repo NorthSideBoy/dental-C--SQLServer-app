@@ -26,7 +26,7 @@ namespace dental_C__SQLServer_app
         public bool AuthenticateUser(string txtuser, string txtpass)
         {
             bool isAuthenticated = false;
-            string sql = "SELECT COUNT(*) FROM newUser WHERE txtuser = @username AND txtpass = @password";
+            string sql = "SELECT COUNT(*) FROM newUser WHERE userName = @username AND pass = @password";
 
             using (Microsoft.Data.SqlClient.SqlCommand cmd = new Microsoft.Data.SqlClient.SqlCommand(sql, Program.connection))
             {

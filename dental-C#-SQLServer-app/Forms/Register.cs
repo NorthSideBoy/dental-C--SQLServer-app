@@ -120,24 +120,6 @@ namespace dental_C__SQLServer_app
             re.Show();
         }
 
-        private void txtTelefonoUser_Enter(object sender, EventArgs e)
-        {
-            if (txtTelefonoUser.Text == "Telefono")
-            {
-                txtTelefonoUser.Text = "";
-                txtTelefonoUser.ForeColor = Color.Black;
-            }
-        }
-
-        private void txtTelefonoUser_Leave(object sender, EventArgs e)
-        {
-            if (txtTelefonoUser.Text == "")
-            {
-                txtTelefonoUser.Text = "Telefono";
-                txtTelefonoUser.ForeColor = Color.Black;
-            }
-        }
-
         private void Form2_Load(object sender, EventArgs e)
         {
 
@@ -151,6 +133,7 @@ namespace dental_C__SQLServer_app
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+
             string Registrar = "INSERT INTO newUser (userName,Cedula,tlf,pass,rol) VALUES (@userName,@cedula,@tlf,@pass,@rol)";
             Microsoft.Data.SqlClient.SqlCommand insert = new Microsoft.Data.SqlClient.SqlCommand(Registrar, Program.connection);
 
@@ -167,7 +150,7 @@ namespace dental_C__SQLServer_app
 
             reset();
         }
-
+  
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Login re = new Login();
