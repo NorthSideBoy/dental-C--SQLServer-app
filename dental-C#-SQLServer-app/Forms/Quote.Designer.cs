@@ -31,6 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Quote));
             label1 = new Label();
             groupBox1 = new GroupBox();
+            button5 = new Button();
+            label8 = new Label();
+            textBox1 = new TextBox();
             textBoxApellido = new TextBox();
             textBoxNombre = new TextBox();
             label7 = new Label();
@@ -69,6 +72,9 @@
             // groupBox1
             // 
             groupBox1.BackColor = Color.FromArgb(213, 231, 255);
+            groupBox1.Controls.Add(button5);
+            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(textBox1);
             groupBox1.Controls.Add(textBoxApellido);
             groupBox1.Controls.Add(textBoxNombre);
             groupBox1.Controls.Add(label7);
@@ -85,10 +91,35 @@
             groupBox1.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(12, 151);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(499, 504);
+            groupBox1.Size = new Size(555, 504);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
+            // 
+            // button5
+            // 
+            button5.Location = new Point(420, 450);
+            button5.Name = "button5";
+            button5.Size = new Size(110, 30);
+            button5.TabIndex = 18;
+            button5.Text = "Confirmar";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(6, 383);
+            label8.Name = "label8";
+            label8.Size = new Size(50, 19);
+            label8.TabIndex = 17;
+            label8.Text = "Hora";
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(138, 376);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(331, 26);
+            textBox1.TabIndex = 16;
             // 
             // textBoxApellido
             // 
@@ -124,7 +155,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(19, 450);
+            button4.Location = new Point(6, 450);
             button4.Name = "button4";
             button4.Size = new Size(113, 30);
             button4.TabIndex = 11;
@@ -133,11 +164,11 @@
             // 
             // button3
             // 
-            button3.Location = new Point(291, 450);
+            button3.Location = new Point(295, 450);
             button3.Name = "button3";
             button3.Size = new Size(104, 30);
             button3.TabIndex = 10;
-            button3.Text = "Eliminar";
+            button3.Text = "Cancelar";
             button3.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -173,11 +204,11 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(0, 325);
+            label5.Location = new Point(6, 325);
             label5.Name = "label5";
-            label5.Size = new Size(115, 19);
+            label5.Size = new Size(60, 19);
             label5.TabIndex = 5;
-            label5.Text = "Fecha y Hora";
+            label5.Text = "Fecha ";
             // 
             // label4
             // 
@@ -201,9 +232,9 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(611, 151);
+            dataGridView1.Location = new Point(688, 151);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(580, 363);
+            dataGridView1.Size = new Size(503, 363);
             dataGridView1.TabIndex = 2;
             // 
             // label2
@@ -260,7 +291,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1203, 679);
+            ClientSize = new Size(1288, 679);
             Controls.Add(button1);
             Controls.Add(textBox5);
             Controls.Add(textBox4);
@@ -271,6 +302,7 @@
             Controls.Add(label1);
             Name = "Quote";
             Text = "Quote";
+            Load += Quote_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -302,5 +334,8 @@
         private TextBox textBoxNombre;
         private Label label7;
         private Label label6;
+        private Label label8;
+        private TextBox textBox1;
+        private Button button5;
     }
 }

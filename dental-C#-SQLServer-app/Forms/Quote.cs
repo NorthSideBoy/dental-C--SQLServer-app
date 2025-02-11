@@ -8,13 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
+using dental_C__SQLServer_app.Validations.Dating_methods;
 
 namespace dental_C__SQLServer_app.Forms
 {
     public partial class Quote : Form
     {
-
         public Quote(string id, string nombre, string apellido)
         {
             InitializeComponent();
@@ -22,12 +21,20 @@ namespace dental_C__SQLServer_app.Forms
             textBoxNombre.Text = nombre;
             textBoxApellido.Text = apellido;
         }
+
         public Quote()
         {
             InitializeComponent();
         }
 
-        
+        private void Quote_Load(object sender, EventArgs e)
+        {
+            // Crear una instancia de la clase CQuote
+            CQuote cQuote = new CQuote();
+
+            // Llamar al método Cita() y asignar el resultado al DataGridView
+            dataGridView1.DataSource = cQuote.Cita();
+        }
 
         private void label1_Click(object sender, EventArgs e)
         {
