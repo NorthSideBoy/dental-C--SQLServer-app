@@ -9,6 +9,7 @@ namespace dental_C__SQLServer_app
         ///  The main entry point for the application.
         /// </summary>
         //[STAThread]
+
         private static readonly Database database = new();
         public static Microsoft.Data.SqlClient.SqlConnection connection = database.Connection();
         static void Main()
@@ -18,6 +19,16 @@ namespace dental_C__SQLServer_app
             ApplicationConfiguration.Initialize();
             
             Application.Run(new UserPanel());
+
+           
+            string password = "miContraseñaSegura";
+            string hashedPassword = HashPassword(password);
+            Console.WriteLine("Contraseña encriptada: " + hashedPassword);
+        }
+
+        private static string HashPassword(string password)
+        {
+            throw new NotImplementedException();
         }
     }
 }

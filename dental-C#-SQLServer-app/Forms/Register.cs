@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
-using Microsoft.Data.SqlClient; //Para usar la BD sin crear conflicto.
+using Microsoft.Data.SqlClient;
+using dental_C__SQLServer_app.Validations; //Para usar la BD sin crear conflicto.
 
 namespace dental_C__SQLServer_app
 {
@@ -133,6 +134,11 @@ namespace dental_C__SQLServer_app
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            CamposValidacion validator = new CamposValidacion(); // Instancia de la clase
+            bool esValido = validator.ValidarNombreUsuario(txtNusuario.Text); // Llamada al método
+
+
+            string hashedPassword = HashPassword(txtContrasena.Text);
 
             string Registrar = "INSERT INTO newUser (userName,Cedula,tlf,pass,rol) VALUES (@userName,@cedula,@tlf,@pass,@rol)";
             Microsoft.Data.SqlClient.SqlCommand insert = new Microsoft.Data.SqlClient.SqlCommand(Registrar, Program.connection);
@@ -150,7 +156,7 @@ namespace dental_C__SQLServer_app
 
             reset();
         }
-  
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Login re = new Login();
