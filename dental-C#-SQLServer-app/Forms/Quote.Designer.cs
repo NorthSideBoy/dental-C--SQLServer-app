@@ -33,7 +33,7 @@
             groupBox1 = new GroupBox();
             button5 = new Button();
             label8 = new Label();
-            textBox1 = new TextBox();
+            textBoxHora = new TextBox();
             textBoxApellido = new TextBox();
             textBoxNombre = new TextBox();
             label7 = new Label();
@@ -41,9 +41,9 @@
             button4 = new Button();
             button3 = new Button();
             button2 = new Button();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBoxID = new TextBox();
+            textBoxFecha = new TextBox();
+            textBoxMotivo = new TextBox();
+            textBoxID_Pacients = new TextBox();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
@@ -74,7 +74,7 @@
             groupBox1.BackColor = Color.FromArgb(213, 231, 255);
             groupBox1.Controls.Add(button5);
             groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(textBoxHora);
             groupBox1.Controls.Add(textBoxApellido);
             groupBox1.Controls.Add(textBoxNombre);
             groupBox1.Controls.Add(label7);
@@ -82,9 +82,9 @@
             groupBox1.Controls.Add(button4);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button2);
-            groupBox1.Controls.Add(textBox3);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBoxID);
+            groupBox1.Controls.Add(textBoxFecha);
+            groupBox1.Controls.Add(textBoxMotivo);
+            groupBox1.Controls.Add(textBoxID_Pacients);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
@@ -114,12 +114,12 @@
             label8.TabIndex = 17;
             label8.Text = "Hora";
             // 
-            // textBox1
+            // textBoxHora
             // 
-            textBox1.Location = new Point(138, 376);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(331, 26);
-            textBox1.TabIndex = 16;
+            textBoxHora.Location = new Point(138, 376);
+            textBoxHora.Name = "textBoxHora";
+            textBoxHora.Size = new Size(331, 26);
+            textBoxHora.TabIndex = 16;
             // 
             // textBoxApellido
             // 
@@ -161,6 +161,7 @@
             button4.TabIndex = 11;
             button4.Text = "Guardar";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -180,26 +181,26 @@
             button2.Text = "Modificar";
             button2.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // textBoxFecha
             // 
-            textBox3.Location = new Point(138, 318);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(331, 26);
-            textBox3.TabIndex = 8;
+            textBoxFecha.Location = new Point(138, 318);
+            textBoxFecha.Name = "textBoxFecha";
+            textBoxFecha.Size = new Size(331, 26);
+            textBoxFecha.TabIndex = 8;
             // 
-            // textBox2
+            // textBoxMotivo
             // 
-            textBox2.Location = new Point(138, 219);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(331, 26);
-            textBox2.TabIndex = 7;
+            textBoxMotivo.Location = new Point(138, 219);
+            textBoxMotivo.Name = "textBoxMotivo";
+            textBoxMotivo.Size = new Size(331, 26);
+            textBoxMotivo.TabIndex = 7;
             // 
-            // textBoxID
+            // textBoxID_Pacients
             // 
-            textBoxID.Location = new Point(138, 39);
-            textBoxID.Name = "textBoxID";
-            textBoxID.Size = new Size(331, 26);
-            textBoxID.TabIndex = 6;
+            textBoxID_Pacients.Location = new Point(138, 39);
+            textBoxID_Pacients.Name = "textBoxID_Pacients";
+            textBoxID_Pacients.Size = new Size(331, 26);
+            textBoxID_Pacients.TabIndex = 6;
             // 
             // label5
             // 
@@ -234,8 +235,10 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(688, 151);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(503, 363);
+            dataGridView1.Size = new Size(623, 504);
             dataGridView1.TabIndex = 2;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label2
             // 
@@ -291,7 +294,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1288, 679);
+            ClientSize = new Size(1323, 679);
             Controls.Add(button1);
             Controls.Add(textBox5);
             Controls.Add(textBox4);
@@ -318,9 +321,9 @@
         private Label label5;
         private Label label4;
         private Label label3;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBoxID;
+        private TextBox textBoxFecha;
+        private TextBox textBoxMotivo;
+        private TextBox textBoxID_Pacients;
         private DataGridView dataGridView1;
         private Label label2;
         private PictureBox pictureBox1;
@@ -335,7 +338,7 @@
         private Label label7;
         private Label label6;
         private Label label8;
-        private TextBox textBox1;
+        private TextBox textBoxHora;
         private Button button5;
     }
 }
