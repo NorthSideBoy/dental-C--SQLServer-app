@@ -43,7 +43,7 @@
             button2 = new Button();
             textBoxFecha = new TextBox();
             textBoxMotivo = new TextBox();
-            textBoxID_Pacients = new TextBox();
+            textBoxID_Patients = new TextBox();
             label5 = new Label();
             label4 = new Label();
             label3 = new Label();
@@ -84,7 +84,7 @@
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(textBoxFecha);
             groupBox1.Controls.Add(textBoxMotivo);
-            groupBox1.Controls.Add(textBoxID_Pacients);
+            groupBox1.Controls.Add(textBoxID_Patients);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
@@ -180,6 +180,7 @@
             button2.TabIndex = 9;
             button2.Text = "Modificar";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // textBoxFecha
             // 
@@ -195,12 +196,12 @@
             textBoxMotivo.Size = new Size(331, 26);
             textBoxMotivo.TabIndex = 7;
             // 
-            // textBoxID_Pacients
+            // textBoxID_Patients
             // 
-            textBoxID_Pacients.Location = new Point(138, 39);
-            textBoxID_Pacients.Name = "textBoxID_Pacients";
-            textBoxID_Pacients.Size = new Size(331, 26);
-            textBoxID_Pacients.TabIndex = 6;
+            textBoxID_Patients.Location = new Point(138, 39);
+            textBoxID_Patients.Name = "textBoxID_Patients";
+            textBoxID_Patients.Size = new Size(331, 26);
+            textBoxID_Patients.TabIndex = 6;
             // 
             // label5
             // 
@@ -323,7 +324,7 @@
         private Label label3;
         private TextBox textBoxFecha;
         private TextBox textBoxMotivo;
-        private TextBox textBoxID_Pacients;
+        private TextBox textBoxID_Patients;
         private DataGridView dataGridView1;
         private Label label2;
         private PictureBox pictureBox1;

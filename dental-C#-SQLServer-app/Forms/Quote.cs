@@ -18,11 +18,12 @@ namespace dental_C__SQLServer_app.Forms
         public Quote(string id, string nombre, string apellido)
         {
             InitializeComponent();
-            textBoxID_Pacients.Text = id;
+            textBoxID_Patients.Text = id;
             textBoxNombre.Text = nombre;
             textBoxApellido.Text = apellido;
         }
 
+        private string _selectedID; // Variable para almacenar el ID seleccionado
         public Quote()
         {
             InitializeComponent();
@@ -55,29 +56,7 @@ namespace dental_C__SQLServer_app.Forms
         private void button4_Click(object sender, EventArgs e)
         {
 
-            // Obtener los valores de los TextBox
-            string ID_Patient = textBoxID_Pacients.Text;
-            string nombre = textBoxNombre.Text;
-            string apellido = textBoxApellido.Text;
-            string Motivo = textBoxMotivo.Text;
-            string Fecha = textBoxFecha.Text;
-            string Hora = textBoxHora.Text;
-            String ID = Text;
-
-            // Insertar la cita en la base de datos
-            CQuote cQuote = new CQuote();
-            try
-            {
-                cQuote.InsertarCita(ID_Patient, nombre, apellido, Motivo, Fecha, Hora, ID);
-                MessageBox.Show("Cita guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Actualizar el DataGridView con los nuevos datos
-                dataGridView1.DataSource = cQuote.Cita();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al guardar la cita: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -87,18 +66,36 @@ namespace dental_C__SQLServer_app.Forms
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Verificar que se ha hecho clic en una celda válida
+            // Validar que el clic no sea en la cabecera o fuera de las filas
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
+                // Crear una instancia de la clase que contiene el método Seleccionar
                 CQuote cQuote = new CQuote();
-                cQuote.Seleccionar(dataGridView1, textBoxID_Pacients, textBoxNombre, textBoxApellido, textBoxMotivo, textBoxFecha, textBoxHora);
-            }
-            else
-            {
-                // Manejar el caso donde se hace clic en el encabezado de la columna o en una fila no válida
-                System.Diagnostics.Debug.WriteLine("Se hizo clic en una celda no válida.");
+
+                // Llamar al método Seleccionar y almacenar el ID seleccionado
+                _selectedID = cQuote.Seleccionar(
+                    dataGridView1,
+                    textBoxID_Patients,
+                    textBoxNombre,
+                    textBoxApellido,
+                    textBoxMotivo,
+                    textBoxFecha,
+                    textBoxHora
+                );
+
+                // Ahora puedes usar _selectedID para otras operaciones
+                System.Diagnostics.Debug.WriteLine($"ID seleccionado: {_selectedID}");
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Crear una instancia de la clase que contiene el método Seleccionar
+            CQuote cQuote = new CQuote();
+            cQuote.Modificar( textBoxID_Patients, textBoxMotivo, textBoxFecha, textBoxHora);
+            // Actualizar el DataGridView con los nuevos datos
+            dataGridView1.DataSource = cQuote.Cita();
+        }
     }
-   }
+}
 
