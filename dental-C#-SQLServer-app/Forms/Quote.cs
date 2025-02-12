@@ -55,8 +55,28 @@ namespace dental_C__SQLServer_app.Forms
 
         private void button4_Click(object sender, EventArgs e)
         {
+            // Obtener los valores de los TextBox
+            string ID_Patient = textBoxID_Patients.Text;
+            string nombre = textBoxNombre.Text;
+            string apellido = textBoxApellido.Text;
+            string Motivo = textBoxMotivo.Text;
+            string Fecha = textBoxFecha.Text;
+            string Hora = textBoxHora.Text;
+            String ID = Text;
+            // Insertar la cita en la base de datos
+            CQuote cQuote = new CQuote();
+            try
+            {
+                cQuote.InsertarCita(ID_Patient, nombre, apellido, Motivo, Fecha, Hora, ID);
+                MessageBox.Show("Cita guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Actualizar el DataGridView con los nuevos datos
+                dataGridView1.DataSource = cQuote.Cita();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar la cita: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -92,9 +112,45 @@ namespace dental_C__SQLServer_app.Forms
         {
             // Crear una instancia de la clase que contiene el método Seleccionar
             CQuote cQuote = new CQuote();
-            cQuote.Modificar( textBoxID_Patients, textBoxMotivo, textBoxFecha, textBoxHora);
+            cQuote.Modificar(textBoxID_Patients, textBoxMotivo, textBoxFecha, textBoxHora);
             // Actualizar el DataGridView con los nuevos datos
             dataGridView1.DataSource = cQuote.Cita();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // Validar que se haya seleccionado una cita
+            if (string.IsNullOrEmpty(_selectedID))
+            {
+                MessageBox.Show("Debe seleccionar una cita para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Pedir confirmación al usuario
+            DialogResult resultado = MessageBox.Show(
+                "¿Está seguro de que desea eliminar esta cita?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            // Si el usuario confirma, eliminar la cita
+            if (resultado == DialogResult.Yes)
+            {
+                // Crear una instancia de la clase que contiene el método EliminarCita
+                CQuote cQuote = new CQuote();
+
+                // Llamar al método EliminarCita
+                cQuote.EliminarCita(_selectedID);
+
+                // Actualizar el DataGridView (opcional)
+                dataGridView1.DataSource = cQuote.Cita(); // Suponiendo que tienes un método Cita() que devuelve un DataTable
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

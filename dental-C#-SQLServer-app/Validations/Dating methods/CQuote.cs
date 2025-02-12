@@ -27,15 +27,15 @@ namespace dental_C__SQLServer_app.Validations.Dating_methods
             return dataTable;
         }
 
-        public void InsertarCita(string ID_Patient, string nombre, string apellido,string Motivo, string Fecha,string Hora, string ID)
+        public void InsertarCita(string ID_Patients, string nombre, string apellido,string Motivo, string Fecha,string Hora, string ID)
         {
             Guid guid = Guid.NewGuid();
             string hexValue = guid.ToString("N");
 
-            string Sql = "INSERT INTO Quote_Patients (ID_Patients, Nombre, Apellido,Motivo,Fecha,Hora,ID) VALUES (@ID_Patient, @Nombre, @Apellido,@Motivo,@Fecha,@Hora,@ID)";
+            string Sql = "INSERT INTO Quote_Patients (ID_Patients, Nombre, Apellido,Motivo,Fecha,Hora,ID) VALUES (@ID_Patients, @Nombre, @Apellido,@Motivo,@Fecha,@Hora,@ID)";
             using (SqlCommand CMD = new SqlCommand(Sql, Program.connection))
             {
-                CMD.Parameters.AddWithValue("@ID_Patient", ID_Patient);
+                CMD.Parameters.AddWithValue("@ID_Patients", ID_Patients);
                 CMD.Parameters.AddWithValue("@Nombre", nombre);
                 CMD.Parameters.AddWithValue("@Apellido", apellido);
                 CMD.Parameters.AddWithValue("@Motivo", Motivo);
@@ -136,6 +136,54 @@ namespace dental_C__SQLServer_app.Validations.Dating_methods
             {
                 // Manejar errores y mostrar un mensaje al usuario
                 MessageBox.Show($"Error al modificar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Cerrar la conexión si está abierta
+                if (Program.connection.State == ConnectionState.Open)
+                {
+                    Program.connection.Close();
+                }
+            }
+        }
+
+        public void EliminarCita(string idCita)
+        {
+            try
+            {
+                // Definir la consulta SQL para eliminar la cita
+                string sql = "DELETE FROM Quote_Patients WHERE ID = @ID";
+
+                // Crear el comando SQL
+                using (SqlCommand cmd = new SqlCommand(sql, Program.connection))
+                {
+                    // Asignar el valor del parámetro @ID
+                    cmd.Parameters.AddWithValue("@ID", idCita);
+
+                    // Abrir la conexión si no está abierta
+                    if (Program.connection.State != ConnectionState.Open)
+                    {
+                        Program.connection.Open();
+                    }
+
+                    // Ejecutar la consulta
+                    int filasAfectadas = cmd.ExecuteNonQuery();
+
+                    // Verificar si se eliminó la cita correctamente
+                    if (filasAfectadas > 0)
+                    {
+                        MessageBox.Show("La cita se eliminó correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró la cita para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores y mostrar un mensaje al usuario
+                MessageBox.Show($"Error al eliminar la cita: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

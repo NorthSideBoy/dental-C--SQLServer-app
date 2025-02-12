@@ -104,6 +104,7 @@
             button5.TabIndex = 18;
             button5.Text = "Confirmar";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // label8
             // 
@@ -171,6 +172,7 @@
             button3.TabIndex = 10;
             button3.Text = "Cancelar";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
