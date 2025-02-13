@@ -30,7 +30,7 @@ namespace dental_C__SQLServer_app
         public DataTable Index()
         {
             DataTable dataTable = new DataTable();
-            string Sql = "SELECT * FROM patients";
+            string Sql = "SELECT ID, Nombre, Apellido, Cédula, FechaDeNacimiento, Edad, Dirección, Telefono, Sexo FROM patients";
             Microsoft.Data.SqlClient.SqlCommand CMD = new Microsoft.Data.SqlClient.SqlCommand(Sql, Program.connection);
             SqlDataAdapter adapter = new SqlDataAdapter(CMD);
 
@@ -50,7 +50,6 @@ namespace dental_C__SQLServer_app
             textCédula.Text = "";
             textFechaDeNacimiento.Text = "";
             textDirección.Text = "";
-            textEdad.Text = "";
             textTelefono.Text = "";
             comboBoxSexo.Text = "";
         }
@@ -62,7 +61,7 @@ namespace dental_C__SQLServer_app
                 Guid guid = Guid.NewGuid();
                 string hexValue = guid.ToString("N");
 
-                string Guardar = "INSERT INTO patients (ID,Nombre,Apellido,Cédula,FechaDeNacimiento,Dirección,Edad,Telefono,Sexo) VALUES (@ID,@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Dirección,@Edad,@Telefono,@Sexo)";
+                string Guardar = "INSERT INTO patients (ID,Nombre,Apellido,Cédula,FechaDeNacimiento,Dirección,Telefono,Sexo) VALUES (@ID,@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Dirección,@Telefono,@Sexo)";
                 Microsoft.Data.SqlClient.SqlCommand insert = new Microsoft.Data.SqlClient.SqlCommand(Guardar, Program.connection);
 
                 insert.Parameters.AddWithValue("@ID", hexValue);
@@ -71,7 +70,6 @@ namespace dental_C__SQLServer_app
                 insert.Parameters.AddWithValue("@Cédula", textCédula.Text);
                 insert.Parameters.AddWithValue("@FechaDeNacimiento", textFechaDeNacimiento.Text);
                 insert.Parameters.AddWithValue("@Dirección", textDirección.Text);
-                insert.Parameters.AddWithValue("@Edad", textEdad.Text);
                 insert.Parameters.AddWithValue("@Telefono", textTelefono.Text);
                 insert.Parameters.AddWithValue("@Sexo", value: comboBoxSexo.Text);
 
@@ -111,16 +109,20 @@ namespace dental_C__SQLServer_app
                 errorProvider1.SetError(textFechaDeNacimiento, "Ingresar Fecha De Nacimiento");
             }
 
+            DateOnly fechaDeNacimiento = new DateOnly(1910, 1, 1); // Fecha de nacimiento a validar
+            DateOnly fechaLimite = DateOnly.FromDateTime(DateTime.Today).AddYears(-110);
+            textFechaDeNacimiento.Text = fechaDeNacimiento.ToString();
+            if (fechaDeNacimiento < fechaLimite)
+            {
+                validado = false;
+                errorProvider1.SetError(textFechaDeNacimiento, "La fecha de nacimiento no puede ser anterior a " + fechaLimite.ToShortDateString());
+                reset();
+            }
+
             if (textDirección.Text == "")
             {
                 validado = false;
                 errorProvider1.SetError(textDirección, "Ingresar Dirección");
-            }
-
-            if (textEdad.Text == "")
-            {
-                validado = false;
-                errorProvider1.SetError(textEdad, "Ingresar Edad");
             }
 
             if (textTelefono.Text == "")
@@ -145,7 +147,6 @@ namespace dental_C__SQLServer_app
             errorProvider1.SetError(textCédula, "");
             errorProvider1.SetError(textFechaDeNacimiento, "");
             errorProvider1.SetError(textDirección, "");
-            errorProvider1.SetError(textEdad, "");
             errorProvider1.SetError(textTelefono, "");
             errorProvider1.SetError(comboBoxSexo, "");
         }
@@ -165,8 +166,7 @@ namespace dental_C__SQLServer_app
                 textApellido.Text = dtGridViewpatients.CurrentRow.Cells[2].Value.ToString();
                 textCédula.Text = dtGridViewpatients.CurrentRow.Cells[3].Value.ToString();
                 textFechaDeNacimiento.Text = dtGridViewpatients.CurrentRow.Cells[4].Value.ToString();
-                textDirección.Text = dtGridViewpatients.CurrentRow.Cells[5].Value.ToString();
-                textEdad.Text = dtGridViewpatients.CurrentRow.Cells[6].Value.ToString();
+                textDirección.Text = dtGridViewpatients.CurrentRow.Cells[6].Value.ToString();
                 textTelefono.Text = dtGridViewpatients.CurrentRow.Cells[7].Value.ToString();
                 comboBoxSexo.Text = dtGridViewpatients.CurrentRow.Cells[8].Value.ToString();
             }
@@ -178,7 +178,7 @@ namespace dental_C__SQLServer_app
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string modificar = "UPDATE patients SET Nombre=@Nombre,Apellido=@Apellido,Cédula=@Cédula,FechaDeNacimiento=@FechaDeNacimiento,Dirección=@Dirección,Edad=@Edad,Telefono=@Telefono,Sexo=@Sexo WHERE Id=@Id";
+            string modificar = "UPDATE patients SET Nombre=@Nombre,Apellido=@Apellido,Cédula=@Cédula,FechaDeNacimiento=@FechaDeNacimiento,Dirección=@Dirección,Telefono=@Telefono,Sexo=@Sexo WHERE Id=@Id";
             Microsoft.Data.SqlClient.SqlCommand cambios = new Microsoft.Data.SqlClient.SqlCommand(modificar, Program.connection);
 
             cambios.Parameters.AddWithValue("@Id", Text);
@@ -187,7 +187,6 @@ namespace dental_C__SQLServer_app
             cambios.Parameters.AddWithValue("@Cédula", textCédula.Text);
             cambios.Parameters.AddWithValue("@FechaDeNacimiento", textFechaDeNacimiento.Text);
             cambios.Parameters.AddWithValue("@Dirección", textDirección.Text);
-            cambios.Parameters.AddWithValue("@Edad", textEdad.Text);
             cambios.Parameters.AddWithValue("@Telefono", textTelefono.Text);
             cambios.Parameters.AddWithValue("@Sexo", value: comboBoxSexo.Text);
 
@@ -264,32 +263,11 @@ namespace dental_C__SQLServer_app
             }
         }
 
-        private void textEdad_Validating(object sender, CancelEventArgs e)
-        {
-            // Verifica si el campo está vacío 
-            if (string.IsNullOrWhiteSpace(textEdad.Text))
-            {
-                errorProvider1.SetError(textEdad, ""); // Limpia el mensaje de error si está vacío
-                return; // Sale de la validación sin hacer más comprobaciones
-            }
-
-            // Verifica si el texto es un número entero válido (solo si el campo no está vacío)
-            if (!int.TryParse(textEdad.Text, out int num))
-            {
-                errorProvider1.SetError(textEdad, "Ingrese un valor numérico entero."); // Muestra el error
-            }
-            else
-            {
-                errorProvider1.SetError(textEdad, ""); // Limpia el mensaje de error si es válido
-            }
-
-        }
-
         private void textFechaDeNacimiento_Validating(object sender, CancelEventArgs e)
         {
-            DateTime fecha;
+            DateOnly fecha;
 
-            if (!DateTime.TryParse(textFechaDeNacimiento.Text, out fecha))
+            if (!DateOnly.TryParse(textFechaDeNacimiento.Text, out fecha))
             {
                 errorProvider1.SetError(textFechaDeNacimiento, "El formato debe Ser tipo fecha");
             }
@@ -305,6 +283,11 @@ namespace dental_C__SQLServer_app
         }
 
         private void textNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textEdad_TextChanged(object sender, EventArgs e)
         {
 
         }

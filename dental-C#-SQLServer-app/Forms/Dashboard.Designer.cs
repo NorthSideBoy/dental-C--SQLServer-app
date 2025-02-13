@@ -42,6 +42,7 @@
             btnLogout = new Button();
             sidebarTimer = new System.Windows.Forms.Timer(components);
             sidebar = new Panel();
+            MainPanel = new Panel();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnMenu).BeginInit();
             panel2.SuspendLayout();
@@ -56,7 +57,6 @@
             btnPacientes.FlatAppearance.BorderSize = 0;
             btnPacientes.FlatStyle = FlatStyle.Flat;
             btnPacientes.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnPacientes.Image = (Image)resources.GetObject("btnPacientes.Image");
             btnPacientes.ImageAlign = ContentAlignment.MiddleLeft;
             btnPacientes.Location = new Point(-16, -12);
             btnPacientes.Name = "btnPacientes";
@@ -177,7 +177,7 @@
             btnLogout.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogout.Image = (Image)resources.GetObject("btnLogout.Image");
             btnLogout.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogout.Location = new Point(0, 467);
+            btnLogout.Location = new Point(0, 563);
             btnLogout.Name = "btnLogout";
             btnLogout.Padding = new Padding(7, 0, 0, 0);
             btnLogout.Size = new Size(220, 53);
@@ -206,18 +206,28 @@
             sidebar.Dock = DockStyle.Left;
             sidebar.Location = new Point(0, 0);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(220, 520);
+            sidebar.Size = new Size(220, 616);
             sidebar.TabIndex = 5;
+            // 
+            // MainPanel
+            // 
+            MainPanel.Dock = DockStyle.Fill;
+            MainPanel.Location = new Point(0, 0);
+            MainPanel.Name = "MainPanel";
+            MainPanel.Size = new Size(1305, 616);
+            MainPanel.TabIndex = 6;
             // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
-            ClientSize = new Size(1014, 520);
+            ClientSize = new Size(1305, 616);
             Controls.Add(sidebar);
+            Controls.Add(MainPanel);
             Name = "Dashboard";
-            Text = "Dashboard";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Histodent";
             Load += Dashboard_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -242,5 +252,6 @@
         private System.Windows.Forms.Timer sidebarTimer;
         private Button btnLogout;
         private Panel sidebar;
+        private Panel MainPanel;
     }
 }

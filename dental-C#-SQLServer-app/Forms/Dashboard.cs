@@ -1,13 +1,38 @@
+using dental_C__SQLServer_app;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+using Svg;
+
 
 namespace dental_C__SQLServer_app
 {
     public partial class Dashboard : Form
     {
-        private Button selectedButton;
         private bool sidebarExpand = true;
         public Dashboard()
         {
             InitializeComponent();
+
+            var svgDocument = SvgDocument.Open("C:\\Users\\USUARIO\\Source\\Repos\\dental-C--SQLServer-app\\dental-C#-SQLServer-app\\Resources\\patient_list.svg");
+            var bitmap = svgDocument.Draw();
+            svgDocument.Fill = new SvgColourServer(Color.White);
+
+            btnPacientes.Image = bitmap;
+            btnPacientes.ImageAlign = ContentAlignment.MiddleLeft;
+
+        }
+
+        public void LoadForm(object Form)
+        {
+            if (this.MainPanel.Controls.Count >0)
+                this.MainPanel.Controls.RemoveAt(0);
+            Form f = Form as Form;
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            this.MainPanel.Controls.Add(f);
+            this.MainPanel.Tag = f;
+            f.Show();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -22,25 +47,12 @@ namespace dental_C__SQLServer_app
 
         private void btnPacientes_Click(object sender, EventArgs e)
         {
-            Button clickedButton = sender as Button;
-
-            // Restablecer el botón previamente seleccionado
-            if (selectedButton != null)
-            {
-                selectedButton.BackColor = SystemColors.Control; // Color original
-                selectedButton.ForeColor = Color.Black; // Color original
-            }
-
-            btnPacientes.BackColor = Color.FromArgb(0, 255, 183);
-            clickedButton.ForeColor = Color.White;
-
-            // Actualizar el botón seleccionado
-            selectedButton = clickedButton;
+            LoadForm(new Patients());
         }
 
         private void btnConsultas_Click(object sender, EventArgs e)
         {
-
+         
         }
 
         private void btnConfig_Click(object sender, EventArgs e)
@@ -50,24 +62,12 @@ namespace dental_C__SQLServer_app
 
         private void btnPacientes_MouseMove(object sender, MouseEventArgs e)
         {
-            Button button = sender as Button;
-            if (button != selectedButton) // Solo cambiar si no es el botón seleccionado
-            {
-
-                btnPacientes.BackColor = Color.FromArgb(185, 255, 233);
-                button.ForeColor = Color.White; // Cambiar color de fuente
-            }
+            btnPacientes.BackColor = Color.FromArgb(185, 255, 233);
         }
 
         private void btnPacientes_MouseLeave(object sender, EventArgs e)
         {
-            Button button = sender as Button;
-            if (button != selectedButton) // Solo restablecer si no es el botón seleccionado
-            {
-
                 btnPacientes.BackColor = Color.Transparent;
-                button.ForeColor = Color.Black; // Color original
-            }
         }
 
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)

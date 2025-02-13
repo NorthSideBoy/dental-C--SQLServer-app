@@ -37,7 +37,6 @@
             button2 = new Button();
             button1 = new Button();
             textTelefono = new TextBox();
-            textEdad = new TextBox();
             textFechaDeNacimiento = new TextBox();
             textDirección = new TextBox();
             textCédula = new TextBox();
@@ -45,7 +44,6 @@
             textNombre = new TextBox();
             label9 = new Label();
             label8 = new Label();
-            label7 = new Label();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -67,7 +65,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(93, 117);
+            label1.Location = new Point(123, 117);
             label1.Name = "label1";
             label1.Size = new Size(355, 39);
             label1.TabIndex = 0;
@@ -81,7 +79,6 @@
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(button1);
             groupBox1.Controls.Add(textTelefono);
-            groupBox1.Controls.Add(textEdad);
             groupBox1.Controls.Add(textFechaDeNacimiento);
             groupBox1.Controls.Add(textDirección);
             groupBox1.Controls.Add(textCédula);
@@ -89,14 +86,13 @@
             groupBox1.Controls.Add(textNombre);
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(12, 179);
+            groupBox1.Location = new Point(59, 179);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(530, 345);
             groupBox1.TabIndex = 1;
@@ -108,15 +104,15 @@
             // 
             comboBoxSexo.FormattingEnabled = true;
             comboBoxSexo.Items.AddRange(new object[] { "Femenino ", "Maculino" });
-            comboBoxSexo.Location = new Point(365, 248);
+            comboBoxSexo.Location = new Point(111, 238);
             comboBoxSexo.Name = "comboBoxSexo";
-            comboBoxSexo.Size = new Size(140, 30);
+            comboBoxSexo.Size = new Size(159, 30);
             comboBoxSexo.TabIndex = 19;
             // 
             // button3
             // 
             button3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(317, 304);
+            button3.Location = new Point(381, 304);
             button3.Name = "button3";
             button3.Size = new Size(81, 23);
             button3.TabIndex = 18;
@@ -127,7 +123,7 @@
             // button2
             // 
             button2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(181, 304);
+            button2.Location = new Point(245, 304);
             button2.Name = "button2";
             button2.Size = new Size(81, 23);
             button2.TabIndex = 17;
@@ -138,7 +134,7 @@
             // button1
             // 
             button1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(58, 304);
+            button1.Location = new Point(122, 304);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 10;
@@ -148,23 +144,15 @@
             // 
             // textTelefono
             // 
-            textTelefono.Location = new Point(81, 247);
+            textTelefono.Location = new Point(372, 178);
             textTelefono.Name = "textTelefono";
-            textTelefono.Size = new Size(159, 31);
+            textTelefono.Size = new Size(140, 31);
             textTelefono.TabIndex = 16;
             textTelefono.Validating += textTelefono_Validating;
             // 
-            // textEdad
-            // 
-            textEdad.Location = new Point(365, 184);
-            textEdad.Name = "textEdad";
-            textEdad.Size = new Size(140, 31);
-            textEdad.TabIndex = 14;
-            textEdad.Validating += textEdad_Validating;
-            // 
             // textFechaDeNacimiento
             // 
-            textFechaDeNacimiento.Location = new Point(365, 121);
+            textFechaDeNacimiento.Location = new Point(372, 121);
             textFechaDeNacimiento.Name = "textFechaDeNacimiento";
             textFechaDeNacimiento.Size = new Size(140, 31);
             textFechaDeNacimiento.TabIndex = 13;
@@ -173,14 +161,14 @@
             // 
             // textDirección
             // 
-            textDirección.Location = new Point(81, 178);
+            textDirección.Location = new Point(111, 178);
             textDirección.Name = "textDirección";
             textDirección.Size = new Size(159, 31);
             textDirección.TabIndex = 12;
             // 
             // textCédula
             // 
-            textCédula.Location = new Point(81, 121);
+            textCédula.Location = new Point(111, 121);
             textCédula.Name = "textCédula";
             textCédula.Size = new Size(159, 31);
             textCédula.TabIndex = 9;
@@ -189,14 +177,14 @@
             // 
             // textApellido
             // 
-            textApellido.Location = new Point(365, 69);
+            textApellido.Location = new Point(372, 69);
             textApellido.Name = "textApellido";
             textApellido.Size = new Size(140, 31);
             textApellido.TabIndex = 10;
             // 
             // textNombre
             // 
-            textNombre.Location = new Point(81, 69);
+            textNombre.Location = new Point(111, 69);
             textNombre.Name = "textNombre";
             textNombre.Size = new Size(159, 31);
             textNombre.TabIndex = 11;
@@ -206,7 +194,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(284, 255);
+            label9.Location = new Point(39, 246);
             label9.Name = "label9";
             label9.Size = new Size(37, 17);
             label9.TabIndex = 7;
@@ -217,27 +205,17 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(9, 255);
+            label8.Location = new Point(291, 186);
             label8.Name = "label8";
             label8.Size = new Size(62, 17);
             label8.TabIndex = 6;
             label8.Text = "Teléfono";
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(284, 192);
-            label7.Name = "label7";
-            label7.Size = new Size(42, 17);
-            label7.TabIndex = 5;
-            label7.Text = "Edad";
-            // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(9, 192);
+            label6.Location = new Point(39, 192);
             label6.Name = "label6";
             label6.Size = new Size(69, 17);
             label6.TabIndex = 4;
@@ -247,7 +225,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(9, 129);
+            label5.Location = new Point(39, 129);
             label5.Name = "label5";
             label5.Size = new Size(56, 17);
             label5.TabIndex = 3;
@@ -257,7 +235,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(284, 129);
+            label4.Location = new Point(291, 129);
             label4.Name = "label4";
             label4.Size = new Size(75, 17);
             label4.TabIndex = 2;
@@ -267,7 +245,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(284, 79);
+            label3.Location = new Point(291, 79);
             label3.Name = "label3";
             label3.Size = new Size(61, 17);
             label3.TabIndex = 1;
@@ -277,7 +255,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(9, 79);
+            label2.Location = new Point(39, 79);
             label2.Name = "label2";
             label2.Size = new Size(61, 17);
             label2.TabIndex = 0;
@@ -298,16 +276,16 @@
             // 
             dtGridViewpatients.BackgroundColor = Color.FromArgb(162, 255, 211);
             dtGridViewpatients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtGridViewpatients.Location = new Point(678, 179);
+            dtGridViewpatients.Location = new Point(610, 179);
             dtGridViewpatients.Name = "dtGridViewpatients";
-            dtGridViewpatients.Size = new Size(615, 414);
+            dtGridViewpatients.Size = new Size(683, 414);
             dtGridViewpatients.TabIndex = 9;
             dtGridViewpatients.CellClick += Datagr;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(148, 1);
+            pictureBox1.Location = new Point(178, 1);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(223, 123);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -340,6 +318,7 @@
             Controls.Add(label10);
             Controls.Add(groupBox1);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Patients";
             Text = "Patients";
             Load += Patients_Load;
@@ -360,15 +339,12 @@
         private Label label10;
         private Label label9;
         private Label label8;
-        private Label label7;
         private Label label6;
         private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
         private TextBox textTelefono;
-        private TextBox textSexo;
-        private TextBox textEdad;
         private TextBox textFechaDeNacimiento;
         private TextBox textDirección;
         private TextBox textCédula;
