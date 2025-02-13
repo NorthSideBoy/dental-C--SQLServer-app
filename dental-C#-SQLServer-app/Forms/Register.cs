@@ -9,12 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 using Microsoft.Data.SqlClient;
-using dental_C__SQLServer_app.Validations; //Para usar la BD sin crear conflicto.
+using dental_C__SQLServer_app.Validations;
+using dental_C__SQLServer_app.Classes;
+using static dental_C__SQLServer_app.Classes.Encriptacion; //Para usar la BD sin crear conflicto.
 
 namespace dental_C__SQLServer_app
 {
     public partial class Register : Form
     {
+        private string query;
+
         public Register()
         {
             InitializeComponent();
@@ -131,30 +135,71 @@ namespace dental_C__SQLServer_app
         {
 
         }
+        private string HashPassword(string password)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(password);
+        }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            CamposValidacion validator = new CamposValidacion(); // Instancia de la clase
-            bool esValido = validator.ValidarNombreUsuario(txtNusuario.Text); // Llamada al método
+            try
+            {
+                // Verificar que los campos no estén vacíos
+                if (string.IsNullOrEmpty(txtNusuario.Text) || string.IsNullOrEmpty(txtCedula.Text) ||
+                    string.IsNullOrEmpty(comboxTlf.Text) || string.IsNullOrEmpty(txtContrasena.Text) ||
+                    string.IsNullOrEmpty(comboxRol.Text))
+                {
+                    MessageBox.Show("Por favor, complete todos los campos.");
+                    return;
+                }
 
+                // Verificar que las contraseñas coincidan
+                if (txtContrasena.Text != txtConfirmar.Text)
+                {
+                    MessageBox.Show("Las contraseñas no coinciden.");
+                    return;
+                }
 
-            string hashedPassword = HashPassword(txtContrasena.Text);
+                // Hashear la contraseña
+                string hashedPassword = HashPassword(txtContrasena.Text);
 
-            string Registrar = "INSERT INTO newUser (userName,Cedula,tlf,pass,rol) VALUES (@userName,@cedula,@tlf,@pass,@rol)";
-            Microsoft.Data.SqlClient.SqlCommand insert = new Microsoft.Data.SqlClient.SqlCommand(Registrar, Program.connection);
+                // Definir la consulta SQL
+                string query = "INSERT INTO newUser (userName, Cedula, tlf, pass, rol) VALUES (@userName, @cedula, @tlf, @pass, @rol)";
 
+                // Abrir la conexión
+                if (Program.connection.State != System.Data.ConnectionState.Open)
+                {
+                    Program.connection.Open();
+                }
 
-            insert.Parameters.AddWithValue("@userName", txtNusuario.Text);
-            insert.Parameters.AddWithValue("@cedula", txtCedula.Text);
-            insert.Parameters.AddWithValue("@tlf", value: comboxTlf.Text);
-            insert.Parameters.AddWithValue("@pass", txtContrasena.Text);
-            insert.Parameters.AddWithValue("@confirmar", txtConfirmar.Text);
-            insert.Parameters.AddWithValue("@rol", value: comboxRol.Text);
+                // Ejecutar la consulta
+                using (var cmd = new SqlCommand(query, Program.connection))
+                {
+                    cmd.Parameters.AddWithValue("@userName", txtNusuario.Text);
+                    cmd.Parameters.AddWithValue("@cedula", txtCedula.Text);
+                    cmd.Parameters.AddWithValue("@tlf", comboxTlf.Text);
+                    cmd.Parameters.AddWithValue("@pass", hashedPassword); // Usar el hash
+                    cmd.Parameters.AddWithValue("@rol", comboxRol.Text);
 
-            insert.ExecuteNonQuery();
-            MessageBox.Show("Los Datos Fueron Guardados Correctamente");
+                    // Ejecutar el comando
+                    cmd.ExecuteNonQuery();
+                }
 
-            reset();
+                MessageBox.Show("Usuario registrado correctamente.");
+                reset(); // Limpiar los campos del formulario
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar el usuario: " + ex.Message);
+            }
+            finally
+            {
+                // Cerrar la conexión en el bloque finally
+                if (Program.connection.State == System.Data.ConnectionState.Open)
+                {
+                    Program.connection.Close();
+                }
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

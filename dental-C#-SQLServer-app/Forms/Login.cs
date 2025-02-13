@@ -26,22 +26,27 @@ namespace dental_C__SQLServer_app
         public bool AuthenticateUser(string txtuser, string txtpass)
         {
             bool isAuthenticated = false;
-            string sql = "SELECT COUNT(*) FROM newUser WHERE userName = @username AND pass = @password";
+            string sql = "SELECT pass FROM newUser WHERE userName = @username"; // Obtener el hash almacenado
 
             using (Microsoft.Data.SqlClient.SqlCommand cmd = new Microsoft.Data.SqlClient.SqlCommand(sql, Program.connection))
             {
-
-                // parámetros
+                // Parámetros
                 cmd.Parameters.AddWithValue("@username", txtuser);
-                cmd.Parameters.AddWithValue("@password", txtpass);
 
                 try
                 {
                     Program.connection.Open();
+                    string hashedPasswordFromDB = cmd.ExecuteScalar()?.ToString(); // Obtener el hash de la base de datos
+
+                    if (hashedPasswordFromDB != null)
+                    {
+                        // Verificar si la contraseña coincide con el hash
+                        isAuthenticated = BCrypt.Net.BCrypt.Verify(txtpass, hashedPasswordFromDB);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(text: "Verifique el Usuario y la Contraseña");
+                    MessageBox.Show("Error: " + ex.Message);
                 }
                 finally
                 {
@@ -50,14 +55,6 @@ namespace dental_C__SQLServer_app
                         Program.connection.Close();
                     }
                 }
-                Program.connection.Open();
-                int count = (int)cmd.ExecuteScalar();
-                Program.connection.Close();
-
-                // Si el conteo es mayor que 0, el usuario existe
-                isAuthenticated = count > 0;
-
-                MessageBox.Show(text: "si existe este usuario");
             }
 
             return isAuthenticated;
