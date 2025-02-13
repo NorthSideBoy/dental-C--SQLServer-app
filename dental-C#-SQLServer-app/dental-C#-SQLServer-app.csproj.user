@@ -13,6 +13,9 @@
     <Compile Update="Forms\Procedure.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Forms\Process.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Forms\Quote.cs">
       <SubType>Form</SubType>
     </Compile>

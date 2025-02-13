@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using dental_C__SQLServer_app.Validations.Dating_methods;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace dental_C__SQLServer_app.Forms
 {
@@ -53,6 +54,17 @@ namespace dental_C__SQLServer_app.Forms
             // Evento para el clic en label3 (puedes agregar lógica si es necesario)
         }
 
+        private void reset()
+        {
+            textBoxID_Patients.Text = "";
+            textBoxNombre.Text = "";
+            textBoxApellido.Text = "";
+            textBoxMotivo.Text = "";
+            textBoxFecha.Text = "";
+            textBoxHora.Text = "";
+           
+  
+        }
         private void button4_Click(object sender, EventArgs e)
         {
             // Obtener los valores de los TextBox
@@ -71,6 +83,8 @@ namespace dental_C__SQLServer_app.Forms
                 MessageBox.Show("Cita guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Actualizar el DataGridView con los nuevos datos
                 dataGridView1.DataSource = cQuote.Cita();
+                // para que los textbox queden vacios
+                reset();
             }
             catch (Exception ex)
             {
@@ -115,6 +129,9 @@ namespace dental_C__SQLServer_app.Forms
             cQuote.Modificar(textBoxID_Patients, textBoxMotivo, textBoxFecha, textBoxHora);
             // Actualizar el DataGridView con los nuevos datos
             dataGridView1.DataSource = cQuote.Cita();
+            
+            // para que los textbox queden vacios
+            reset();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -145,6 +162,8 @@ namespace dental_C__SQLServer_app.Forms
 
                 // Actualizar el DataGridView (opcional)
                 dataGridView1.DataSource = cQuote.Cita(); // Suponiendo que tienes un método Cita() que devuelve un DataTable
+                // para que los texbox queden vacios
+                reset();
             }
         }
 

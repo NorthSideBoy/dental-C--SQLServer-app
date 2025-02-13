@@ -308,6 +308,7 @@
             Controls.Add(label1);
             Name = "Quote";
             Text = "Quote";
+            TransparencyKey = Color.Black;
             Load += Quote_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
