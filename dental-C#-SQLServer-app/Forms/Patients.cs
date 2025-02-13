@@ -325,13 +325,21 @@ namespace dental_C__SQLServer_app
                 string nombre = dtGridViewpatients.CurrentRow.Cells["Nombre"].Value.ToString();
                 string apellido = dtGridViewpatients.CurrentRow.Cells["Apellido"].Value.ToString();
 
-                // Crea una instancia del formulario Quote y pasa los valores
-                Form Cita = new Quote(id, nombre, apellido);
-                Cita.Show();
+                // Verifica si los campos del formulario están llenos
+                if (!string.IsNullOrEmpty(textNombre.Text) && !string.IsNullOrEmpty(textApellido.Text))
+                {
+                    // Crea una instancia del formulario Quote y pasa los valores
+                    Form Cita = new Quote(id, nombre, apellido);
+                    Cita.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, asegúrese de que los campos del paciente estén llenos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un paciente para crear una cita.");
+                MessageBox.Show("Por favor, seleccione un paciente para crear una cita.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

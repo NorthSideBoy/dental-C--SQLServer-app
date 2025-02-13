@@ -65,8 +65,75 @@ namespace dental_C__SQLServer_app.Forms
            
   
         }
+
+        private bool    Validarcampos()
+        {
+            bool validado = true;
+
+            if (textBoxID_Patients.Text == "")
+            {
+                validado = false;
+                errorProvider1.SetError(textBoxID_Patients, "Ingresar ID De Pacientes");
+            }
+
+            if (textBoxNombre.Text == "")
+            {
+                validado = false;
+                errorProvider1.SetError(textBoxNombre, "Ingresar Nombre Del paciente");
+            }
+
+            if (textBoxApellido.Text == "")
+            {
+                validado = false;
+                errorProvider1.SetError(textBoxApellido, "Ingresar Apellido Del Paciente");
+            }
+
+            if (textBoxMotivo.Text == "")
+            {
+                validado = false;
+                errorProvider1.SetError(textBoxMotivo, "Ingresar Motivo");
+            }
+
+            if (textBoxFecha.Text == "")
+            {
+                validado = false;
+                errorProvider1.SetError(textBoxFecha, "Ingresar Fecha");
+            }
+
+            if (textBoxHora.Text == "")
+            {
+                validado = false;
+                errorProvider1.SetError(textBoxHora, "Ingresar Hora");
+            }
+
+
+
+            return validado;
+        }
+
+        private void MensajeBorrar()
+        {
+            errorProvider1.SetError(textBoxID_Patients, "");
+            errorProvider1.SetError(textBoxNombre, "");
+            errorProvider1.SetError(textBoxApellido, "");
+            errorProvider1.SetError(textBoxMotivo, "");
+            errorProvider1.SetError(textBoxFecha, "");
+            errorProvider1.SetError(textBoxHora, "");
+            
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
+            // Borrar mensajes de error anteriores
+            MensajeBorrar();
+
+            // Validar los campos antes de proceder
+            if (!Validarcampos())
+            {
+                MessageBox.Show("Por favor, complete todos los campos requeridos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             // Obtener los valores de los TextBox
             string ID_Patient = textBoxID_Patients.Text;
             string nombre = textBoxNombre.Text;
@@ -74,16 +141,19 @@ namespace dental_C__SQLServer_app.Forms
             string Motivo = textBoxMotivo.Text;
             string Fecha = textBoxFecha.Text;
             string Hora = textBoxHora.Text;
-            String ID = Text;
+            string ID = _selectedID; // Usar el ID seleccionado si es necesario
+
             // Insertar la cita en la base de datos
             CQuote cQuote = new CQuote();
             try
             {
                 cQuote.InsertarCita(ID_Patient, nombre, apellido, Motivo, Fecha, Hora, ID);
                 MessageBox.Show("Cita guardada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 // Actualizar el DataGridView con los nuevos datos
                 dataGridView1.DataSource = cQuote.Cita();
-                // para que los textbox queden vacios
+
+                // Limpiar los TextBox después de la inserción
                 reset();
             }
             catch (Exception ex)

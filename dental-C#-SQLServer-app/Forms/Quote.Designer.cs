@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Quote));
             label1 = new Label();
             groupBox1 = new GroupBox();
@@ -53,9 +54,11 @@
             textBox4 = new TextBox();
             textBox5 = new TextBox();
             button1 = new Button();
+            errorProvider1 = new ErrorProvider(components);
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -292,6 +295,10 @@
             button1.Text = "Buscar";
             button1.UseVisualStyleBackColor = true;
             // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // Quote
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -308,12 +315,12 @@
             Controls.Add(label1);
             Name = "Quote";
             Text = "Quote";
-            TransparencyKey = Color.Black;
             Load += Quote_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -344,5 +351,6 @@
         private Label label8;
         private TextBox textBoxHora;
         private Button button5;
+        private ErrorProvider errorProvider1;
     }
 }
