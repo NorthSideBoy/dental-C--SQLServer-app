@@ -53,7 +53,13 @@ namespace dental_C__SQLServer_app
             textTelefono.Text = "";
             comboBoxSexo.Text = "";
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        public string Query;
+        public Microsoft.Data.SqlClient.SqlCommand Operation;
+
+
+
+        public void button1_Click(object sender, EventArgs e)
         {
             MensajeBorrar();
             if (validarcampos())
@@ -61,26 +67,26 @@ namespace dental_C__SQLServer_app
                 Guid guid = Guid.NewGuid();
                 string hexValue = guid.ToString("N");
 
-                string Guardar = "INSERT INTO patients (ID,Nombre,Apellido,Cédula,FechaDeNacimiento,Dirección,Telefono,Sexo) VALUES (@ID,@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Dirección,@Telefono,@Sexo)";
-                Microsoft.Data.SqlClient.SqlCommand insert = new Microsoft.Data.SqlClient.SqlCommand(Guardar, Program.connection);
+               
 
-                insert.Parameters.AddWithValue("@ID", hexValue);
-                insert.Parameters.AddWithValue("@Nombre", textNombre.Text);
-                insert.Parameters.AddWithValue("@Apellido", textApellido.Text);
-                insert.Parameters.AddWithValue("@Cédula", textCédula.Text);
-                insert.Parameters.AddWithValue("@FechaDeNacimiento", textFechaDeNacimiento.Text);
-                insert.Parameters.AddWithValue("@Dirección", textDirección.Text);
-                insert.Parameters.AddWithValue("@Telefono", textTelefono.Text);
-                insert.Parameters.AddWithValue("@Sexo", value: comboBoxSexo.Text);
 
-                insert.ExecuteNonQuery();
+                Operation.Parameters.AddWithValue("@ID", hexValue);
+                Operation.Parameters.AddWithValue("@Nombre", textNombre.Text);
+                Operation.Parameters.AddWithValue("@Apellido", textApellido.Text);
+                Operation.Parameters.AddWithValue("@Cédula", textCédula.Text);
+                Operation.Parameters.AddWithValue("@FechaDeNacimiento", textFechaDeNacimiento.Text);
+                Operation.Parameters.AddWithValue("@Dirección", textDirección.Text);
+                Operation.Parameters.AddWithValue("@Telefono", textTelefono.Text);
+                Operation.Parameters.AddWithValue("@Sexo", value: comboBoxSexo.Text);
+
+                Operation.ExecuteNonQuery();
                 MessageBox.Show("Los Datos Fueron Guardados Correctamente");
 
                 dtGridViewpatients.DataSource = Index();
                 reset();
             }
         }
-
+        public int Age;
         private bool validarcampos()
         {
             bool validado = true;
@@ -109,14 +115,27 @@ namespace dental_C__SQLServer_app
                 errorProvider1.SetError(textFechaDeNacimiento, "Ingresar Fecha De Nacimiento");
             }
 
-            DateOnly fechaDeNacimiento = new DateOnly(1910, 1, 1); // Fecha de nacimiento a validar
-            DateOnly fechaLimite = DateOnly.FromDateTime(DateTime.Today).AddYears(-110);
-            textFechaDeNacimiento.Text = fechaDeNacimiento.ToString();
-            if (fechaDeNacimiento < fechaLimite)
+            string[] date = textFechaDeNacimiento.Text.Split("/");
+         
+
+            DateTime Today = DateTime.Today;
+            DateOnly UserDate = new DateOnly(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]));
+            DateOnly LimitDate = DateOnly.FromDateTime(Today).AddYears(-110);
+            if (UserDate < LimitDate)
             {
                 validado = false;
-                errorProvider1.SetError(textFechaDeNacimiento, "La fecha de nacimiento no puede ser anterior a " + fechaLimite.ToShortDateString());
+                errorProvider1.SetError(textFechaDeNacimiento, "La fecha de nacimiento no puede ser anterior a " + LimitDate.ToShortDateString());
                 reset();
+            } else
+            {
+                Query = "INSERT INTO patients (ID,Nombre,Apellido,Cédula,FechaDeNacimiento,Edad,Dirección,Telefono,Sexo) VALUES (@ID,@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Edad,@Dirección,@Telefono,@Sexo)";
+                Operation = new Microsoft.Data.SqlClient.SqlCommand(Query, Program.connection);
+
+                Age = Today.Year - UserDate.Year;
+
+                if (Today.Month < UserDate.Month || (Today.Month == UserDate.Month && Today.Day < UserDate.Day)) Age--;
+
+                Operation.Parameters.AddWithValue("@Edad", value: Age);
             }
 
             if (textDirección.Text == "")
@@ -165,7 +184,7 @@ namespace dental_C__SQLServer_app
                 textNombre.Text = dtGridViewpatients.CurrentRow.Cells[1].Value.ToString();
                 textApellido.Text = dtGridViewpatients.CurrentRow.Cells[2].Value.ToString();
                 textCédula.Text = dtGridViewpatients.CurrentRow.Cells[3].Value.ToString();
-                textFechaDeNacimiento.Text = dtGridViewpatients.CurrentRow.Cells[4].Value.ToString();
+                textFechaDeNacimiento.Text = dtGridViewpatients.CurrentRow.Cells[4].Value.ToString().Split(" ")[0].Trim();
                 textDirección.Text = dtGridViewpatients.CurrentRow.Cells[6].Value.ToString();
                 textTelefono.Text = dtGridViewpatients.CurrentRow.Cells[7].Value.ToString();
                 comboBoxSexo.Text = dtGridViewpatients.CurrentRow.Cells[8].Value.ToString();
@@ -178,19 +197,20 @@ namespace dental_C__SQLServer_app
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string modificar = "UPDATE patients SET Nombre=@Nombre,Apellido=@Apellido,Cédula=@Cédula,FechaDeNacimiento=@FechaDeNacimiento,Dirección=@Dirección,Telefono=@Telefono,Sexo=@Sexo WHERE Id=@Id";
-            Microsoft.Data.SqlClient.SqlCommand cambios = new Microsoft.Data.SqlClient.SqlCommand(modificar, Program.connection);
+            Query = "UPDATE patients SET Nombre=@Nombre,Apellido=@Apellido,Cédula=@Cédula,FechaDeNacimiento=@FechaDeNacimiento,Edad=@Edad,Dirección=@Dirección,Telefono=@Telefono,Sexo=@Sexo WHERE Id=@Id";
+            Operation = new Microsoft.Data.SqlClient.SqlCommand(Query, Program.connection);
 
-            cambios.Parameters.AddWithValue("@Id", Text);
-            cambios.Parameters.AddWithValue("@Nombre", textNombre.Text);
-            cambios.Parameters.AddWithValue("@Apellido", textApellido.Text);
-            cambios.Parameters.AddWithValue("@Cédula", textCédula.Text);
-            cambios.Parameters.AddWithValue("@FechaDeNacimiento", textFechaDeNacimiento.Text);
-            cambios.Parameters.AddWithValue("@Dirección", textDirección.Text);
-            cambios.Parameters.AddWithValue("@Telefono", textTelefono.Text);
-            cambios.Parameters.AddWithValue("@Sexo", value: comboBoxSexo.Text);
+            Operation.Parameters.AddWithValue("@Id", Text);
+            Operation.Parameters.AddWithValue("@Nombre", textNombre.Text);
+            Operation.Parameters.AddWithValue("@Apellido", textApellido.Text);
+            Operation.Parameters.AddWithValue("@Cédula", textCédula.Text);
+            Operation.Parameters.AddWithValue("@FechaDeNacimiento", textFechaDeNacimiento.Text);
+            Operation.Parameters.AddWithValue("@Dirección", textDirección.Text);
+            Operation.Parameters.AddWithValue("@Telefono", textTelefono.Text);
+            Operation.Parameters.AddWithValue("@Edad", Age);
+            Operation.Parameters.AddWithValue("@Sexo", value: comboBoxSexo.Text);
 
-            cambios.ExecuteNonQuery();
+            Operation.ExecuteNonQuery();
 
             MessageBox.Show("Los Datos Se Modificaron Correctamente");
 

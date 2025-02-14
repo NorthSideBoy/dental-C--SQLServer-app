@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Svg;
+using System.Diagnostics;
 
 
 namespace dental_C__SQLServer_app
@@ -13,8 +14,11 @@ namespace dental_C__SQLServer_app
         public Dashboard()
         {
             InitializeComponent();
+            string currentDirectory = Directory.GetCurrentDirectory();
+            Debug.WriteLine(currentDirectory);
+            Debug.WriteLine(currentDirectory + "\\..\\" + "\\..\\" + "Resources\\patient_list.svg");
 
-            var svgDocument = SvgDocument.Open("C:\\Users\\USUARIO\\Source\\Repos\\dental-C--SQLServer-app\\dental-C#-SQLServer-app\\Resources\\patient_list.svg");
+            var svgDocument = SvgDocument.Open(currentDirectory + "\\..\\" + "\\..\\" + "\\..\\" + "Resources\\patient_list.svg");
             var bitmap = svgDocument.Draw();
             svgDocument.Fill = new SvgColourServer(Color.White);
 
@@ -27,7 +31,7 @@ namespace dental_C__SQLServer_app
         {
             if (this.MainPanel.Controls.Count >0)
                 this.MainPanel.Controls.RemoveAt(0);
-            Form f = Form as Form;
+            Form? f = Form as Form;
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
             this.MainPanel.Controls.Add(f);
