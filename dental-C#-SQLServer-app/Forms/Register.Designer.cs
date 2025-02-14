@@ -271,7 +271,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnablePreventFocusChange;
-            BackColor = Color.FromArgb(236, 255, 249);
+            BackColor = Color.MediumTurquoise;
             ClientSize = new Size(809, 472);
             Controls.Add(btnLogin);
             Controls.Add(label4);

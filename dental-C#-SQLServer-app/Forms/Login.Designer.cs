@@ -32,11 +32,6 @@
             label3 = new Label();
             label4 = new Label();
             pictureBox1 = new PictureBox();
-            panel1 = new Panel();
-            btnminimizar = new PictureBox();
-            pictureBox4 = new PictureBox();
-            btnexpandir = new PictureBox();
-            btncerrar = new PictureBox();
             label5 = new Label();
             btnAcceder = new Button();
             panel2 = new Panel();
@@ -46,13 +41,20 @@
             linkLabel1 = new LinkLabel();
             label6 = new Label();
             btnmostrar = new RadioButton();
+            panel3 = new Panel();
+            btncerrar = new PictureBox();
+            btnexpandir = new PictureBox();
+            pictureBox4 = new PictureBox();
+            btnminimizar = new PictureBox();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)btnminimizar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btnexpandir).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btncerrar).BeginInit();
             panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btncerrar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnexpandir).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnminimizar).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label3
@@ -81,69 +83,12 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(21, 33);
+            pictureBox1.Location = new Point(0, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(419, 405);
+            pictureBox1.Size = new Size(392, 372);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(14, 150, 143);
-            panel1.Controls.Add(btnminimizar);
-            panel1.Controls.Add(pictureBox4);
-            panel1.Controls.Add(btnexpandir);
-            panel1.Controls.Add(btncerrar);
-            panel1.Dock = DockStyle.Top;
-            panel1.ForeColor = SystemColors.ControlLightLight;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(800, 27);
-            panel1.TabIndex = 5;
-            // 
-            // btnminimizar
-            // 
-            btnminimizar.Image = (Image)resources.GetObject("btnminimizar.Image");
-            btnminimizar.Location = new Point(725, 3);
-            btnminimizar.Name = "btnminimizar";
-            btnminimizar.Size = new Size(20, 21);
-            btnminimizar.SizeMode = PictureBoxSizeMode.StretchImage;
-            btnminimizar.TabIndex = 10;
-            btnminimizar.TabStop = false;
-            btnminimizar.Click += btnminimizar_Click;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(705, 47);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(19, 19);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 10;
-            pictureBox4.TabStop = false;
-            // 
-            // btnexpandir
-            // 
-            btnexpandir.Image = (Image)resources.GetObject("btnexpandir.Image");
-            btnexpandir.Location = new Point(751, 3);
-            btnexpandir.Name = "btnexpandir";
-            btnexpandir.Size = new Size(20, 21);
-            btnexpandir.SizeMode = PictureBoxSizeMode.StretchImage;
-            btnexpandir.TabIndex = 9;
-            btnexpandir.TabStop = false;
-            btnexpandir.Click += btnexpandir_Click;
-            // 
-            // btncerrar
-            // 
-            btncerrar.Image = (Image)resources.GetObject("btncerrar.Image");
-            btncerrar.Location = new Point(777, 3);
-            btncerrar.Name = "btncerrar";
-            btncerrar.Size = new Size(20, 21);
-            btncerrar.SizeMode = PictureBoxSizeMode.StretchImage;
-            btncerrar.TabIndex = 8;
-            btncerrar.TabStop = false;
-            btncerrar.Click += btncerrar_Click;
             // 
             // label5
             // 
@@ -266,30 +211,98 @@
             btnmostrar.CheckedChanged += btnmostrar_CheckedChanged;
             btnmostrar.Click += btnmostrar_Click;
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(0, 0, 64);
+            panel3.Controls.Add(pictureBox1);
+            panel3.Location = new Point(29, 65);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(392, 373);
+            panel3.TabIndex = 9;
+            // 
+            // btncerrar
+            // 
+            btncerrar.Image = (Image)resources.GetObject("btncerrar.Image");
+            btncerrar.Location = new Point(777, 3);
+            btncerrar.Name = "btncerrar";
+            btncerrar.Size = new Size(20, 21);
+            btncerrar.SizeMode = PictureBoxSizeMode.StretchImage;
+            btncerrar.TabIndex = 8;
+            btncerrar.TabStop = false;
+            btncerrar.Click += btncerrar_Click;
+            // 
+            // btnexpandir
+            // 
+            btnexpandir.Image = (Image)resources.GetObject("btnexpandir.Image");
+            btnexpandir.Location = new Point(751, 3);
+            btnexpandir.Name = "btnexpandir";
+            btnexpandir.Size = new Size(20, 21);
+            btnexpandir.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnexpandir.TabIndex = 9;
+            btnexpandir.TabStop = false;
+            btnexpandir.Click += btnexpandir_Click;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(705, 47);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(19, 19);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 10;
+            pictureBox4.TabStop = false;
+            // 
+            // btnminimizar
+            // 
+            btnminimizar.Image = (Image)resources.GetObject("btnminimizar.Image");
+            btnminimizar.Location = new Point(725, 3);
+            btnminimizar.Name = "btnminimizar";
+            btnminimizar.Size = new Size(20, 21);
+            btnminimizar.SizeMode = PictureBoxSizeMode.StretchImage;
+            btnminimizar.TabIndex = 10;
+            btnminimizar.TabStop = false;
+            btnminimizar.Click += btnminimizar_Click;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(14, 150, 143);
+            panel1.Controls.Add(btnminimizar);
+            panel1.Controls.Add(pictureBox4);
+            panel1.Controls.Add(btnexpandir);
+            panel1.Controls.Add(btncerrar);
+            panel1.Dock = DockStyle.Top;
+            panel1.ForeColor = SystemColors.ControlLightLight;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(800, 27);
+            panel1.TabIndex = 5;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(236, 255, 249);
             ClientSize = new Size(800, 450);
+            Controls.Add(panel3);
             Controls.Add(label3);
             Controls.Add(label4);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(pictureBox1);
             FormBorderStyle = FormBorderStyle.None;
+            ImeMode = ImeMode.NoControl;
             Name = "Login";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)btnminimizar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btnexpandir).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btncerrar).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)btncerrar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnexpandir).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnminimizar).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -298,19 +311,20 @@
         private Label label3;
         private Label label4;
         private PictureBox pictureBox1;
-        public Panel panel1;
         private Label label5;
         private Button btnAcceder;
-        private PictureBox btncerrar;
         private Panel panel2;
-        private PictureBox btnexpandir;
-        private PictureBox btnminimizar;
-        private PictureBox pictureBox4;
         private RadioButton btnmostrar;
         private Label label6;
         protected LinkLabel linkLabel1;
         protected LinkLabel linkLabel2;
         private TextBox txtuser;
         private TextBox txtpass;
+        private Panel panel3;
+        private PictureBox btncerrar;
+        private PictureBox btnexpandir;
+        private PictureBox pictureBox4;
+        private PictureBox btnminimizar;
+        public Panel panel1;
     }
 }

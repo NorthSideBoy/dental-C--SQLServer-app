@@ -69,19 +69,17 @@
             label1.TabIndex = 1;
             label1.Text = "Añadir Usuario";
             label1.UseWaitCursor = true;
- 
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, -32);
+            pictureBox1.Location = new Point(18, -150);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(282, 146);
+            pictureBox1.Size = new Size(340, 284);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             pictureBox1.UseWaitCursor = true;
-
             // 
             // panel1
             // 

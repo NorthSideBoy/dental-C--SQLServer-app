@@ -151,8 +151,8 @@ namespace dental_C__SQLServer_app
 
         private void btnAcceder_Click(object sender, EventArgs e)
         {
-            string username = txtuser.Text; 
-            string password = txtpass.Text; 
+            string username = txtuser.Text;
+            string password = txtpass.Text;
 
             // Llamar al método de autenticación
             bool isAuthenticated = AuthenticateUser(username, password);
@@ -170,5 +170,6 @@ namespace dental_C__SQLServer_app
             }
 
         }
+
     }
 }
