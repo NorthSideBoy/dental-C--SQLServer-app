@@ -30,7 +30,7 @@ namespace dental_C__SQLServer_app
         public DataTable Index()
         {
             DataTable dataTable = new DataTable();
-            string Sql = "SELECT ID, Nombre, Apellido, Cédula, FechaDeNacimiento, Edad, Dirección, Telefono, Sexo FROM patients";
+            string Sql = "SELECT * FROM patients";
             Microsoft.Data.SqlClient.SqlCommand CMD = new Microsoft.Data.SqlClient.SqlCommand(Sql, Program.connection);
             SqlDataAdapter adapter = new SqlDataAdapter(CMD);
 
@@ -70,7 +70,7 @@ namespace dental_C__SQLServer_app
                
 
 
-                Operation.Parameters.AddWithValue("@ID", hexValue);
+                Operation.Parameters.AddWithValue("@PatientID", hexValue);
                 Operation.Parameters.AddWithValue("@Nombre", textNombre.Text);
                 Operation.Parameters.AddWithValue("@Apellido", textApellido.Text);
                 Operation.Parameters.AddWithValue("@Cédula", textCédula.Text);
@@ -128,7 +128,7 @@ namespace dental_C__SQLServer_app
                 reset();
             } else
             {
-                Query = "INSERT INTO patients (ID,Nombre,Apellido,Cédula,FechaDeNacimiento,Edad,Dirección,Telefono,Sexo) VALUES (@ID,@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Edad,@Dirección,@Telefono,@Sexo)";
+                Query = "INSERT INTO patients (PatientID,Nombre,Apellido,Cédula,FechaDeNacimiento,Edad,Dirección,Telefono,Sexo) VALUES (@PatientID,@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Edad,@Dirección,@Telefono,@Sexo)";
                 Operation = new Microsoft.Data.SqlClient.SqlCommand(Query, Program.connection);
 
                 Age = Today.Year - UserDate.Year;
@@ -197,10 +197,10 @@ namespace dental_C__SQLServer_app
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Query = "UPDATE patients SET Nombre=@Nombre,Apellido=@Apellido,Cédula=@Cédula,FechaDeNacimiento=@FechaDeNacimiento,Edad=@Edad,Dirección=@Dirección,Telefono=@Telefono,Sexo=@Sexo WHERE Id=@Id";
+            Query = "UPDATE patients SET Nombre=@Nombre,Apellido=@Apellido,Cédula=@Cédula,FechaDeNacimiento=@FechaDeNacimiento,Edad=@Edad,Dirección=@Dirección,Telefono=@Telefono,Sexo=@Sexo WHERE PatientId=@PatientId";
             Operation = new Microsoft.Data.SqlClient.SqlCommand(Query, Program.connection);
 
-            Operation.Parameters.AddWithValue("@Id", Text);
+            Operation.Parameters.AddWithValue("@PatientId", Text);
             Operation.Parameters.AddWithValue("@Nombre", textNombre.Text);
             Operation.Parameters.AddWithValue("@Apellido", textApellido.Text);
             Operation.Parameters.AddWithValue("@Cédula", textCédula.Text);
@@ -220,10 +220,10 @@ namespace dental_C__SQLServer_app
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string Eliminar = "DELETE FROM patients WHERE Id=@Id";
+            string Eliminar = "DELETE FROM patients WHERE PatientId=@PatientId";
             Microsoft.Data.SqlClient.SqlCommand Borrar = new Microsoft.Data.SqlClient.SqlCommand(Eliminar, Program.connection);
 
-            Borrar.Parameters.AddWithValue("@Id", Text);
+            Borrar.Parameters.AddWithValue("@PatientId", Text);
 
             Borrar.ExecuteNonQuery();
             MessageBox.Show("Paciente Eliminado Correctamente");
