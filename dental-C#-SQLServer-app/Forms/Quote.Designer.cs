@@ -44,10 +44,8 @@
             button2 = new Button();
             textBoxFecha = new TextBox();
             textBoxMotivo = new TextBox();
-            textBoxID_Patients = new TextBox();
             label5 = new Label();
             label4 = new Label();
-            label3 = new Label();
             dataGridView1 = new DataGridView();
             label2 = new Label();
             pictureBox1 = new PictureBox();
@@ -87,10 +85,8 @@
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(textBoxFecha);
             groupBox1.Controls.Add(textBoxMotivo);
-            groupBox1.Controls.Add(textBoxID_Patients);
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label3);
             groupBox1.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(12, 151);
             groupBox1.Name = "groupBox1";
@@ -124,6 +120,7 @@
             textBoxHora.Name = "textBoxHora";
             textBoxHora.Size = new Size(331, 26);
             textBoxHora.TabIndex = 16;
+            textBoxHora.Validating += textBoxHora_Validating;
             // 
             // textBoxApellido
             // 
@@ -142,7 +139,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(6, 96);
+            label7.Location = new Point(11, 96);
             label7.Name = "label7";
             label7.Size = new Size(74, 19);
             label7.TabIndex = 13;
@@ -193,6 +190,7 @@
             textBoxFecha.Name = "textBoxFecha";
             textBoxFecha.Size = new Size(331, 26);
             textBoxFecha.TabIndex = 8;
+            textBoxFecha.Validating += textBoxFecha_Validating;
             // 
             // textBoxMotivo
             // 
@@ -200,13 +198,6 @@
             textBoxMotivo.Name = "textBoxMotivo";
             textBoxMotivo.Size = new Size(331, 26);
             textBoxMotivo.TabIndex = 7;
-            // 
-            // textBoxID_Patients
-            // 
-            textBoxID_Patients.Location = new Point(138, 39);
-            textBoxID_Patients.Name = "textBoxID_Patients";
-            textBoxID_Patients.Size = new Size(331, 26);
-            textBoxID_Patients.TabIndex = 6;
             // 
             // label5
             // 
@@ -225,16 +216,6 @@
             label4.Size = new Size(66, 19);
             label4.TabIndex = 4;
             label4.Text = "Motivo";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(6, 42);
-            label3.Name = "label3";
-            label3.Size = new Size(126, 19);
-            label3.TabIndex = 3;
-            label3.Text = "ID De Paciente";
-            label3.Click += label3_Click;
             // 
             // dataGridView1
             // 
@@ -331,10 +312,8 @@
         private GroupBox groupBox1;
         private Label label5;
         private Label label4;
-        private Label label3;
         private TextBox textBoxFecha;
         private TextBox textBoxMotivo;
-        private TextBox textBoxID_Patients;
         private DataGridView dataGridView1;
         private Label label2;
         private PictureBox pictureBox1;

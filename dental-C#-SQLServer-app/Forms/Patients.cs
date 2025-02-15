@@ -13,6 +13,7 @@ using static System.Net.Mime.MediaTypeNames;
 using Microsoft.Data.SqlClient;
 using SqlDataAdapter = Microsoft.Data.SqlClient.SqlDataAdapter;
 using dental_C__SQLServer_app.Forms;
+using dental_C__SQLServer_app.Validations.cs;
 
 namespace dental_C__SQLServer_app
 {
@@ -63,10 +64,10 @@ namespace dental_C__SQLServer_app
                 Guid guid = Guid.NewGuid();
                 string hexValue = guid.ToString("N");
 
-                string Guardar = "INSERT INTO patients (ID,Nombre,Apellido,Cédula,FechaDeNacimiento,Dirección,Edad,Telefono,Sexo) VALUES (@ID,@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Dirección,@Edad,@Telefono,@Sexo)";
+                string Guardar = "INSERT INTO patients (PatientID,Nombre,Apellido,Cédula,FechaDeNacimiento,Dirección,Edad,Telefono,Sexo) VALUES (@PatientID,@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Dirección,@Edad,@Telefono,@Sexo)";
                 Microsoft.Data.SqlClient.SqlCommand insert = new Microsoft.Data.SqlClient.SqlCommand(Guardar, Program.connection);
 
-                insert.Parameters.AddWithValue("@ID", hexValue);
+                insert.Parameters.AddWithValue("@PatientID", hexValue);
                 insert.Parameters.AddWithValue("@Nombre", textNombre.Text);
                 insert.Parameters.AddWithValue("@Apellido", textApellido.Text);
                 insert.Parameters.AddWithValue("@Cédula", textCédula.Text);
@@ -321,7 +322,7 @@ namespace dental_C__SQLServer_app
             if (dtGridViewpatients.CurrentRow != null)
             {
                 // Obtén los valores de la fila seleccionada
-                string id = dtGridViewpatients.CurrentRow.Cells["ID"].Value.ToString();
+                string id = dtGridViewpatients.CurrentRow.Cells["PatientID"].Value.ToString();
                 string nombre = dtGridViewpatients.CurrentRow.Cells["Nombre"].Value.ToString();
                 string apellido = dtGridViewpatients.CurrentRow.Cells["Apellido"].Value.ToString();
 
