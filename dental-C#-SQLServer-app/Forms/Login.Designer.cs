@@ -35,32 +35,21 @@
             label5 = new Label();
             btnAcceder = new Button();
             panel2 = new Panel();
+            linkLabel3 = new LinkLabel();
             txtpass = new TextBox();
             txtuser = new TextBox();
             linkLabel2 = new LinkLabel();
             linkLabel1 = new LinkLabel();
             label6 = new Label();
             btnmostrar = new RadioButton();
-            panel3 = new Panel();
-            btncerrar = new PictureBox();
-            btnexpandir = new PictureBox();
-            pictureBox4 = new PictureBox();
-            btnminimizar = new PictureBox();
-            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)btncerrar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btnexpandir).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btnminimizar).BeginInit();
-            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.BackColor = Color.FromArgb(162, 255, 211);
+            label3.BackColor = Color.MediumTurquoise;
             label3.ForeColor = Color.FromArgb(0, 0, 64);
             label3.Location = new Point(487, 247);
             label3.Name = "label3";
@@ -71,7 +60,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.BackColor = Color.FromArgb(162, 255, 211);
+            label4.BackColor = Color.MediumTurquoise;
             label4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(0, 0, 64);
             label4.Location = new Point(487, 172);
@@ -82,10 +71,11 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BackColor = Color.White;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Location = new Point(5, -7);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(392, 372);
+            pictureBox1.Size = new Size(456, 445);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
@@ -93,7 +83,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.BackColor = Color.FromArgb(162, 255, 211);
+            label5.BackColor = Color.MediumTurquoise;
             label5.Font = new Font("Century Gothic", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.FromArgb(0, 0, 64);
             label5.Location = new Point(81, 18);
@@ -104,7 +94,7 @@
             // 
             // btnAcceder
             // 
-            btnAcceder.BackColor = Color.FromArgb(14, 150, 143);
+            btnAcceder.BackColor = Color.DarkSlateGray;
             btnAcceder.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAcceder.ForeColor = Color.White;
             btnAcceder.Location = new Point(20, 278);
@@ -117,7 +107,8 @@
             // 
             // panel2
             // 
-            panel2.BackColor = Color.FromArgb(162, 255, 211);
+            panel2.BackColor = Color.MediumTurquoise;
+            panel2.Controls.Add(linkLabel3);
             panel2.Controls.Add(txtpass);
             panel2.Controls.Add(txtuser);
             panel2.Controls.Add(btnAcceder);
@@ -130,11 +121,24 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(281, 381);
             panel2.TabIndex = 8;
-            panel2.Paint += panel2_Paint;
+            // 
+            // linkLabel3
+            // 
+            linkLabel3.AutoSize = true;
+            linkLabel3.Font = new Font("Century Gothic", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            linkLabel3.LinkColor = Color.Black;
+            linkLabel3.Location = new Point(69, 334);
+            linkLabel3.Name = "linkLabel3";
+            linkLabel3.Size = new Size(157, 16);
+            linkLabel3.TabIndex = 13;
+            linkLabel3.TabStop = true;
+            linkLabel3.Text = "Mostrar Usuarios Creados";
+            linkLabel3.TextAlign = ContentAlignment.TopCenter;
+            linkLabel3.LinkClicked += linkLabel3_LinkClicked;
             // 
             // txtpass
             // 
-            txtpass.BackColor = Color.FromArgb(162, 255, 211);
+            txtpass.BackColor = Color.MediumTurquoise;
             txtpass.BorderStyle = BorderStyle.None;
             txtpass.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtpass.ForeColor = Color.FromArgb(0, 0, 64);
@@ -148,7 +152,7 @@
             // 
             // txtuser
             // 
-            txtuser.BackColor = Color.FromArgb(162, 255, 211);
+            txtuser.BackColor = Color.MediumTurquoise;
             txtuser.BorderStyle = BorderStyle.None;
             txtuser.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtuser.ForeColor = Color.FromArgb(0, 0, 64);
@@ -157,7 +161,6 @@
             txtuser.Size = new Size(237, 20);
             txtuser.TabIndex = 11;
             txtuser.Text = "USUARIO";
-            txtuser.TextChanged += txtuser_TextChanged;
             txtuser.Enter += txtuser_Enter;
             txtuser.Leave += txtuser_Leave;
             // 
@@ -211,98 +214,23 @@
             btnmostrar.CheckedChanged += btnmostrar_CheckedChanged;
             btnmostrar.Click += btnmostrar_Click;
             // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(0, 0, 64);
-            panel3.Controls.Add(pictureBox1);
-            panel3.Location = new Point(29, 65);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(392, 373);
-            panel3.TabIndex = 9;
-            // 
-            // btncerrar
-            // 
-            btncerrar.Image = (Image)resources.GetObject("btncerrar.Image");
-            btncerrar.Location = new Point(777, 3);
-            btncerrar.Name = "btncerrar";
-            btncerrar.Size = new Size(20, 21);
-            btncerrar.SizeMode = PictureBoxSizeMode.StretchImage;
-            btncerrar.TabIndex = 8;
-            btncerrar.TabStop = false;
-            btncerrar.Click += btncerrar_Click;
-            // 
-            // btnexpandir
-            // 
-            btnexpandir.Image = (Image)resources.GetObject("btnexpandir.Image");
-            btnexpandir.Location = new Point(751, 3);
-            btnexpandir.Name = "btnexpandir";
-            btnexpandir.Size = new Size(20, 21);
-            btnexpandir.SizeMode = PictureBoxSizeMode.StretchImage;
-            btnexpandir.TabIndex = 9;
-            btnexpandir.TabStop = false;
-            btnexpandir.Click += btnexpandir_Click;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(705, 47);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(19, 19);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 10;
-            pictureBox4.TabStop = false;
-            // 
-            // btnminimizar
-            // 
-            btnminimizar.Image = (Image)resources.GetObject("btnminimizar.Image");
-            btnminimizar.Location = new Point(725, 3);
-            btnminimizar.Name = "btnminimizar";
-            btnminimizar.Size = new Size(20, 21);
-            btnminimizar.SizeMode = PictureBoxSizeMode.StretchImage;
-            btnminimizar.TabIndex = 10;
-            btnminimizar.TabStop = false;
-            btnminimizar.Click += btnminimizar_Click;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.FromArgb(14, 150, 143);
-            panel1.Controls.Add(btnminimizar);
-            panel1.Controls.Add(pictureBox4);
-            panel1.Controls.Add(btnexpandir);
-            panel1.Controls.Add(btncerrar);
-            panel1.Dock = DockStyle.Top;
-            panel1.ForeColor = SystemColors.ControlLightLight;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(800, 27);
-            panel1.TabIndex = 5;
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(236, 255, 249);
+            BackColor = Color.White;
             ClientSize = new Size(800, 450);
-            Controls.Add(panel3);
+            Controls.Add(pictureBox1);
             Controls.Add(label3);
             Controls.Add(label4);
             Controls.Add(panel2);
-            Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.None;
-            ImeMode = ImeMode.NoControl;
             Name = "Login";
+            RightToLeftLayout = true;
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)btncerrar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btnexpandir).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btnminimizar).EndInit();
-            panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -320,11 +248,11 @@
         protected LinkLabel linkLabel2;
         private TextBox txtuser;
         private TextBox txtpass;
-        private Panel panel3;
         private PictureBox btncerrar;
         private PictureBox btnexpandir;
         private PictureBox pictureBox4;
         private PictureBox btnminimizar;
         public Panel panel1;
+        protected LinkLabel linkLabel3;
     }
 }

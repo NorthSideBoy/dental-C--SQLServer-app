@@ -134,42 +134,51 @@ namespace dental_C__SQLServer_app
             re.Show();
         }
 
-        private void txtuser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAcceder_Click(object sender, EventArgs e)
         {
             string username = txtuser.Text;
             string password = txtpass.Text;
 
-            // Llamar al método de autenticación
-            bool isAuthenticated = AuthenticateUser(username, password);
-
-            if (isAuthenticated)
+            try
             {
-                MessageBox.Show("Acceso concedido. Bienvenido!");
-                // Aquí puedes redirigir al usuario a la siguiente pantalla o formulario
-                Welcome re = new Welcome();
-                re.Show();
-            }
-            else
-            {
-                MessageBox.Show("Nombre de usuario o contraseña incorrectos. Inténtalo de nuevo.");
-            }
+                // Verificar que los campos no estén vacíos
+                if (string.IsNullOrEmpty(txtuser.Text) || string.IsNullOrEmpty(txtpass.Text))
+                {
+                    MessageBox.Show("Por favor, complete todos los campos.");
+                    return;
+                }
 
+                // Llamar al método de autenticación
+                bool isAuthenticated = AuthenticateUser(username, password);
+
+                if (isAuthenticated)
+                {
+                    MessageBox.Show("Acceso concedido. Bienvenido!");
+                    // Aquí puedes redirigir al usuario a la siguiente pantalla o formulario
+                    Welcome re = new Welcome();
+                    re.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Nombre de usuario o contraseña incorrectos. Inténtalo de nuevo.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
+        private bool ValidarCampos()
+        {
+            // Implementar la validación de campos si es necesario
+            return true; // Por ahora, siempre retorna true
+        }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SowUser re = new SowUser();
+            re.Show();
+        }
     }
 }

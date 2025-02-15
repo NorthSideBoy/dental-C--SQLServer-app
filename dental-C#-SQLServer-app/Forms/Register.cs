@@ -125,16 +125,6 @@ namespace dental_C__SQLServer_app
             re.Show();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void txtNusuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private string HashPassword(string password)
         {
             return BCrypt.Net.BCrypt.HashPassword(password);
@@ -144,6 +134,12 @@ namespace dental_C__SQLServer_app
         {
             try
             {
+                // Llamar al método de validación de campos
+                if (!ValidarCampos())
+                {
+                    return; // Si las validaciones fallan, detener el proceso de registro
+                }
+
                 // Verificar que los campos no estén vacíos
                 if (string.IsNullOrEmpty(txtNusuario.Text) || string.IsNullOrEmpty(txtCedula.Text) ||
                     string.IsNullOrEmpty(comboxTlf.Text) || string.IsNullOrEmpty(txtContrasena.Text) ||
@@ -202,10 +198,48 @@ namespace dental_C__SQLServer_app
             }
         }
 
+        // Método para validar los campos
+        public bool ValidarCampos()
+        {
+            CamposValidacion validaciones = new CamposValidacion();
+
+            if (!validaciones.ValidarNombreUsuario(txtNusuario.Text))
+            {
+                MessageBox.Show("Error en el nombre de usuario.");
+                return false;
+            }
+
+            if (!validaciones.ValidarCedula(txtCedula.Text))
+            {
+                MessageBox.Show("Error en la cédula.");
+                return false;
+            }
+
+            if (!validaciones.ValidarTelefono(comboxTlf.Text))
+            {
+                MessageBox.Show("Error en el teléfono.");
+                return false;
+            }
+
+            if (!validaciones.ValidarRol(comboxRol.Text))
+            {
+                MessageBox.Show("Error en el rol.");
+                return false;
+            }
+
+            if (!validaciones.ValidarContrasena(txtContrasena.Text))
+            {
+                MessageBox.Show("Error en la Contraseña.");
+                return false;
+            }
+            return true; // Todas las validaciones pasaron
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Login re = new Login();
             re.Show();
         }
+
     }
 }

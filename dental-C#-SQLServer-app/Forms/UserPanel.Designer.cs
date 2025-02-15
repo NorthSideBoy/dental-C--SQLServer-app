@@ -47,7 +47,7 @@
             // 
             // btnAñadirUser
             // 
-            btnAñadirUser.BackColor = Color.Blue;
+            btnAñadirUser.BackColor = Color.WhiteSmoke;
             btnAñadirUser.Image = (Image)resources.GetObject("btnAñadirUser.Image");
             btnAñadirUser.Location = new Point(334, 208);
             btnAñadirUser.Name = "btnAñadirUser";
@@ -61,7 +61,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.BackColor = Color.FromArgb(187, 210, 247);
+            label1.BackColor = Color.WhiteSmoke;
             label1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.Location = new Point(334, 331);
             label1.Name = "label1";
@@ -73,9 +73,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(18, -150);
+            pictureBox1.Location = new Point(96, -182);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(340, 284);
+            pictureBox1.Size = new Size(614, 384);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -83,11 +83,11 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(201, 227, 252);
+            panel1.BackColor = Color.DeepSkyBlue;
             panel1.Controls.Add(pictureBox1);
             panel1.Location = new Point(-6, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(811, 104);
+            panel1.Size = new Size(811, 149);
             panel1.TabIndex = 3;
             panel1.UseWaitCursor = true;
             // 
@@ -95,13 +95,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Blue;
+            BackColor = Color.WhiteSmoke;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
             Controls.Add(btnAñadirUser);
             Controls.Add(panel1);
             Name = "UserPanel";
-            Opacity = 0.9D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Panel_usuario";
             TransparencyKey = Color.White;
@@ -121,5 +120,15 @@
         private Label label1;
         private Panel panel1;
         private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox8;
+        private PictureBox pictureBox7;
+        private PictureBox pictureBox6;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox9;
+        private PictureBox pictureBox11;
+        private PictureBox pictureBox10;
     }
 }
