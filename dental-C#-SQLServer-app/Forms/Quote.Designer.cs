@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Quote));
             label1 = new Label();
             groupBox1 = new GroupBox();
@@ -52,6 +53,7 @@
             textBoxBuscar = new TextBox();
             button1 = new Button();
             errorProvider1 = new ErrorProvider(components);
+            panel1 = new Panel();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -62,7 +64,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Cooper Black", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(193, 61);
+            label1.Location = new Point(171, 61);
             label1.Name = "label1";
             label1.Size = new Size(82, 36);
             label1.TabIndex = 0;
@@ -71,7 +73,7 @@
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.FromArgb(213, 231, 255);
+            groupBox1.BackColor = Color.White;
             groupBox1.Controls.Add(button5);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(textBoxHora);
@@ -87,21 +89,22 @@
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(12, 151);
+            groupBox1.Location = new Point(12, 169);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(555, 504);
+            groupBox1.Size = new Size(555, 486);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
             // 
             // button5
             // 
+            button5.BackColor = Color.FromArgb(14, 93, 142);
             button5.Location = new Point(420, 450);
             button5.Name = "button5";
             button5.Size = new Size(110, 30);
             button5.TabIndex = 18;
             button5.Text = "Confirmar";
-            button5.UseVisualStyleBackColor = true;
+            button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
             // label8
@@ -155,32 +158,35 @@
             // 
             // button4
             // 
+            button4.BackColor = Color.FromArgb(14, 93, 142);
             button4.Location = new Point(6, 450);
             button4.Name = "button4";
             button4.Size = new Size(113, 30);
             button4.TabIndex = 11;
             button4.Text = "Guardar";
-            button4.UseVisualStyleBackColor = true;
+            button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
             // button3
             // 
+            button3.BackColor = Color.FromArgb(14, 93, 142);
             button3.Location = new Point(295, 450);
             button3.Name = "button3";
             button3.Size = new Size(104, 30);
             button3.TabIndex = 10;
             button3.Text = "Cancelar";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // button2
             // 
+            button2.BackColor = Color.FromArgb(14, 93, 142);
             button2.Location = new Point(159, 450);
             button2.Name = "button2";
             button2.Size = new Size(104, 30);
             button2.TabIndex = 9;
             button2.Text = "Modificar";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // textBoxFecha
@@ -218,10 +224,21 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(1, 119, 215);
+            dataGridViewCellStyle1.Font = new Font("Cooper Black", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(688, 151);
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.Location = new Point(688, 169);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(623, 504);
+            dataGridView1.Size = new Size(623, 486);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
@@ -240,9 +257,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(404, 12);
+            pictureBox1.Location = new Point(399, 47);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(300, 75);
+            pictureBox1.Size = new Size(248, 116);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
@@ -270,12 +287,22 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // panel1
+            // 
+            panel1.BackColor = Color.FromArgb(14, 93, 142);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1323, 41);
+            panel1.TabIndex = 8;
+            // 
             // Quote
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1323, 679);
+            Controls.Add(panel1);
             Controls.Add(button1);
             Controls.Add(textBoxBuscar);
             Controls.Add(pictureBox1);
@@ -283,6 +310,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(groupBox1);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "Quote";
             Text = "Quote";
             Load += Quote_Load;
@@ -319,5 +347,6 @@
         private TextBox textBoxHora;
         private Button button5;
         private ErrorProvider errorProvider1;
+        private Panel panel1;
     }
 }
