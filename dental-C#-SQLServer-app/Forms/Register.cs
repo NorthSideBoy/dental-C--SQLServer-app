@@ -7,21 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+using Microsoft.Data.SqlClient;
+using dental_C__SQLServer_app.Validations;
+using dental_C__SQLServer_app.Classes;
+using static dental_C__SQLServer_app.Classes.Encriptacion; //Para usar la BD sin crear conflicto.
 
 namespace dental_C__SQLServer_app
 {
     public partial class Register : Form
     {
+        private string query;
+
         public Register()
         {
             InitializeComponent();
-            //Clases.conexion ObjetConexion = new Clases.conexion();
-            //ObjetConexion.establecerConexion();
         }
 
+        public DataTable Index()
+        {
+            DataTable dataTable = new DataTable();
+            string Sql = "SELECT * FROM Register";
+            Microsoft.Data.SqlClient.SqlCommand CMD = new Microsoft.Data.SqlClient.SqlCommand(Sql, Program.connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(CMD);
 
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
+        private void reset()
+        {
+            txtNusuario.Text = "";
+            txtCedula.Text = "";
+            comboxTlf.Text = "";
+            txtContrasena.Text = "";
+            txtConfirmar.Text = "";
+            comboxRol.Text = "";
+        }
         private void txtNusuario_Enter(object sender, EventArgs e)
         {
             if (txtNusuario.Text == "Nombre de Usuario")
@@ -101,35 +123,125 @@ namespace dental_C__SQLServer_app
         {
             UserPanel re = new UserPanel();
             re.Show();
+            this.Close();
         }
 
-        private void txtTelefonoUser_Enter(object sender, EventArgs e)
+        private string HashPassword(string password)
         {
-            if (txtTelefonoUser.Text == "Telefono")
+            return BCrypt.Net.BCrypt.HashPassword(password);
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            try
             {
-                txtTelefonoUser.Text = "";
-                txtTelefonoUser.ForeColor = Color.Black;
+                // Llamar al método de validación de campos
+                if (!ValidarCampos())
+                {
+                    return; // Si las validaciones fallan, detener el proceso de registro
+                }
+
+                // Verificar que los campos no estén vacíos
+                if (string.IsNullOrEmpty(txtNusuario.Text) || string.IsNullOrEmpty(txtCedula.Text) ||
+                    string.IsNullOrEmpty(comboxTlf.Text) || string.IsNullOrEmpty(txtContrasena.Text) ||
+                    string.IsNullOrEmpty(comboxRol.Text))
+                {
+                    MessageBox.Show("Por favor, complete todos los campos.");
+                    return;
+                }
+
+                // Verificar que las contraseñas coincidan
+                if (txtContrasena.Text != txtConfirmar.Text)
+                {
+                    MessageBox.Show("Las contraseñas no coinciden.");
+                    return;
+                }
+
+                // Hashear la contraseña
+                string hashedPassword = HashPassword(txtContrasena.Text);
+
+                // Definir la consulta SQL
+                string query = "INSERT INTO Users (Username, Cedula, Tlf, Pass, Rol) VALUES (@Username, @Cedula, @Tlf, @Pass, @Rol)";
+
+                // Abrir la conexión
+                if (Program.connection.State != System.Data.ConnectionState.Open)
+                {
+                    Program.connection.Open();
+                }
+
+                // Ejecutar la consulta
+                using (var cmd = new SqlCommand(query, Program.connection))
+                {
+                    cmd.Parameters.AddWithValue("@Username", txtNusuario.Text);
+                    cmd.Parameters.AddWithValue("@Cedula", txtCedula.Text);
+                    cmd.Parameters.AddWithValue("@Tlf", comboxTlf.Text);
+                    cmd.Parameters.AddWithValue("@Pass", hashedPassword); // Usar el hash
+                    cmd.Parameters.AddWithValue("@Rol", comboxRol.Text);
+
+                    // Ejecutar el comando
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Usuario registrado correctamente.");
+                reset(); // Limpiar los campos del formulario
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar el usuario: " + ex.Message);
+            }
+            finally
+            {
+                // Cerrar la conexión en el bloque finally
+                if (Program.connection.State == System.Data.ConnectionState.Open)
+                {
+                    Program.connection.Close();
+                }
             }
         }
 
-        private void txtTelefonoUser_Leave(object sender, EventArgs e)
+        // Método para validar los campos
+        public bool ValidarCampos()
         {
-            if (txtTelefonoUser.Text == "")
+            CamposValidacion validaciones = new CamposValidacion();
+
+            if (!validaciones.ValidarNombreUsuario(txtNusuario.Text))
             {
-                txtTelefonoUser.Text = "Telefono";
-                txtTelefonoUser.ForeColor = Color.Black;
+                MessageBox.Show("Error en el nombre de usuario.");
+                return false;
             }
+
+            if (!validaciones.ValidarCedula(txtCedula.Text))
+            {
+                MessageBox.Show("Error en la cédula.");
+                return false;
+            }
+
+            if (!validaciones.ValidarTelefono(comboxTlf.Text))
+            {
+                MessageBox.Show("Error en el teléfono.");
+                return false;
+            }
+
+            if (!validaciones.ValidarRol(comboxRol.Text))
+            {
+                MessageBox.Show("Error en el rol.");
+                return false;
+            }
+
+            if (!validaciones.ValidarContrasena(txtContrasena.Text))
+            {
+                MessageBox.Show("Error en la Contraseña.");
+                return false;
+            }
+            return true; // Todas las validaciones pasaron
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-
-
+            Login re = new Login();
+            re.Show();
+            this.Close();
         }
 
-        private void txtNusuario_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -24,11 +24,8 @@ namespace dental_C__SQLServer_app
         {
             Register re = new Register();
             re.Show();
+            this.Hide();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

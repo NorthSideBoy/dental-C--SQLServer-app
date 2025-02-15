@@ -66,7 +66,7 @@ namespace dental_C__SQLServer_app
 
         private void btnPacientes_MouseMove(object sender, MouseEventArgs e)
         {
-            btnPacientes.BackColor = Color.FromArgb(185, 255, 233);
+            btnPacientes.BackColor = Color.FromArgb(0, 205, 255);
         }
 
         private void btnPacientes_MouseLeave(object sender, EventArgs e)
@@ -91,7 +91,7 @@ namespace dental_C__SQLServer_app
 
         private void btnConsultas_MouseMove(object sender, MouseEventArgs e)
         {
-            btnConsultas.BackColor = Color.FromArgb(185, 255, 233);
+            btnConsultas.BackColor = Color.FromArgb(0, 205, 255);
         }
 
         private void btnConsultas_MouseLeave(object sender, EventArgs e)
@@ -101,7 +101,7 @@ namespace dental_C__SQLServer_app
 
         private void btnConfig_MouseMove(object sender, MouseEventArgs e)
         {
-            btnConfig.BackColor = Color.FromArgb(185, 255, 233);
+            btnConfig.BackColor = Color.FromArgb(0, 205, 255);
         }
 
         private void btnConfig_MouseLeave(object sender, EventArgs e)
@@ -135,7 +135,7 @@ namespace dental_C__SQLServer_app
 
         private void Logout_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
         private void sidebar_Paint(object sender, PaintEventArgs e)
@@ -145,7 +145,7 @@ namespace dental_C__SQLServer_app
 
         private void btnLogout_MouseMove(object sender, MouseEventArgs e)
         {
-            btnLogout.BackColor = Color.FromArgb(185, 255, 233);
+            btnLogout.BackColor = Color.FromArgb(0, 205, 255);
         }
 
         private void btnLogout_MouseLeave(object sender, EventArgs e)

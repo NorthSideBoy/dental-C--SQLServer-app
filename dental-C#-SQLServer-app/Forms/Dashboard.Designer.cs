@@ -73,7 +73,7 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(185, 255, 233);
+            panel1.BackColor = Color.DeepSkyBlue;
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnMenu);
             panel1.Location = new Point(0, 0);
@@ -197,7 +197,7 @@
             // 
             // sidebar
             // 
-            sidebar.BackColor = Color.FromArgb(236, 255, 249);
+            sidebar.BackColor = Color.WhiteSmoke;
             sidebar.Controls.Add(btnLogout);
             sidebar.Controls.Add(panel4);
             sidebar.Controls.Add(panel2);

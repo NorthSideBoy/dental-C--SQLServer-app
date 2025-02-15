@@ -67,7 +67,7 @@ namespace dental_C__SQLServer_app
                 Guid guid = Guid.NewGuid();
                 string hexValue = guid.ToString("N");
 
-               
+
 
 
                 Operation.Parameters.AddWithValue("@PatientID", hexValue);
@@ -116,7 +116,7 @@ namespace dental_C__SQLServer_app
             }
 
             string[] date = textFechaDeNacimiento.Text.Split("/");
-         
+
 
             DateTime Today = DateTime.Today;
             DateOnly UserDate = new DateOnly(int.Parse(date[2]), int.Parse(date[1]), int.Parse(date[0]));
@@ -126,7 +126,8 @@ namespace dental_C__SQLServer_app
                 validado = false;
                 errorProvider1.SetError(textFechaDeNacimiento, "La fecha de nacimiento no puede ser anterior a " + LimitDate.ToShortDateString());
                 reset();
-            } else
+            }
+            else
             {
                 Query = "INSERT INTO patients (PatientID,Nombre,Apellido,Cédula,FechaDeNacimiento,Edad,Dirección,Telefono,Sexo) VALUES (@PatientID,@Nombre,@Apellido,@Cédula,@FechaDeNacimiento,@Edad,@Dirección,@Telefono,@Sexo)";
                 Operation = new Microsoft.Data.SqlClient.SqlCommand(Query, Program.connection);
@@ -308,6 +309,11 @@ namespace dental_C__SQLServer_app
         }
 
         private void textEdad_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

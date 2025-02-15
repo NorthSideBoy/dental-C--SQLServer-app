@@ -23,6 +23,42 @@ namespace dental_C__SQLServer_app
 
         }
 
+        public bool AuthenticateUser(string txtuser, string txtpass)
+        {
+            bool isAuthenticated = false;
+            string sql = "SELECT pass FROM Users WHERE Username = @Username"; // Obtener el hash almacenado
+
+            using (Microsoft.Data.SqlClient.SqlCommand cmd = new Microsoft.Data.SqlClient.SqlCommand(sql, Program.connection))
+            {
+                // Parámetros
+                cmd.Parameters.AddWithValue("@Username", txtuser);
+
+                try
+                {
+                    Program.connection.Open();
+                    string hashedPasswordFromDB = cmd.ExecuteScalar()?.ToString(); // Obtener el hash de la base de datos
+
+                    if (hashedPasswordFromDB != null)
+                    {
+                        // Verificar si la contraseña coincide con el hash
+                        isAuthenticated = BCrypt.Net.BCrypt.Verify(txtpass, hashedPasswordFromDB);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+                finally
+                {
+                    if (Program.connection.State == ConnectionState.Open)
+                    {
+                        Program.connection.Close();
+                    }
+                }
+            }
+
+            return isAuthenticated;
+        }
         private void txtuser_Enter(object sender, EventArgs e)
         {
             //Condicion para vaciar el texto de usuario, para ingresar un nombre
@@ -96,16 +132,62 @@ namespace dental_C__SQLServer_app
         {
             Register re = new Register();
             re.Show();
+            this.Close();
         }
 
-        private void txtuser_TextChanged(object sender, EventArgs e)
+        private void btnAcceder_Click(object sender, EventArgs e)
         {
+            string username = txtuser.Text;
+            string password = txtpass.Text;
 
+            try
+            {
+                // Verificar que los campos no estén vacíos
+                if (string.IsNullOrEmpty(txtuser.Text) || string.IsNullOrEmpty(txtpass.Text))
+                {
+                    MessageBox.Show("Por favor, complete todos los campos.");
+                    return;
+                }
+
+                // Llamar al método de autenticación
+                bool isAuthenticated = AuthenticateUser(username, password);
+
+                if (isAuthenticated)
+                {
+                    MessageBox.Show("Acceso concedido. Bienvenido!");
+                    // Aquí puedes redirigir al usuario a la siguiente pantalla o formulario
+                    Dashboard re = new Dashboard();
+                    re.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Nombre de usuario o contraseña incorrectos. Inténtalo de nuevo.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private bool ValidarCampos()
         {
+            // Implementar la validación de campos si es necesario
+            return true; // Por ahora, siempre retorna true
+        }
 
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            SowUser re = new SowUser();
+            re.Show();
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            UserPanel re = new UserPanel();
+            re.Show();
+            this.Close();
         }
     }
 }

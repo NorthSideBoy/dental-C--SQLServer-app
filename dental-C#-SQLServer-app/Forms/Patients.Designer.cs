@@ -63,9 +63,10 @@
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(123, 117);
+            label1.Location = new Point(123, 137);
             label1.Name = "label1";
             label1.Size = new Size(355, 39);
             label1.TabIndex = 0;
@@ -73,7 +74,8 @@
             // 
             // groupBox1
             // 
-            groupBox1.BackColor = Color.FromArgb(162, 255, 211);
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            groupBox1.BackColor = Color.FromArgb(79, 209, 204);
             groupBox1.Controls.Add(comboBoxSexo);
             groupBox1.Controls.Add(button3);
             groupBox1.Controls.Add(button2);
@@ -92,7 +94,7 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(59, 179);
+            groupBox1.Location = new Point(59, 183);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(530, 345);
             groupBox1.TabIndex = 1;
@@ -264,9 +266,10 @@
             // 
             // label10
             // 
+            label10.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             label10.AutoSize = true;
             label10.Font = new Font("Century Gothic", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(780, 117);
+            label10.Location = new Point(834, 117);
             label10.Name = "label10";
             label10.Size = new Size(297, 39);
             label10.TabIndex = 8;
@@ -274,9 +277,10 @@
             // 
             // dtGridViewpatients
             // 
-            dtGridViewpatients.BackgroundColor = Color.FromArgb(162, 255, 211);
+            dtGridViewpatients.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            dtGridViewpatients.BackgroundColor = Color.FromArgb(79, 209, 204);
             dtGridViewpatients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtGridViewpatients.Location = new Point(610, 179);
+            dtGridViewpatients.Location = new Point(610, 183);
             dtGridViewpatients.Name = "dtGridViewpatients";
             dtGridViewpatients.Size = new Size(683, 414);
             dtGridViewpatients.TabIndex = 9;
@@ -284,18 +288,21 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(178, 1);
+            pictureBox1.Location = new Point(510, 20);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(223, 123);
+            pictureBox1.Size = new Size(196, 148);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // pictureBox2
             // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(678, 84);
+            pictureBox2.Location = new Point(727, 84);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(87, 72);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -310,14 +317,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(236, 255, 249);
+            BackColor = Color.White;
             ClientSize = new Size(1305, 616);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
             Controls.Add(dtGridViewpatients);
             Controls.Add(label10);
             Controls.Add(groupBox1);
             Controls.Add(label1);
+            Controls.Add(pictureBox1);
+            Controls.Add(pictureBox2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Patients";
             Text = "Patients";
