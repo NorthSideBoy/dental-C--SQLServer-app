@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Patients));
             label1 = new Label();
             groupBox1 = new GroupBox();
@@ -279,9 +282,35 @@
             // 
             dtGridViewpatients.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             dtGridViewpatients.BackgroundColor = Color.FromArgb(79, 209, 204);
-            dtGridViewpatients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtGridViewpatients.BorderStyle = BorderStyle.None;
+            dtGridViewpatients.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.DeepSkyBlue;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dtGridViewpatients.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dtGridViewpatients.ColumnHeadersHeight = 30;
+            dtGridViewpatients.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dtGridViewpatients.EnableHeadersVisualStyles = false;
+            dtGridViewpatients.GridColor = Color.FromArgb(79, 209, 204);
             dtGridViewpatients.Location = new Point(610, 183);
             dtGridViewpatients.Name = "dtGridViewpatients";
+            dtGridViewpatients.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(79, 209, 204);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dtGridViewpatients.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(79, 209, 204);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 205, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.White;
+            dtGridViewpatients.RowsDefaultCellStyle = dataGridViewCellStyle3;
             dtGridViewpatients.Size = new Size(683, 414);
             dtGridViewpatients.TabIndex = 9;
             dtGridViewpatients.CellClick += Datagr;
