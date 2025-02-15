@@ -12,6 +12,7 @@ using dental_C__SQLServer_app.Validations.Dating_methods;
 using static System.Net.Mime.MediaTypeNames;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using System.Globalization;
+using dental_C__SQLServer_app.Classes;
 
 namespace dental_C__SQLServer_app.Forms
 {
@@ -209,12 +210,13 @@ namespace dental_C__SQLServer_app.Forms
             MensajeBorrar();
 
             // Validar los campos antes de proceder
-            if (!Validarcampos()) {
+            if (!Validarcampos())
+            {
                 MessageBox.Show("Seleccione un Paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-                // Crear una instancia de la clase que contiene el método Seleccionar
-                CQuote cQuote = new CQuote();
+            // Crear una instancia de la clase que contiene el método Seleccionar
+            CQuote cQuote = new CQuote();
             cQuote.Modificar(_selectedID, textBoxMotivo, textBoxFecha, textBoxHora);
             // Actualizar el DataGridView con los nuevos datos
             dataGridView1.DataSource = cQuote.Cita();
@@ -238,7 +240,7 @@ namespace dental_C__SQLServer_app.Forms
 
             }
 
- 
+
 
             // Pedir confirmación al usuario
             DialogResult resultado = MessageBox.Show(
@@ -341,6 +343,48 @@ namespace dental_C__SQLServer_app.Forms
                 // Si la hora no tiene un formato válido
                 errorProvider1.SetError(textBoxHora, "Formato de hora inválido. Use el formato HH:mm.");
                 e.Cancel = true; // Evita que el foco salga del TextBox
+            }
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxBuscar_TextChanged(object sender, EventArgs e, Database database)
+        {
+            // Obtener el texto de búsqueda y eliminar espacios en blanco al inicio y al final
+            string textoBusqueda = textBoxBuscar.Text.Trim().ToUpper();
+
+            // Verificar si el texto de búsqueda no está vacío
+            if (!string.IsNullOrEmpty(textoBusqueda))
+            {
+                // Recorrer todas las filas del DataGridView
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    // Asumir que la fila no es visible inicialmente
+                    bool coincide = false;
+
+                    // Recorrer todas las celdas de la fila
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        // Verificar si la celda tiene un valor y si coincide con el texto de búsqueda
+                        if (cell.Value != null && cell.Value.ToString().ToUpper().Contains(textoBusqueda))
+                        {
+                            coincide = true;
+                            break; // Si coincide, no es necesario verificar las demás celdas
+                        }
+                    }
+
+                    // Mostrar u ocultar la fila según si coincide con la búsqueda
+                    row.Visible = coincide;
+                }
+            }
+            else
+            {
+                // Si el cuadro de búsqueda está vacío, cargar los datos originales
+                CQuote cQuote = new CQuote();
+                dataGridView1.DataSource = cQuote.Cita(); // Llamada correcta al método estático
             }
         }
     }

@@ -49,8 +49,7 @@
             dataGridView1 = new DataGridView();
             label2 = new Label();
             pictureBox1 = new PictureBox();
-            textBox4 = new TextBox();
-            textBox5 = new TextBox();
+            textBoxBuscar = new TextBox();
             button1 = new Button();
             errorProvider1 = new ErrorProvider(components);
             groupBox1.SuspendLayout();
@@ -248,23 +247,14 @@
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
-            // textBox4
+            // textBoxBuscar
             // 
-            textBox4.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox4.Location = new Point(688, 107);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(126, 26);
-            textBox4.TabIndex = 5;
-            textBox4.Text = "Nombre";
-            // 
-            // textBox5
-            // 
-            textBox5.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox5.Location = new Point(853, 107);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(126, 26);
-            textBox5.TabIndex = 6;
-            textBox5.Text = "Apellido";
+            textBoxBuscar.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxBuscar.Location = new Point(786, 108);
+            textBoxBuscar.Name = "textBoxBuscar";
+            textBoxBuscar.Size = new Size(235, 26);
+            textBoxBuscar.TabIndex = 5;
+            textBoxBuscar.TextChanged += textBox4_TextChanged;
             // 
             // button1
             // 
@@ -287,8 +277,7 @@
             BackColor = Color.White;
             ClientSize = new Size(1323, 679);
             Controls.Add(button1);
-            Controls.Add(textBox5);
-            Controls.Add(textBox4);
+            Controls.Add(textBoxBuscar);
             Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(dataGridView1);
@@ -317,8 +306,7 @@
         private DataGridView dataGridView1;
         private Label label2;
         private PictureBox pictureBox1;
-        private TextBox textBox4;
-        private TextBox textBox5;
+        private TextBox textBoxBuscar;
         private Button button1;
         private Button button3;
         private Button button2;

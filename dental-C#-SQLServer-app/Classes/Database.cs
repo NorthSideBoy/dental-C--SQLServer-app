@@ -48,5 +48,9 @@ namespace dental_C__SQLServer_app.Classes
             }
         }
 
+        internal static void consulta()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
