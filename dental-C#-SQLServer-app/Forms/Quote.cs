@@ -31,6 +31,7 @@ namespace dental_C__SQLServer_app.Forms
         public Quote()
         {
             InitializeComponent();
+            textBoxFiltro.TextChanged += new EventHandler(textBoxFiltro_TextChanged);
         }
 
         private void Quote_Load(object sender, EventArgs e)
@@ -346,45 +347,24 @@ namespace dental_C__SQLServer_app.Forms
             }
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void textBoxFiltro_TextChanged(object sender, EventArgs e)
         {
+            // Obtener el texto del TextBox
+            string filtro = textBoxFiltro.Text;
 
+            // Filtrar los datos del DataGridView
+            FiltrarDatos(filtro);
         }
 
-        private void textBoxBuscar_TextChanged(object sender, EventArgs e, Database database)
+        private void FiltrarDatos(string filtro)
         {
-            // Obtener el texto de búsqueda y eliminar espacios en blanco al inicio y al final
-            string textoBusqueda = textBoxBuscar.Text.Trim().ToUpper();
+            // Obtener el DataSource del DataGridView
+            DataTable dt = (DataTable)dataGridView1.DataSource;
 
-            // Verificar si el texto de búsqueda no está vacío
-            if (!string.IsNullOrEmpty(textoBusqueda))
+            // Aplicar el filtro
+            if (dt != null)
             {
-                // Recorrer todas las filas del DataGridView
-                foreach (DataGridViewRow row in dataGridView1.Rows)
-                {
-                    // Asumir que la fila no es visible inicialmente
-                    bool coincide = false;
-
-                    // Recorrer todas las celdas de la fila
-                    foreach (DataGridViewCell cell in row.Cells)
-                    {
-                        // Verificar si la celda tiene un valor y si coincide con el texto de búsqueda
-                        if (cell.Value != null && cell.Value.ToString().ToUpper().Contains(textoBusqueda))
-                        {
-                            coincide = true;
-                            break; // Si coincide, no es necesario verificar las demás celdas
-                        }
-                    }
-
-                    // Mostrar u ocultar la fila según si coincide con la búsqueda
-                    row.Visible = coincide;
-                }
-            }
-            else
-            {
-                // Si el cuadro de búsqueda está vacío, cargar los datos originales
-                CQuote cQuote = new CQuote();
-                dataGridView1.DataSource = cQuote.Cita(); // Llamada correcta al método estático
+                dt.DefaultView.RowFilter = string.Format("Nombre LIKE '%{0}%' OR Apellido LIKE '%{0}%'", filtro);
             }
         }
     }

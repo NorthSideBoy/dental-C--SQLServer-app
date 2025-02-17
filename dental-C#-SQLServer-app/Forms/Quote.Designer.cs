@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Quote));
             label1 = new Label();
             groupBox1 = new GroupBox();
@@ -50,10 +50,10 @@
             dataGridView1 = new DataGridView();
             label2 = new Label();
             pictureBox1 = new PictureBox();
-            textBoxBuscar = new TextBox();
-            button1 = new Button();
             errorProvider1 = new ErrorProvider(components);
             panel1 = new Panel();
+            textBoxFiltro = new TextBox();
+            label3 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -99,6 +99,7 @@
             // button5
             // 
             button5.BackColor = Color.FromArgb(14, 93, 142);
+            button5.ForeColor = SystemColors.ControlLightLight;
             button5.Location = new Point(420, 450);
             button5.Name = "button5";
             button5.Size = new Size(110, 30);
@@ -159,6 +160,7 @@
             // button4
             // 
             button4.BackColor = Color.FromArgb(14, 93, 142);
+            button4.ForeColor = SystemColors.ControlLightLight;
             button4.Location = new Point(6, 450);
             button4.Name = "button4";
             button4.Size = new Size(113, 30);
@@ -170,6 +172,7 @@
             // button3
             // 
             button3.BackColor = Color.FromArgb(14, 93, 142);
+            button3.ForeColor = SystemColors.ControlLightLight;
             button3.Location = new Point(295, 450);
             button3.Name = "button3";
             button3.Size = new Size(104, 30);
@@ -181,6 +184,7 @@
             // button2
             // 
             button2.BackColor = Color.FromArgb(14, 93, 142);
+            button2.ForeColor = SystemColors.ControlLightLight;
             button2.Location = new Point(159, 450);
             button2.Name = "button2";
             button2.Size = new Size(104, 30);
@@ -226,14 +230,14 @@
             // 
             dataGridView1.BackgroundColor = Color.White;
             dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(1, 119, 215);
-            dataGridViewCellStyle1.Font = new Font("Cooper Black", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.Window;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(1, 119, 215);
+            dataGridViewCellStyle2.Font = new Font("Cooper Black", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.Window;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(688, 169);
@@ -264,25 +268,6 @@
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
-            // textBoxBuscar
-            // 
-            textBoxBuscar.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxBuscar.Location = new Point(786, 108);
-            textBoxBuscar.Name = "textBoxBuscar";
-            textBoxBuscar.Size = new Size(235, 26);
-            textBoxBuscar.TabIndex = 5;
-            textBoxBuscar.TextChanged += textBox4_TextChanged;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(1049, 105);
-            button1.Name = "button1";
-            button1.Size = new Size(90, 29);
-            button1.TabIndex = 7;
-            button1.Text = "Buscar";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // errorProvider1
             // 
             errorProvider1.ContainerControl = this;
@@ -296,15 +281,33 @@
             panel1.Size = new Size(1323, 41);
             panel1.TabIndex = 8;
             // 
+            // textBoxFiltro
+            // 
+            textBoxFiltro.Location = new Point(879, 113);
+            textBoxFiltro.Name = "textBoxFiltro";
+            textBoxFiltro.Size = new Size(204, 23);
+            textBoxFiltro.TabIndex = 9;
+            textBoxFiltro.TextChanged += textBoxFiltro_TextChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Cooper Black", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Location = new Point(786, 115);
+            label3.Name = "label3";
+            label3.Size = new Size(77, 21);
+            label3.TabIndex = 10;
+            label3.Text = "Buscar";
+            // 
             // Quote
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1323, 679);
+            Controls.Add(label3);
+            Controls.Add(textBoxFiltro);
             Controls.Add(panel1);
-            Controls.Add(button1);
-            Controls.Add(textBoxBuscar);
             Controls.Add(pictureBox1);
             Controls.Add(label2);
             Controls.Add(dataGridView1);
@@ -334,8 +337,6 @@
         private DataGridView dataGridView1;
         private Label label2;
         private PictureBox pictureBox1;
-        private TextBox textBoxBuscar;
-        private Button button1;
         private Button button3;
         private Button button2;
         private Button button4;
@@ -348,5 +349,7 @@
         private Button button5;
         private ErrorProvider errorProvider1;
         private Panel panel1;
+        private TextBox textBoxFiltro;
+        private Label label3;
     }
 }
