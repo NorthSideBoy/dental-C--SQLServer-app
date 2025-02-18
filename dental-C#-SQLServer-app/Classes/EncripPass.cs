@@ -29,4 +29,3 @@ namespace dental_C__SQLServer_app.Classes
         }
     }
 }
-

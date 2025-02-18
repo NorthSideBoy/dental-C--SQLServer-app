@@ -39,6 +39,7 @@ namespace dental_C__SQLServer_app
         {
             txtNusuario.Text = "";
             txtCedula.Text = "";
+            txtCorreo.Text = "";
             comboxTlf.Text = "";
             txtContrasena.Text = "";
             txtConfirmar.Text = "";
@@ -49,7 +50,7 @@ namespace dental_C__SQLServer_app
             if (txtNusuario.Text == "Nombre de Usuario")
             {
                 txtNusuario.Clear();
-                txtNusuario.ForeColor = Color.Black;
+                txtNusuario.ForeColor = Color.White;
             }
         }
 
@@ -58,7 +59,7 @@ namespace dental_C__SQLServer_app
             if (txtNusuario.Text == "")
             {
                 txtNusuario.Text = "Nombre de Usuario";
-                txtNusuario.ForeColor = Color.Black;
+                txtNusuario.ForeColor = Color.White;
             }
         }
 
@@ -67,7 +68,7 @@ namespace dental_C__SQLServer_app
             if (txtContrasena.Text == "Contraseña")
             {
                 txtContrasena.Text = "";
-                txtContrasena.ForeColor = Color.Black;
+                txtContrasena.ForeColor = Color.White;
             }
             txtContrasena.UseSystemPasswordChar = true; //Ocultar contraseña
         }
@@ -77,7 +78,7 @@ namespace dental_C__SQLServer_app
             if (txtContrasena.Text == "")
             {
                 txtContrasena.Text = "Contraseña";
-                txtContrasena.ForeColor = Color.Black;
+                txtContrasena.ForeColor = Color.White;
                 txtContrasena.UseSystemPasswordChar = false;
             }
         }
@@ -87,7 +88,7 @@ namespace dental_C__SQLServer_app
             if (txtConfirmar.Text == "Confirmar Contraseña")
             {
                 txtConfirmar.Text = "";
-                txtConfirmar.ForeColor = Color.Black;
+                txtConfirmar.ForeColor = Color.White;
                 txtConfirmar.UseSystemPasswordChar = true; //Ocultar contraseña
             }
         }
@@ -97,7 +98,7 @@ namespace dental_C__SQLServer_app
             if (txtConfirmar.Text == "")
             {
                 txtConfirmar.Text = "Confirmar Contraseña";
-                txtConfirmar.ForeColor = Color.Black;
+                txtConfirmar.ForeColor = Color.White;
                 txtConfirmar.UseSystemPasswordChar = false;
             }
         }
@@ -107,7 +108,7 @@ namespace dental_C__SQLServer_app
             if (txtCedula.Text == "Cedula de Identidad")
             {
                 txtCedula.Text = "";
-                txtCedula.ForeColor = Color.Black;
+                txtCedula.ForeColor = Color.White;
             }
         }
 
@@ -116,7 +117,7 @@ namespace dental_C__SQLServer_app
             if (txtCedula.Text == "")
             {
                 txtCedula.Text = "Cedula de Identidad";
-                txtCedula.ForeColor = Color.Black;
+                txtCedula.ForeColor = Color.White;
             }
         }
         private void btnRegresar_Click(object sender, EventArgs e)
@@ -143,7 +144,7 @@ namespace dental_C__SQLServer_app
                 // Verificar que los campos no estén vacíos
                 if (string.IsNullOrEmpty(txtNusuario.Text) || string.IsNullOrEmpty(txtCedula.Text) ||
                     string.IsNullOrEmpty(comboxTlf.Text) || string.IsNullOrEmpty(txtContrasena.Text) ||
-                    string.IsNullOrEmpty(comboxRol.Text))
+                    string.IsNullOrEmpty(comboxRol.Text) || string.IsNullOrEmpty(txtCorreo.Text))
                 {
                     MessageBox.Show("Por favor, complete todos los campos.");
                     return;
@@ -160,7 +161,7 @@ namespace dental_C__SQLServer_app
                 string hashedPassword = HashPassword(txtContrasena.Text);
 
                 // Definir la consulta SQL
-                string query = "INSERT INTO newUser (userName, Cedula, tlf, pass, rol) VALUES (@userName, @cedula, @tlf, @pass, @rol)";
+                string query = "INSERT INTO users (userName, Cedula, email, phone, pass, rol) VALUES (@userName, @cedula, @email, @phone, @pass, @rol)";
 
                 // Abrir la conexión
                 if (Program.connection.State != System.Data.ConnectionState.Open)
@@ -173,7 +174,8 @@ namespace dental_C__SQLServer_app
                 {
                     cmd.Parameters.AddWithValue("@userName", txtNusuario.Text);
                     cmd.Parameters.AddWithValue("@cedula", txtCedula.Text);
-                    cmd.Parameters.AddWithValue("@tlf", comboxTlf.Text);
+                    cmd.Parameters.AddWithValue("@email", txtCorreo.Text);
+                    cmd.Parameters.AddWithValue("@phone", comboxTlf.Text);
                     cmd.Parameters.AddWithValue("@pass", hashedPassword); // Usar el hash
                     cmd.Parameters.AddWithValue("@rol", comboxRol.Text);
 
@@ -233,6 +235,13 @@ namespace dental_C__SQLServer_app
                 return false;
             }
             return true; // Todas las validaciones pasaron
+
+            if (!validaciones.ValidarCorreo(txtCorreo.Text))
+            {
+                MessageBox.Show("Error en la Correo.");
+                return false;
+            }
+            return true;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -241,5 +250,28 @@ namespace dental_C__SQLServer_app
             re.Show();
         }
 
+        private void txtCorreo_Enter(object sender, EventArgs e)
+        {
+            if (txtCorreo.Text == "Correo")
+            {
+                txtCorreo.Text = "";
+                txtCorreo.ForeColor = Color.White;
+            }
+        }
+
+        private void txtCorreo_Leave(object sender, EventArgs e)
+        {
+            if (txtCorreo.Text == "")
+            {
+                txtCorreo.Text = "Correo";
+                txtCorreo.ForeColor = Color.White;
+            }
+        }
+
+        private void btnSiguiente_Click(object sender, EventArgs e)
+        {
+            SecurityQuestions re = new SecurityQuestions();
+            re.Show();
+        }
     }
 }

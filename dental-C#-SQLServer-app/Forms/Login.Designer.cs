@@ -211,7 +211,6 @@
             btnmostrar.TabIndex = 7;
             btnmostrar.TabStop = true;
             btnmostrar.UseVisualStyleBackColor = true;
-            btnmostrar.CheckedChanged += btnmostrar_CheckedChanged;
             btnmostrar.Click += btnmostrar_Click;
             // 
             // Login

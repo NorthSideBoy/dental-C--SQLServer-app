@@ -151,6 +151,25 @@ namespace dental_C__SQLServer_app.Validations
 
             return true;
         }
+        public class Validaciones
+        {
+            public bool ValidarCorreo(string correo)
+            {
+                // Lógica para validar el correo
+                return correo.Contains("@");
+            }
+        }
+        public bool ValidarCorreo(string txtCorreo)
+        {
+            if (string.IsNullOrWhiteSpace(txtCorreo))
+            {
+                return false;
+            }
 
+            // Expresión regular para validar correos
+            string patron = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            return Regex.IsMatch(txtCorreo, patron);
+            return txtCorreo.Contains("@");
+        }
     }
 }

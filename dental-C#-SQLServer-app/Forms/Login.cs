@@ -26,7 +26,7 @@ namespace dental_C__SQLServer_app
         public bool AuthenticateUser(string txtuser, string txtpass)
         {
             bool isAuthenticated = false;
-            string sql = "SELECT pass FROM newUser WHERE userName = @username"; // Obtener el hash almacenado
+            string sql = "SELECT pass FROM users WHERE userName = @username"; // Obtener el hash almacenado
 
             using (Microsoft.Data.SqlClient.SqlCommand cmd = new Microsoft.Data.SqlClient.SqlCommand(sql, Program.connection))
             {
@@ -65,7 +65,7 @@ namespace dental_C__SQLServer_app
             if (txtuser.Text == "USUARIO")
             {
                 txtuser.Text = "";
-                txtuser.ForeColor = Color.Black;
+                txtuser.ForeColor = Color.White;
             }
         }
 
@@ -75,7 +75,7 @@ namespace dental_C__SQLServer_app
             if (txtuser.Text == "")
             {
                 txtuser.Text = "USUARIO";
-                txtuser.ForeColor = Color.Black;
+                txtuser.ForeColor = Color.White;
             }
         }
 
@@ -85,7 +85,7 @@ namespace dental_C__SQLServer_app
             if (txtpass.Text == "CONTRASEÑA")
             {
                 txtpass.Text = "";
-                txtpass.ForeColor = Color.Black;
+                txtpass.ForeColor = Color.White;
                 txtpass.UseSystemPasswordChar = true; //Ocultar contraseña
             }
         }
@@ -96,29 +96,9 @@ namespace dental_C__SQLServer_app
             if (txtpass.Text == "")
             {
                 txtpass.Text = "CONTRASEÑA";
-                txtpass.ForeColor = Color.Black;
+                txtpass.ForeColor = Color.White;
                 txtpass.UseSystemPasswordChar = false;
             }
-
-        }
-
-        private void btncerrar_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnminimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnexpandir_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-        }
-
-        private void btnmostrar_CheckedChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -167,12 +147,6 @@ namespace dental_C__SQLServer_app
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-        }
-
-        private bool ValidarCampos()
-        {
-            // Implementar la validación de campos si es necesario
-            return true; // Por ahora, siempre retorna true
         }
 
         private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

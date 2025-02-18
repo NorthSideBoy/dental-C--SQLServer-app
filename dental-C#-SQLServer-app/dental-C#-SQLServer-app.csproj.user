@@ -16,6 +16,9 @@
     <Compile Update="Forms\UserPanel.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="SecurityQuestions.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="SowUser.cs">
       <SubType>Form</SubType>
     </Compile>
