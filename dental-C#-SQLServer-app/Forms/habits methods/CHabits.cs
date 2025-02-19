@@ -107,5 +107,102 @@ namespace dental_C__SQLServer_app.Forms.habits_methods
             }
         }
 
+
+
+        public DataTable BuscarHabitsPorPaciente(string patientID)
+        {
+            DataTable dataTable = new DataTable();
+            string Sql = "SELECT * FROM habits WHERE PatientID = @PatientID";
+            using (SqlCommand CMD = new SqlCommand(Sql, Program.connection))
+            {
+                CMD.Parameters.AddWithValue("@PatientID", patientID);
+                SqlDataAdapter adapter = new SqlDataAdapter(CMD);
+                adapter.Fill(dataTable);
+            }
+            return dataTable;
+        }
+
+        public DataTable BuscarAntecedentsPorPaciente(string patientID)
+        {
+            DataTable dataTable = new DataTable();
+            string Sql = "SELECT * FROM antecedents WHERE PatientID = @PatientID";
+            using (SqlCommand CMD = new SqlCommand(Sql, Program.connection))
+            {
+                CMD.Parameters.AddWithValue("@PatientID", patientID);
+                SqlDataAdapter adapter = new SqlDataAdapter(CMD);
+                adapter.Fill(dataTable);
+            }
+            return dataTable;
+        }
+
+        public void ModificarHabits(string habitsID, string nombreH, string cepillado)
+        {
+            string Sql = "UPDATE habits SET NombreH = @NombreH, Cepillado = @Cepillado WHERE HabitsID = @HabitsID";
+            using (SqlCommand CMD = new SqlCommand(Sql, Program.connection))
+            {
+                CMD.Parameters.AddWithValue("@NombreH", nombreH);
+                CMD.Parameters.AddWithValue("@Cepillado", cepillado);
+                CMD.Parameters.AddWithValue("@HabitsID", habitsID);
+
+                if (Program.connection.State != ConnectionState.Open)
+                {
+                    Program.connection.Open();
+                }
+
+                CMD.ExecuteNonQuery();
+            }
+        }
+
+        public void ModificarAntecedents(string antecedentsID, string hemorrágicos, string personales, string familiares)
+        {
+            string Sql = "UPDATE antecedents SET Hemorrágicos = @Hemorrágicos, Personales = @Personales, Familiares = @Familiares WHERE AntecedentsID = @AntecedentsID";
+            using (SqlCommand CMD = new SqlCommand(Sql, Program.connection))
+            {
+                CMD.Parameters.AddWithValue("@Hemorrágicos", hemorrágicos);
+                CMD.Parameters.AddWithValue("@Personales", personales);
+                CMD.Parameters.AddWithValue("@Familiares", familiares);
+                CMD.Parameters.AddWithValue("@AntecedentsID", antecedentsID);
+
+                if (Program.connection.State != ConnectionState.Open)
+                {
+                    Program.connection.Open();
+                }
+
+                CMD.ExecuteNonQuery();
+            }
+        }
+
+        public void EliminarHabits(string habitsID)
+        {
+            string Sql = "DELETE FROM habits WHERE HabitsID = @HabitsID";
+            using (SqlCommand CMD = new SqlCommand(Sql, Program.connection))
+            {
+                CMD.Parameters.AddWithValue("@HabitsID", habitsID);
+
+                if (Program.connection.State != ConnectionState.Open)
+                {
+                    Program.connection.Open();
+                }
+
+                CMD.ExecuteNonQuery();
+            }
+        }
+
+        public void EliminarAntecedents(string antecedentsID)
+        {
+            string Sql = "DELETE FROM antecedents WHERE AntecedentsID = @AntecedentsID";
+            using (SqlCommand CMD = new SqlCommand(Sql, Program.connection))
+            {
+                CMD.Parameters.AddWithValue("@AntecedentsID", antecedentsID);
+
+                if (Program.connection.State != ConnectionState.Open)
+                {
+                    Program.connection.Open();
+                }
+
+                CMD.ExecuteNonQuery();
+            }
+        }
+
     }
 }

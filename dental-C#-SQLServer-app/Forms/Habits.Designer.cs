@@ -44,6 +44,8 @@
             label6 = new Label();
             button2 = new Button();
             comboBox1 = new ComboBox();
+            button1 = new Button();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -65,6 +67,8 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(505, 139);
             dataGridView1.TabIndex = 1;
+            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label2
             // 
@@ -83,6 +87,7 @@
             dataGridView2.Name = "dataGridView2";
             dataGridView2.Size = new Size(505, 147);
             dataGridView2.TabIndex = 3;
+            dataGridView2.CellClick += dataGridView2_CellClick;
             // 
             // textBoxHabito
             // 
@@ -97,6 +102,7 @@
             textBoxHemorragicos.Name = "textBoxHemorragicos";
             textBoxHemorragicos.Size = new Size(342, 23);
             textBoxHemorragicos.TabIndex = 5;
+            textBoxHemorragicos.TextChanged += textBoxHemorragicos_TextChanged;
             // 
             // textBoxCepillado
             // 
@@ -187,12 +193,37 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(333, 23);
             comboBox1.TabIndex = 16;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(353, 623);
+            button1.Name = "button1";
+            button1.Size = new Size(116, 23);
+            button1.TabIndex = 17;
+            button1.Text = "Modificar";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button3
+            // 
+            button3.Font = new Font("Cooper Black", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button3.Location = new Point(494, 623);
+            button3.Name = "button3";
+            button3.Size = new Size(116, 23);
+            button3.TabIndex = 18;
+            button3.Text = "Eliminar";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // Habits
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 658);
+            Controls.Add(button3);
+            Controls.Add(button1);
             Controls.Add(comboBox1);
             Controls.Add(button2);
             Controls.Add(label6);
@@ -236,5 +267,7 @@
         private Label label6;
         private Button button2;
         private ComboBox comboBox1;
+        private Button button1;
+        private Button button3;
     }
 }
