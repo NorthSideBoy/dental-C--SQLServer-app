@@ -36,7 +36,7 @@ namespace dental_C__SQLServer_app
                 try
                 {
                     Program.connection.Open();
-                    string hashedPasswordFromDB = cmd.ExecuteScalar()?.ToString(); // Obtener el hash de la base de datos
+                    string? hashedPasswordFromDB = cmd.ExecuteScalar().ToString(); // Obtener el hash de la base de datos
 
                     if (hashedPasswordFromDB != null)
                     {
