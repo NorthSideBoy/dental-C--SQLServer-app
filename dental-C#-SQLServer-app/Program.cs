@@ -18,7 +18,7 @@ namespace dental_C__SQLServer_app
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             
-            Application.Run(new UserPanel());
+            Application.Run(new Factura());
 
            
             string password = "miContraseñaSegura";
