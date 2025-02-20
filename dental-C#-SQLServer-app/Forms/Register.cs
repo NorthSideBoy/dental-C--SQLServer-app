@@ -184,6 +184,14 @@ namespace dental_C__SQLServer_app
                 }
 
                 MessageBox.Show("Usuario registrado correctamente.");
+
+                // Redirigir al formulario de preguntas de seguridad
+                SecurityQuestions preguntasSeguridad = new SecurityQuestions();
+                preguntasSeguridad.Show();
+
+                // Opcional: Cerrar el formulario actual si no es necesario mantenerlo abierto
+                this.Close();
+
                 reset(); // Limpiar los campos del formulario
             }
             catch (Exception ex)
@@ -272,6 +280,11 @@ namespace dental_C__SQLServer_app
         {
             SecurityQuestions re = new SecurityQuestions();
             re.Show();
+        }
+
+        private void Register_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

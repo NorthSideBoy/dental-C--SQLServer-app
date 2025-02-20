@@ -18,7 +18,7 @@ namespace dental_C__SQLServer_app
             InitializeComponent();
         }
 
-        
+
         private void SecurityQuestions_Load(object sender, EventArgs e)
         {
             // Obtener las preguntas predefinidas
@@ -30,56 +30,52 @@ namespace dental_C__SQLServer_app
             comboxPregunta3.DataSource = new List<string>(preguntas);
         }
 
-        private void btnGuardarQ_Click(object sender, EventArgs e)
+
+
+        private void btnGuardarQ_Click_1(object sender, EventArgs e)
         {
-            int userID = 123; // ID del usuario actual
-            string[] preguntas = new string[]
-            {
-        comboxPregunta1.SelectedItem.ToString(),
-        comboxPregunta2.SelectedItem.ToString(),
-        comboxPregunta3.SelectedItem.ToString()
-            };
-
-            string[] respuestas = new string[]
-            {
-        txtRespuesta1.Text,
-        txtRespuesta2.Text,
-        txtRespuesta3.Text
-            };
-
             try
             {
+                // Validar que los campos no estén vacíos
+                if (comboxPregunta1.SelectedItem == null || comboxPregunta2.SelectedItem == null || comboxPregunta3.SelectedItem == null ||
+                    string.IsNullOrWhiteSpace(txtRespuesta1.Text) || string.IsNullOrWhiteSpace(txtRespuesta2.Text) || string.IsNullOrWhiteSpace(txtRespuesta3.Text))
+                {
+                    MessageBox.Show("Por favor, complete todas las preguntas y respuestas.");
+                    return;
+                }
+
+                // Obtener las preguntas y respuestas
+                string[] preguntas = new string[]
+                {
+            comboxPregunta1.SelectedItem.ToString(),
+            comboxPregunta2.SelectedItem.ToString(),
+            comboxPregunta3.SelectedItem.ToString()
+                };
+
+                string[] respuestas = new string[]
+                {
+            txtRespuesta1.Text,
+            txtRespuesta2.Text,
+            txtRespuesta3.Text
+                };
+
+                // Obtener el userID dinámicamente
+                int userID = GetCurrentUserId(); // Implementa este método para obtener el ID del usuario actual
+
                 // Guardar las preguntas y respuestas en la base de datos
                 SecurityQ.SaveSecurityQuestions(userID, preguntas, respuestas);
+
                 MessageBox.Show("Preguntas de seguridad guardadas correctamente.");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error: " + ex.Message);
+                MessageBox.Show("Ocurrió un error al guardar las preguntas de seguridad: " + ex.Message);
             }
         }
 
-        private void btnVerificar_Click(object sender, EventArgs e)
+        private int GetCurrentUserId()
         {
-            int userID = 123; // ID del usuario actual
-            string[] respuestasProporcionadas = new string[]
-            {
-        txtRespuesta1.Text,
-        txtRespuesta2.Text,
-        txtRespuesta3.Text
-            };
-
-            // Verificar las respuestas
-            bool esValido = SecurityQ.VerifySecurityAnswers(userID, respuestasProporcionadas);
-
-            if (esValido)
-            {
-                MessageBox.Show("Respuestas correctas. Puedes continuar.");
-            }
-            else
-            {
-                MessageBox.Show("Respuestas incorrectas. Intenta nuevamente.");
-            }
+            throw new NotImplementedException();
         }
     }
 }

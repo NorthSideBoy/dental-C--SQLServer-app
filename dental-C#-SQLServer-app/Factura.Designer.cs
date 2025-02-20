@@ -389,6 +389,7 @@
             Name = "Factura";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Factura";
+            Load += Factura_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);

@@ -30,6 +30,7 @@
         {
             label1 = new Label();
             panel1 = new Panel();
+            button1 = new Button();
             btnVerificar = new Button();
             txtRespuesta3 = new TextBox();
             txtRespuesta2 = new TextBox();
@@ -51,7 +52,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 20F);
-            label1.Location = new Point(235, 30);
+            label1.Location = new Point(219, 19);
             label1.Name = "label1";
             label1.Size = new Size(331, 33);
             label1.TabIndex = 0;
@@ -60,6 +61,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Blue;
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(btnVerificar);
             panel1.Controls.Add(txtRespuesta3);
             panel1.Controls.Add(txtRespuesta2);
@@ -78,6 +80,15 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(717, 357);
             panel1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(562, 250);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 14;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // btnVerificar
             // 
@@ -122,6 +133,7 @@
             btnGuardarQ.TabIndex = 8;
             btnGuardarQ.Text = "Guardar";
             btnGuardarQ.UseVisualStyleBackColor = true;
+            btnGuardarQ.Click += btnGuardarQ_Click_1;
             // 
             // comboxPregunta3
             // 
@@ -220,10 +232,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
             Controls.Add(label1);
             Name = "SecurityQuestions";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "SecurityQuestions";
             Load += SecurityQuestions_Load;
             panel1.ResumeLayout(false);
@@ -250,5 +264,6 @@
         private TextBox txtRespuesta2;
         private TextBox txtRespuesta1;
         private Button btnVerificar;
+        private Button button1;
     }
 }

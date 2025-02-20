@@ -12,6 +12,50 @@ namespace dental_C__SQLServer_app.Classes
     {
         private static string connectionString;
 
+        // Método para guardar preguntas y respuestas de seguridad
+        public static void SaveSecurityQuestions(int userId, string[] preguntas, string[] respuestas)
+        {
+            if (preguntas.Length != respuestas.Length)
+            {
+                throw new ArgumentException("El número de preguntas y respuestas no coincide.");
+            }
+
+            string connectionString = "Server=localhost;Database=histodent;Trusted_Connection=True;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        for (int i = 0; i < preguntas.Length; i++)
+                        {
+                            string query = @"
+                        INSERT INTO UserSecurityQuestions (UserId, SecurityQuestion, SecurityAnswer)
+                        VALUES (@UserId, @SecurityQuestion, @SecurityAnswer)";
+
+                            using (SqlCommand command = new SqlCommand(query, connection, transaction))
+                            {
+                                command.Parameters.AddWithValue("@UserId", userId);
+                                command.Parameters.AddWithValue("@SecurityQuestion", preguntas[i]);
+                                command.Parameters.AddWithValue("@SecurityAnswer", respuestas[i]);
+
+                                command.ExecuteNonQuery();
+                            }
+                        }
+
+                        transaction.Commit();
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        throw; // Vuelve a lanzar la excepción para manejarla en el nivel superior
+                    }
+                }
+            }
+        }
         public static bool VerifySecurityAnswers(int userID, string[] providedAnswers)
         {
             string query = @"
@@ -58,22 +102,35 @@ namespace dental_C__SQLServer_app.Classes
             }
         }
 
-        public static void SaveRecoveryToken(int userID, string token, DateTime expirationDate)
+        public static void SaveRecoveryToken(int iD, string token, DateTime expirationDate)
         {
             string query = @"
-        INSERT INTO PasswordRecovery (UserID, Token, ExpirationDate)
-        VALUES (@UserID, @Token, @ExpirationDate)";
+            INSERT INTO PasswordRecovery (UserID, Token, ExpirationDate)
+            VALUES (@UserID, @Token, @ExpirationDate)";
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            try
             {
-                connection.Open();
-                using (SqlCommand command = new SqlCommand(query, connection))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    command.Parameters.AddWithValue("@UserID", userID);
-                    command.Parameters.AddWithValue("@Token", token);
-                    command.Parameters.AddWithValue("@ExpirationDate", expirationDate);
-                    command.ExecuteNonQuery();
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@UserID", iD);
+                        command.Parameters.AddWithValue("@Token", token);
+                        command.Parameters.AddWithValue("@ExpirationDate", expirationDate);
+                        command.ExecuteNonQuery();
+                    }
                 }
+            }
+            catch (SqlException sqlEx)
+            {
+                // Manejo de errores específicos de SQL
+                MessageBox.Show("Error de SQL: " + sqlEx.Message);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores generales
+                MessageBox.Show("Ocurrió un error: " + ex.Message);
             }
         }
 
@@ -129,27 +186,28 @@ namespace dental_C__SQLServer_app.Classes
         "¿Cuál es el nombre de tu mejor amigo de la infancia?"
     };
         }
+    }
+    public static class DatabaseConnection
+    {
+        private static string connectionString;
 
-        public static void SaveSecurityQuestions(int userID, string[] questions, string[] answers)
+        public static void SetConnectionString(string server, string database, string id, string password)
         {
-            string query = @"
-    INSERT INTO UserSecurityQuestions (UserID, SecurityQuestion, SecurityAnswer)
-    VALUES (@UserID, @SecurityQuestion, @SecurityAnswer)";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            var builder = new SqlConnectionStringBuilder
             {
-                connection.Open();
-                for (int i = 0; i < questions.Length; i++)
-                {
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@UserID", userID);
-                        command.Parameters.AddWithValue("@SecurityQuestion", questions[i]);
-                        command.Parameters.AddWithValue("@SecurityAnswer", Encriptacion.EncripPass.HashPassword(answers[i]));
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
+                DataSource = server,
+                InitialCatalog = database,
+                UserID = id,
+                Password = password,
+                IntegratedSecurity = false // Cambia a true si usas autenticación de Windows
+            };
+
+            connectionString = builder.ConnectionString;
+        }
+
+        public static SqlConnection GetConnection()
+        {
+            return new SqlConnection(connectionString);
         }
     }
 }

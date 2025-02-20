@@ -30,25 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             panel2 = new Panel();
+            comboxRol = new ComboBox();
+            txtConfirmar = new TextBox();
+            txtCorreo = new TextBox();
             txtContrasena = new TextBox();
+            label5 = new Label();
             label7 = new Label();
+            txtNusuario = new TextBox();
+            label4 = new Label();
+            comboxTlf = new ComboBox();
+            label2 = new Label();
+            txtCedula = new TextBox();
+            label6 = new Label();
+            label3 = new Label();
             btnLogin = new Button();
             pictureBox3 = new PictureBox();
             btnRegistrar = new Button();
             label1 = new Label();
-            txtNusuario = new TextBox();
-            label2 = new Label();
-            txtConfirmar = new TextBox();
-            label3 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            txtCedula = new TextBox();
             btnRegresar = new PictureBox();
-            comboxRol = new ComboBox();
             labelRol = new Label();
-            comboxTlf = new ComboBox();
-            label4 = new Label();
-            txtCorreo = new TextBox();
             btnSiguiente = new Button();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -77,6 +77,45 @@
             panel2.Size = new Size(383, 401);
             panel2.TabIndex = 1;
             // 
+            // comboxRol
+            // 
+            comboxRol.BackColor = Color.White;
+            comboxRol.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboxRol.FormattingEnabled = true;
+            comboxRol.Items.AddRange(new object[] { "Admin", "User" });
+            comboxRol.Location = new Point(88, 355);
+            comboxRol.Name = "comboxRol";
+            comboxRol.Size = new Size(175, 29);
+            comboxRol.TabIndex = 20;
+            // 
+            // txtConfirmar
+            // 
+            txtConfirmar.BackColor = Color.FromArgb(14, 93, 215);
+            txtConfirmar.BorderStyle = BorderStyle.None;
+            txtConfirmar.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtConfirmar.ForeColor = Color.White;
+            txtConfirmar.Location = new Point(40, 288);
+            txtConfirmar.Multiline = true;
+            txtConfirmar.Name = "txtConfirmar";
+            txtConfirmar.Size = new Size(306, 23);
+            txtConfirmar.TabIndex = 9;
+            txtConfirmar.Text = "Confirmar Contraseña";
+            txtConfirmar.Enter += txtConfirmar_Enter;
+            txtConfirmar.Leave += txtConfirmar_Leave;
+            // 
+            // txtCorreo
+            // 
+            txtCorreo.BackColor = Color.FromArgb(14, 93, 215);
+            txtCorreo.BorderStyle = BorderStyle.None;
+            txtCorreo.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCorreo.ForeColor = Color.White;
+            txtCorreo.Location = new Point(40, 133);
+            txtCorreo.Multiline = true;
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(306, 23);
+            txtCorreo.TabIndex = 26;
+            txtCorreo.Text = "Correo";
+            // 
             // txtContrasena
             // 
             txtContrasena.BackColor = Color.FromArgb(14, 93, 215);
@@ -92,6 +131,18 @@
             txtContrasena.Enter += txtContrasena_Enter;
             txtContrasena.Leave += txtContrasena_Leave;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.FromArgb(14, 93, 215);
+            label5.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(40, 301);
+            label5.Name = "label5";
+            label5.Size = new Size(306, 21);
+            label5.TabIndex = 14;
+            label5.Text = "_____________________________________";
+            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -103,6 +154,95 @@
             label7.Size = new Size(306, 21);
             label7.TabIndex = 18;
             label7.Text = "_____________________________________";
+            // 
+            // txtNusuario
+            // 
+            txtNusuario.BackColor = Color.FromArgb(14, 93, 215);
+            txtNusuario.BorderStyle = BorderStyle.None;
+            txtNusuario.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtNusuario.ForeColor = Color.White;
+            txtNusuario.Location = new Point(40, 25);
+            txtNusuario.Multiline = true;
+            txtNusuario.Name = "txtNusuario";
+            txtNusuario.Size = new Size(306, 23);
+            txtNusuario.TabIndex = 3;
+            txtNusuario.Text = "Nombre de Usuario";
+            txtNusuario.Enter += txtNusuario_Enter;
+            txtNusuario.Leave += txtNusuario_Leave;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.FromArgb(14, 93, 215);
+            label4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(40, 185);
+            label4.Name = "label4";
+            label4.Size = new Size(76, 21);
+            label4.TabIndex = 24;
+            label4.Text = "Telefono";
+            // 
+            // comboxTlf
+            // 
+            comboxTlf.BackColor = Color.White;
+            comboxTlf.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            comboxTlf.FormattingEnabled = true;
+            comboxTlf.Items.AddRange(new object[] { "0424", "0414", "0412", "0416" });
+            comboxTlf.Location = new Point(122, 182);
+            comboxTlf.Name = "comboxTlf";
+            comboxTlf.Size = new Size(217, 29);
+            comboxTlf.TabIndex = 23;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(14, 93, 215);
+            label2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(40, 37);
+            label2.Name = "label2";
+            label2.Size = new Size(306, 21);
+            label2.TabIndex = 4;
+            label2.Text = "_____________________________________";
+            // 
+            // txtCedula
+            // 
+            txtCedula.BackColor = Color.FromArgb(14, 93, 215);
+            txtCedula.BorderStyle = BorderStyle.None;
+            txtCedula.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtCedula.ForeColor = Color.White;
+            txtCedula.Location = new Point(40, 79);
+            txtCedula.Multiline = true;
+            txtCedula.Name = "txtCedula";
+            txtCedula.Size = new Size(306, 23);
+            txtCedula.TabIndex = 16;
+            txtCedula.Text = "Cedula de Identidad";
+            txtCedula.Enter += txtCedula_Enter;
+            txtCedula.Leave += txtCedula_Leave;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.FromArgb(14, 93, 215);
+            label6.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(40, 93);
+            label6.Name = "label6";
+            label6.Size = new Size(306, 21);
+            label6.TabIndex = 15;
+            label6.Text = "_____________________________________";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.FromArgb(14, 93, 215);
+            label3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(40, 145);
+            label3.Name = "label3";
+            label3.Size = new Size(306, 21);
+            label3.TabIndex = 12;
+            label3.Text = "_____________________________________";
             // 
             // btnLogin
             // 
@@ -151,99 +291,6 @@
             label1.TabIndex = 2;
             label1.Text = "Registrarse";
             // 
-            // txtNusuario
-            // 
-            txtNusuario.BackColor = Color.FromArgb(14, 93, 215);
-            txtNusuario.BorderStyle = BorderStyle.None;
-            txtNusuario.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNusuario.ForeColor = Color.White;
-            txtNusuario.Location = new Point(40, 25);
-            txtNusuario.Multiline = true;
-            txtNusuario.Name = "txtNusuario";
-            txtNusuario.Size = new Size(306, 23);
-            txtNusuario.TabIndex = 3;
-            txtNusuario.Text = "Nombre de Usuario";
-            txtNusuario.Enter += txtNusuario_Enter;
-            txtNusuario.Leave += txtNusuario_Leave;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(14, 93, 215);
-            label2.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(40, 37);
-            label2.Name = "label2";
-            label2.Size = new Size(306, 21);
-            label2.TabIndex = 4;
-            label2.Text = "_____________________________________";
-            // 
-            // txtConfirmar
-            // 
-            txtConfirmar.BackColor = Color.FromArgb(14, 93, 215);
-            txtConfirmar.BorderStyle = BorderStyle.None;
-            txtConfirmar.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtConfirmar.ForeColor = Color.White;
-            txtConfirmar.Location = new Point(40, 288);
-            txtConfirmar.Multiline = true;
-            txtConfirmar.Name = "txtConfirmar";
-            txtConfirmar.Size = new Size(306, 23);
-            txtConfirmar.TabIndex = 9;
-            txtConfirmar.Text = "Confirmar Contraseña";
-            txtConfirmar.Enter += txtConfirmar_Enter;
-            txtConfirmar.Leave += txtConfirmar_Leave;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.FromArgb(14, 93, 215);
-            label3.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(40, 145);
-            label3.Name = "label3";
-            label3.Size = new Size(306, 21);
-            label3.TabIndex = 12;
-            label3.Text = "_____________________________________";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.FromArgb(14, 93, 215);
-            label5.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.ForeColor = Color.White;
-            label5.Location = new Point(40, 301);
-            label5.Name = "label5";
-            label5.Size = new Size(306, 21);
-            label5.TabIndex = 14;
-            label5.Text = "_____________________________________";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.FromArgb(14, 93, 215);
-            label6.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(40, 93);
-            label6.Name = "label6";
-            label6.Size = new Size(306, 21);
-            label6.TabIndex = 15;
-            label6.Text = "_____________________________________";
-            // 
-            // txtCedula
-            // 
-            txtCedula.BackColor = Color.FromArgb(14, 93, 215);
-            txtCedula.BorderStyle = BorderStyle.None;
-            txtCedula.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCedula.ForeColor = Color.White;
-            txtCedula.Location = new Point(40, 79);
-            txtCedula.Multiline = true;
-            txtCedula.Name = "txtCedula";
-            txtCedula.Size = new Size(306, 23);
-            txtCedula.TabIndex = 16;
-            txtCedula.Text = "Cedula de Identidad";
-            txtCedula.Enter += txtCedula_Enter;
-            txtCedula.Leave += txtCedula_Leave;
-            // 
             // btnRegresar
             // 
             btnRegresar.Image = (Image)resources.GetObject("btnRegresar.Image");
@@ -254,17 +301,6 @@
             btnRegresar.TabIndex = 19;
             btnRegresar.TabStop = false;
             btnRegresar.Click += btnRegresar_Click;
-            // 
-            // comboxRol
-            // 
-            comboxRol.BackColor = Color.White;
-            comboxRol.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboxRol.FormattingEnabled = true;
-            comboxRol.Items.AddRange(new object[] { "Admin", "User" });
-            comboxRol.Location = new Point(88, 355);
-            comboxRol.Name = "comboxRol";
-            comboxRol.Size = new Size(175, 29);
-            comboxRol.TabIndex = 20;
             // 
             // labelRol
             // 
@@ -277,42 +313,6 @@
             labelRol.Size = new Size(37, 21);
             labelRol.TabIndex = 21;
             labelRol.Text = "Rol:";
-            // 
-            // comboxTlf
-            // 
-            comboxTlf.BackColor = Color.White;
-            comboxTlf.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            comboxTlf.FormattingEnabled = true;
-            comboxTlf.Items.AddRange(new object[] { "0424", "0414", "0412", "0416" });
-            comboxTlf.Location = new Point(122, 182);
-            comboxTlf.Name = "comboxTlf";
-            comboxTlf.Size = new Size(217, 29);
-            comboxTlf.TabIndex = 23;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.FromArgb(14, 93, 215);
-            label4.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.ForeColor = Color.White;
-            label4.Location = new Point(40, 185);
-            label4.Name = "label4";
-            label4.Size = new Size(76, 21);
-            label4.TabIndex = 24;
-            label4.Text = "Telefono";
-            // 
-            // txtCorreo
-            // 
-            txtCorreo.BackColor = Color.FromArgb(14, 93, 215);
-            txtCorreo.BorderStyle = BorderStyle.None;
-            txtCorreo.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtCorreo.ForeColor = Color.White;
-            txtCorreo.Location = new Point(40, 133);
-            txtCorreo.Multiline = true;
-            txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(306, 23);
-            txtCorreo.TabIndex = 26;
-            txtCorreo.Text = "Correo";
             // 
             // btnSiguiente
             // 
@@ -345,6 +345,7 @@
             Name = "Register";
             RightToLeftLayout = true;
             StartPosition = FormStartPosition.CenterScreen;
+            Load += Register_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

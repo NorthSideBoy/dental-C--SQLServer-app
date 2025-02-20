@@ -16,5 +16,10 @@ namespace dental_C__SQLServer_app
         {
             InitializeComponent();
         }
+
+        private void Factura_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
