@@ -27,6 +27,17 @@ namespace dental_C__SQLServer_app.Validations.Dating_methods
             return dataTable;
         }
 
+        public DataTable pacientes()
+        {
+            DataTable dataTable = new DataTable();
+            string Sql = "SELECT * FROM patients";
+            Microsoft.Data.SqlClient.SqlCommand CMD = new Microsoft.Data.SqlClient.SqlCommand(Sql, Program.connection);
+            SqlDataAdapter adapter = new SqlDataAdapter(CMD);
+
+            adapter.Fill(dataTable);
+            return dataTable;
+        }
+
         public void InsertarCita(string AppointmentID , string nombre, string apellido,string Motivo, string Fecha,string Hora, string PatientID)
         {
             Guid guid = Guid.NewGuid();

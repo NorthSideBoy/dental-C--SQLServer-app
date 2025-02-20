@@ -32,6 +32,7 @@ namespace dental_C__SQLServer_app.Forms
         {
             InitializeComponent();
             textBoxFiltro.TextChanged += new EventHandler(textBoxFiltro_TextChanged);
+            textBoxBuscar.TextChanged += new EventHandler(textBoxBuscar_TextChanged);
         }
 
         private void Quote_Load(object sender, EventArgs e)
@@ -41,6 +42,7 @@ namespace dental_C__SQLServer_app.Forms
 
             // Llamar al método Cita() y asignar el resultado al DataGridView
             dataGridView1.DataSource = cQuote.Cita();
+            dataGridView2.DataSource = cQuote.pacientes();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -365,6 +367,54 @@ namespace dental_C__SQLServer_app.Forms
             if (dt != null)
             {
                 dt.DefaultView.RowFilter = string.Format("Nombre LIKE '%{0}%' OR Apellido LIKE '%{0}%'", filtro);
+            }
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Validar que el clic no sea en la cabecera o fuera de las filas
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Obtener los valores de la fila seleccionada
+                DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
+
+                // Almacenar el ID de la cita y el ID del paciente
+
+                _selectedPatientID = row.Cells["PatientID"].Value.ToString();
+
+                // Llenar los TextBox con los datos de la fila seleccionada
+                textBoxNombre.Text = row.Cells["Nombre"].Value.ToString();
+                textBoxApellido.Text = row.Cells["Apellido"].Value.ToString();
+
+
+                // Deshabilitar o hacer de solo lectura los TextBox de nombre y apellido
+                textBoxNombre.Enabled = false;
+                textBoxApellido.Enabled = false;
+
+                // O hacerlos de solo lectura
+                textBoxNombre.ReadOnly = true;
+                textBoxApellido.ReadOnly = true;
+            }
+        }
+
+        private void textBoxBuscar_TextChanged(object sender, EventArgs e)
+        {
+            // Obtener el texto del TextBox
+            string Buscar = textBoxBuscar.Text;
+
+            // Filtrar los datos del DataGridView
+            BuscarPacientes(Buscar);
+        }
+
+        private void BuscarPacientes(string Buscar)
+        {
+            // Obtener el DataSource del DataGridView
+            DataTable dt = (DataTable)dataGridView2.DataSource;
+
+            // Aplicar el filtro
+            if (dt != null)
+            {
+                dt.DefaultView.RowFilter = string.Format("Nombre LIKE '%{0}%' OR Apellido LIKE '%{0}%'", Buscar);
             }
         }
     }

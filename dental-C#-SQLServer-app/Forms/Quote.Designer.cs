@@ -54,17 +54,21 @@
             panel1 = new Panel();
             textBoxFiltro = new TextBox();
             label3 = new Label();
+            dataGridView2 = new DataGridView();
+            textBoxBuscar = new TextBox();
+            label9 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Cooper Black", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(171, 61);
+            label1.Location = new Point(184, 44);
             label1.Name = "label1";
             label1.Size = new Size(82, 36);
             label1.TabIndex = 0;
@@ -89,9 +93,9 @@
             groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Font = new Font("Cooper Black", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(12, 169);
+            groupBox1.Location = new Point(12, 229);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(555, 486);
+            groupBox1.Size = new Size(555, 450);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Datos";
@@ -100,7 +104,7 @@
             // 
             button5.BackColor = Color.FromArgb(14, 93, 142);
             button5.ForeColor = SystemColors.ControlLightLight;
-            button5.Location = new Point(420, 450);
+            button5.Location = new Point(419, 414);
             button5.Name = "button5";
             button5.Size = new Size(110, 30);
             button5.TabIndex = 18;
@@ -111,7 +115,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(6, 383);
+            label8.Location = new Point(6, 373);
             label8.Name = "label8";
             label8.Size = new Size(50, 19);
             label8.TabIndex = 17;
@@ -119,7 +123,7 @@
             // 
             // textBoxHora
             // 
-            textBoxHora.Location = new Point(138, 376);
+            textBoxHora.Location = new Point(138, 366);
             textBoxHora.Name = "textBoxHora";
             textBoxHora.Size = new Size(331, 26);
             textBoxHora.TabIndex = 16;
@@ -127,14 +131,14 @@
             // 
             // textBoxApellido
             // 
-            textBoxApellido.Location = new Point(138, 156);
+            textBoxApellido.Location = new Point(138, 127);
             textBoxApellido.Name = "textBoxApellido";
             textBoxApellido.Size = new Size(331, 26);
             textBoxApellido.TabIndex = 15;
             // 
             // textBoxNombre
             // 
-            textBoxNombre.Location = new Point(138, 93);
+            textBoxNombre.Location = new Point(138, 52);
             textBoxNombre.Name = "textBoxNombre";
             textBoxNombre.Size = new Size(331, 26);
             textBoxNombre.TabIndex = 14;
@@ -142,7 +146,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(11, 96);
+            label7.Location = new Point(6, 55);
             label7.Name = "label7";
             label7.Size = new Size(74, 19);
             label7.TabIndex = 13;
@@ -151,7 +155,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(6, 163);
+            label6.Location = new Point(6, 134);
             label6.Name = "label6";
             label6.Size = new Size(79, 19);
             label6.TabIndex = 12;
@@ -161,7 +165,7 @@
             // 
             button4.BackColor = Color.FromArgb(14, 93, 142);
             button4.ForeColor = SystemColors.ControlLightLight;
-            button4.Location = new Point(6, 450);
+            button4.Location = new Point(6, 414);
             button4.Name = "button4";
             button4.Size = new Size(113, 30);
             button4.TabIndex = 11;
@@ -173,7 +177,7 @@
             // 
             button3.BackColor = Color.FromArgb(14, 93, 142);
             button3.ForeColor = SystemColors.ControlLightLight;
-            button3.Location = new Point(295, 450);
+            button3.Location = new Point(293, 414);
             button3.Name = "button3";
             button3.Size = new Size(104, 30);
             button3.TabIndex = 10;
@@ -185,7 +189,7 @@
             // 
             button2.BackColor = Color.FromArgb(14, 93, 142);
             button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(159, 450);
+            button2.Location = new Point(159, 414);
             button2.Name = "button2";
             button2.Size = new Size(104, 30);
             button2.TabIndex = 9;
@@ -195,7 +199,7 @@
             // 
             // textBoxFecha
             // 
-            textBoxFecha.Location = new Point(138, 318);
+            textBoxFecha.Location = new Point(138, 286);
             textBoxFecha.Name = "textBoxFecha";
             textBoxFecha.Size = new Size(331, 26);
             textBoxFecha.TabIndex = 8;
@@ -203,7 +207,7 @@
             // 
             // textBoxMotivo
             // 
-            textBoxMotivo.Location = new Point(138, 219);
+            textBoxMotivo.Location = new Point(138, 207);
             textBoxMotivo.Name = "textBoxMotivo";
             textBoxMotivo.Size = new Size(331, 26);
             textBoxMotivo.TabIndex = 7;
@@ -211,7 +215,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(6, 325);
+            label5.Location = new Point(6, 289);
             label5.Name = "label5";
             label5.Size = new Size(60, 19);
             label5.TabIndex = 5;
@@ -220,7 +224,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(6, 226);
+            label4.Location = new Point(6, 214);
             label4.Name = "label4";
             label4.Size = new Size(66, 19);
             label4.TabIndex = 4;
@@ -261,9 +265,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(399, 47);
+            pictureBox1.Location = new Point(606, 47);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(248, 116);
+            pictureBox1.Size = new Size(134, 116);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
@@ -299,12 +303,42 @@
             label3.TabIndex = 10;
             label3.Text = "Buscar";
             // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(12, 131);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.Size = new Size(555, 92);
+            dataGridView2.TabIndex = 11;
+            dataGridView2.CellClick += dataGridView2_CellClick;
+            // 
+            // textBoxBuscar
+            // 
+            textBoxBuscar.Location = new Point(218, 102);
+            textBoxBuscar.Name = "textBoxBuscar";
+            textBoxBuscar.Size = new Size(263, 23);
+            textBoxBuscar.TabIndex = 12;
+            textBoxBuscar.TextChanged += textBoxBuscar_TextChanged;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Cooper Black", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(29, 104);
+            label9.Name = "label9";
+            label9.Size = new Size(165, 21);
+            label9.TabIndex = 13;
+            label9.Text = "Buscar Paciente";
+            // 
             // Quote
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1323, 679);
+            Controls.Add(label9);
+            Controls.Add(textBoxBuscar);
+            Controls.Add(dataGridView2);
             Controls.Add(label3);
             Controls.Add(textBoxFiltro);
             Controls.Add(panel1);
@@ -322,6 +356,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -351,5 +386,8 @@
         private Panel panel1;
         private TextBox textBoxFiltro;
         private Label label3;
+        private DataGridView dataGridView2;
+        private Label label9;
+        private TextBox textBoxBuscar;
     }
 }
