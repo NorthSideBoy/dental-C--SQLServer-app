@@ -35,7 +35,7 @@ namespace dental_C__SQLServer_app
 
                 try
                 {
-                    Program.connection.Open();
+                    //Program.connection.Open();
                     string? hashedPasswordFromDB = cmd.ExecuteScalar().ToString(); // Obtener el hash de la base de datos
 
                     if (hashedPasswordFromDB != null)
@@ -46,14 +46,14 @@ namespace dental_C__SQLServer_app
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show("Error: ???aa " + ex.Message);
                 }
                 finally
                 {
-                    if (Program.connection.State == ConnectionState.Open)
-                    {
-                        Program.connection.Close();
-                    }
+                    //if (Program.connection.State == ConnectionState.Open)
+                    //{
+                    //    Program.connection.Close();
+                    //}
                 }
             }
 
@@ -167,7 +167,7 @@ namespace dental_C__SQLServer_app
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error: ???" + ex.Message);
             }
         }
 
