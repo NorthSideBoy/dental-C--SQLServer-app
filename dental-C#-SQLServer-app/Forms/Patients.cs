@@ -21,7 +21,7 @@ namespace dental_C__SQLServer_app
     {
         public Patients()
         {
-            InitializeComponent(GetButton4());
+            InitializeComponent();
         }
 
         private void Patients_Load(object sender, EventArgs e)
@@ -314,34 +314,6 @@ namespace dental_C__SQLServer_app
         private void dtGridViewpatients_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            // Verifica si hay una fila seleccionada en el DataGridView
-            if (dtGridViewpatients.CurrentRow != null)
-            {
-                // Obtén los valores de la fila seleccionada
-                string id = dtGridViewpatients.CurrentRow.Cells["PatientID"].Value.ToString();
-                string nombre = dtGridViewpatients.CurrentRow.Cells["Nombre"].Value.ToString();
-                string apellido = dtGridViewpatients.CurrentRow.Cells["Apellido"].Value.ToString();
-
-                // Verifica si los campos del formulario están llenos
-                if (!string.IsNullOrEmpty(textNombre.Text) && !string.IsNullOrEmpty(textApellido.Text))
-                {
-                    // Crea una instancia del formulario Quote y pasa los valores
-                    Form Cita = new Quote(id, nombre, apellido);
-                    Cita.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, asegúrese de que los campos del paciente estén llenos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Por favor, seleccione un paciente para crear una cita.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
     }
 }
